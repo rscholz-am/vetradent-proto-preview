@@ -1,0 +1,208 @@
+/* Template: veterinarian home */
+
+/* ---------- hero ---------- */
+.vet-hero { padding: 5.5rem clamp(.75rem, 3vw, var(--wp--preset--spacing--50)) var(--wp--preset--spacing--60); }
+.vet-hero__grid {
+  max-width: var(--wp--custom--layout--wide); margin-inline: auto;
+  display: grid; gap: 1.5rem; align-items: center; justify-items: stretch;
+}
+.vet-hero__copy {
+  order: 1; display: grid; gap: 1.25rem; justify-items: center; text-align: center;
+  padding-inline: .25rem; width: min(100%, 36rem); justify-self: center;
+}
+.vet-hero__stage { position: relative; order: 2; width: min(100%, 28rem); justify-self: center; }
+.vet-hero__photo {
+  margin: 0; aspect-ratio: 1; overflow: hidden; border-radius: 1.75rem 1.75rem 2.5rem 2.5rem;
+  box-shadow: var(--wp--preset--shadow--lift); view-transition-name: vet-card;
+}
+.vet-hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 0; }
+.vet-hero__stars { width: 3rem; left: -.25rem; top: -.75rem; }
+.vet-hero__headline { display: grid; gap: 1rem; justify-items: center; text-align: center; width: min(100%, 32rem); }
+.vet-hero__mark { margin: 0; width: min(100%, 22rem); line-height: 0; }
+.vet-hero__wordmark { width: 100%; }
+.vet-hero__wordmark .is-real { fill: var(--wp--preset--color--primary); }
+.vet-hero__wordmark .is-doable { fill: var(--wp--preset--color--plum); }
+.vet-hero__wordmark .is-dental { fill: var(--wp--preset--color--wisteria); }
+.vet-hero__tagline {
+  margin: 0; font-family: var(--wp--preset--font-family--body); font-weight: 700;
+  font-size: clamp(1.05rem, .8rem + 1.1vw, 1.65rem); line-height: 1.2; letter-spacing: -.01em;
+  color: var(--wp--preset--color--primary); text-wrap: balance;
+}
+.vet-hero__offer {
+  order: 3; display: grid; gap: .85rem; justify-items: stretch; text-align: start;
+  grid-template-columns: minmax(6.5rem, .95fr) minmax(0, 1.35fr);
+  align-items: center; width: min(100%, 32rem); justify-self: center; margin-block-start: 1.5rem;
+  padding: .65rem; border-radius: var(--wp--custom--radius--card);
+  background: var(--wp--preset--color--butter); border: 2px solid var(--wp--preset--color--accent);
+  box-shadow: var(--wp--preset--shadow--soft); overflow: hidden;
+}
+.vet-hero__offer-media {
+  margin: 0; overflow: hidden; width: 100%;
+  aspect-ratio: 1; height: 100%; min-height: 6.5rem; max-height: 8.5rem;
+  border-radius: calc(var(--wp--custom--radius--card) - .35rem);
+}
+.vet-hero__offer-photo {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 48% 82%;
+  scale: 1.65; transform-origin: 48% 82%;
+}
+.vet-hero__offer-body { display: grid; gap: .75rem; justify-items: start; padding: .25rem .55rem .25rem .1rem; }
+.vet-hero__lead { margin: 0; font-size: var(--wp--preset--font-size--small); line-height: 1.35; color: var(--wp--preset--color--primary); }
+.vet-hero__offer .wp-block-buttons { justify-content: start; }
+@media (min-width: 64rem) {
+  .vet-hero { padding-top: 8rem; padding-inline: var(--wp--preset--spacing--50); }
+  .vet-hero__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: .65rem 5rem;
+    justify-items: stretch;
+    align-items: start;
+  }
+  .vet-hero__copy {
+    order: 0; grid-column: 1; grid-row: 1;
+    gap: .65rem; justify-items: center; text-align: center;
+    align-content: start; width: auto; justify-self: stretch;
+    padding-inline: .5rem; padding-top: .25rem;
+  }
+  .vet-hero__stage {
+    order: 0; grid-column: 2; grid-row: 1 / -1; width: auto; justify-self: stretch;
+    align-self: start; position: sticky; top: calc(var(--wp--custom--header--height) + 1.25rem); z-index: 1;
+  }
+  .vet-hero__photo { aspect-ratio: 1; border-radius: 2.5rem 14rem 2.5rem 2.5rem; }
+  .vet-hero__photo img { object-position: 85% 0; }
+  .vet-hero__stars { width: 3.5rem; left: -.5rem; top: -1.25rem; }
+  .vet-hero__headline { justify-items: center; text-align: center; }
+  .vet-hero__mark { width: min(100%, 26rem); }
+  .vet-hero__offer {
+    order: 0; grid-column: 1; grid-row: 2;
+    justify-self: center;
+    grid-template-columns: minmax(7.5rem, .95fr) minmax(0, 1.35fr);
+  }
+  .vet-hero__offer-media { min-height: 7.5rem; max-height: 9.5rem; }
+  .vet-hero__offer-body { padding: .35rem .7rem .35rem .15rem; }
+  .vet-hero__lead { font-size: var(--wp--preset--font-size--medium); line-height: 1.4; }
+}
+
+/* ---------- technology sheet ---------- */
+.tech { padding-top: var(--wp--preset--spacing--50); }
+.tech__sheet {
+  position: relative; max-width: calc(var(--wp--custom--layout--wide) + 4rem); margin-inline: clamp(.5rem, 2vw, 1.5rem);
+  padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--50);
+  border-radius: var(--wp--custom--radius--sheet); color: #fff; display: grid; gap: 2.5rem;
+  background:
+    radial-gradient(36rem 26rem at 0% 0%, rgb(160 130 187 / .45), transparent 60%),
+    radial-gradient(30rem 22rem at 100% 100%, rgb(255 220 0 / .16), transparent 60%),
+    var(--wp--preset--color--ink);
+}
+@media (min-width: 80rem) { .tech__sheet { margin-inline: auto; } }
+.tech__copy { display: grid; gap: 1.25rem; justify-items: start; }
+.tech__title { font-size: var(--wp--preset--font-size--x-large); color: var(--wp--preset--color--accent); max-width: 22ch; }
+.tech__copy .lead { margin: 0; color: rgb(255 255 255 / .9); max-width: 30rem; }
+.tech__copy .wp-block-buttons { margin-top: .5rem; }
+.tech__photo {
+  position: relative; margin: 0; aspect-ratio: 1600 / 1307; border-radius: 1.75rem; overflow: hidden;
+}
+.tech__family {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.tech__biotrate {
+  position: absolute; z-index: 1; top: 2.35rem; left: 50%; transform: translateX(-50%);
+  width: clamp(8.5rem, 52%, 13rem); height: auto;
+  padding: 0; border-radius: 0; background: none; box-shadow: none;
+}
+@media (min-width: 64rem) {
+  .tech__sheet { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: 4rem; padding: var(--wp--preset--spacing--60) 4rem; }
+  .tech__title { font-size: clamp(2.2rem, 1rem + 2.4vw, 3.2rem); }
+  .tech__biotrate { top: 2.65rem; width: clamp(10.5rem, 50%, 14.5rem); }
+}
+.biotrate.is-dialog { padding: 1rem 0 .25rem; }
+
+/* ---------- portfolio ---------- */
+.portfolio__head { max-width: 44rem; margin: 0 auto; padding-inline: var(--wp--preset--spacing--50); display: grid; gap: 1rem; text-align: center; justify-items: center; }
+.portfolio__title { font-size: var(--wp--preset--font-size--xx-large); }
+.portfolio__head .lead { margin: 0; }
+.portfolio__grid {
+  list-style: none; margin: 2.5rem auto 0; padding: 0 var(--wp--preset--spacing--50);
+  max-width: var(--wp--custom--layout--wide); display: grid; gap: .9rem; grid-template-columns: 1fr 1fr;
+}
+.portfolio .vd-footnote { margin-top: 1.5rem; }
+.spec-tile__btn {
+  --t-bg: var(--wp--preset--color--lilac); --t-fg: var(--wp--preset--color--ink);
+  position: relative; width: 100%; height: 100%; min-height: 15rem; display: grid; align-content: end; justify-items: start; gap: .3rem;
+  padding: 1rem; border: 0; border-radius: 1.75rem; text-align: left; cursor: pointer; font: inherit;
+  background: var(--t-bg); color: var(--t-fg); overflow: hidden; isolation: isolate;
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform .5s var(--wp--custom--ease--out), box-shadow .4s;
+}
+.spec-tile.is-tint-sun .spec-tile__btn { --t-bg: var(--wp--preset--color--accent); }
+.spec-tile.is-tint-plum .spec-tile__btn { --t-bg: var(--wp--preset--color--primary); --t-fg: #fff; }
+.spec-tile__btn::before {
+  content: ""; position: absolute; z-index: -1; width: 120%; aspect-ratio: 1; left: 20%; top: -45%; border-radius: 50%;
+  background: rgb(255 255 255 / .28); transition: scale .7s var(--wp--custom--ease--spring);
+}
+.spec-tile__sticker { position: absolute; right: .5rem; top: .75rem; height: 7.5rem; width: auto; max-width: 68%; object-fit: contain; rotate: 6deg; transition: rotate .6s var(--wp--custom--ease--spring), translate .6s var(--wp--custom--ease--spring); }
+.spec-tile:has([data-open-dialog="spec-powder"]) .spec-tile__sticker { height: 5.75rem; max-width: 58%; }
+.spec-tile__name { font-family: var(--wp--preset--font-family--display); font-weight: 600; font-size: var(--wp--preset--font-size--large); line-height: .95; padding-right: 2.5rem; }
+.no-chantal .spec-tile__name { text-transform: uppercase; font-weight: 800; }
+.spec-tile__benefit { font-size: var(--wp--preset--font-size--x-small); line-height: 1.35; opacity: .85; display: none; }
+.spec-tile__vohc { position: absolute; left: 1rem; top: 1rem; width: 2.4rem; pointer-events: none; }
+.spec-tile__vohc img { display: block; width: 100%; height: auto; border-radius: 18%; }
+.spec-tile__vohc > span {
+  position: absolute; top: -.4em; left: calc(100% + .05em); z-index: 1;
+  color: #000;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700; font-size: 1rem; line-height: 1;
+}
+.spec-tile__go {
+  position: absolute; right: .8rem; bottom: .8rem; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--wp--preset--color--ink); color: #fff; font-size: 1.2rem; transition: transform .45s var(--wp--custom--ease--spring);
+}
+.spec-tile.is-tint-plum .spec-tile__go { background: var(--wp--preset--color--accent); color: var(--wp--preset--color--ink); }
+.spec-tile__btn:hover::before { scale: 1.25; }
+.spec-tile__btn:hover .spec-tile__sticker { rotate: -6deg; translate: 0 -.4rem; }
+.spec-tile__btn:hover .spec-tile__go { transform: rotate(90deg); }
+.spec-tile__btn:focus-visible { outline: 3px solid var(--wp--preset--color--secondary); outline-offset: 3px; }
+@media (min-width: 48rem) {
+  .portfolio__grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .spec-tile__btn { min-height: 21rem; padding: 1.5rem; }
+  .spec-tile__sticker { height: 10.5rem; right: 1rem; top: 1rem; }
+  .spec-tile:has([data-open-dialog="spec-powder"]) .spec-tile__sticker { height: 8rem; }
+  .spec-tile__name { font-size: var(--wp--preset--font-size--x-large); }
+  .spec-tile__benefit { display: block; padding-right: 2.5rem; }
+  .spec-tile__vohc { left: 1.5rem; top: 1.5rem; width: 3rem; }
+  .spec-tile__btn:hover { box-shadow: var(--wp--preset--shadow--lift); }
+}
+
+/* ---------- order CTA ---------- */
+.order { padding: var(--wp--preset--spacing--60) 0 0; }
+.order__card {
+  position: relative; overflow: hidden; max-width: var(--wp--custom--layout--wide); margin-inline: clamp(.5rem, 2vw, 1.5rem);
+  border-radius: var(--wp--custom--radius--sheet); background: #fff; color: var(--wp--preset--color--primary);
+  box-shadow: var(--wp--preset--shadow--soft); display: grid;
+}
+@media (min-width: 80rem) { .order__card { margin-inline: auto; } }
+.order__copy { display: grid; gap: 1rem; justify-items: center; text-align: center; padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50); }
+.order__title { font-size: var(--wp--preset--font-size--xx-large); color: var(--wp--preset--color--primary); }
+.order__copy .lead { margin: 0; }
+
+/* ---------- quote ---------- */
+.vet-quote { padding-bottom: var(--wp--preset--spacing--50); }
+
+/* ---------- contact ---------- */
+.vet-quote + .contact { padding-top: var(--wp--preset--spacing--50); }
+.contact__sheet { max-width: 56rem; margin-inline: clamp(.5rem, 2vw, 1.5rem); padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50); display: grid; gap: 2rem; }
+@media (min-width: 60rem) { .contact__sheet { margin-inline: auto; padding: var(--wp--preset--spacing--70) 3.5rem; } }
+.contact__head { position: relative; text-align: center; }
+.contact__title { font-size: var(--wp--preset--font-size--x-large); text-align: center; }
+.contact__form .wp-block-buttons { margin-top: .5rem; }
+.contact__thanks {
+  display: flex; align-items: center; gap: 1rem; margin: 0; padding: 1.25rem 1.5rem; border-radius: 1.25rem;
+  background: var(--wp--preset--color--butter); font-weight: 700; color: var(--wp--preset--color--primary);
+  animation: vet-thanks .7s var(--wp--custom--ease--spring) both;
+}
+.contact__thanks[hidden] { display: none; }
+.contact__thanks img { width: 2.5rem; }
+.contact__sheet.is-sent .contact__form { display: none; }
+@keyframes vet-thanks { from { opacity: 0; scale: .9; translate: 0 12px; } }

@@ -1,0 +1,57 @@
+/* VETRADENT 02 tokens. Names mirror theme.json presets so a block theme can
+   emit identical custom properties via wp_get_global_stylesheet(). */
+
+@font-face {
+  font-family: "Sora";
+  src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  --wp--preset--color--base: #ffffff;
+  --wp--preset--color--lavender: #efe8f4;
+  --wp--preset--color--lilac: #ddd6ec;
+  --wp--preset--color--wisteria: #a082bb;
+  --wp--preset--color--plum: #812d8c;
+  --wp--preset--color--secondary: #7a2981;
+  --wp--preset--color--primary: #54266f;
+  --wp--preset--color--ink: #351747;
+  --wp--preset--color--accent: #ffdc00;
+  --wp--preset--color--sun: #ffe45c;
+  --wp--preset--color--butter: #fff6c7;
+
+  --wp--preset--font-family--display: "chantal", "Sora", ui-sans-serif, system-ui, sans-serif;
+  --wp--preset--font-family--body: "Sora", ui-sans-serif, system-ui, sans-serif;
+
+  --wp--preset--font-size--x-small: clamp(0.72rem, 0.7rem + 0.1vw, 0.8rem);
+  --wp--preset--font-size--small: clamp(0.84rem, 0.8rem + 0.2vw, 0.95rem);
+  --wp--preset--font-size--medium: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --wp--preset--font-size--large: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --wp--preset--font-size--x-large: clamp(1.7rem, 1.35rem + 1.6vw, 2.6rem);
+  --wp--preset--font-size--xx-large: clamp(2.3rem, 1.6rem + 3.4vw, 4.4rem);
+  --wp--preset--font-size--huge: clamp(3.2rem, 1.8rem + 7vw, 8.5rem);
+  --wp--preset--font-size--hero: clamp(2.9rem, 1.6rem + 6.3vw, 7.6rem);
+
+  --wp--preset--spacing--20: 0.5rem;
+  --wp--preset--spacing--30: 0.75rem;
+  --wp--preset--spacing--40: 1rem;
+  --wp--preset--spacing--50: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --wp--preset--spacing--60: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  --wp--preset--spacing--70: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --wp--preset--spacing--80: clamp(3.5rem, 2rem + 7vw, 8rem);
+
+  --wp--preset--shadow--soft: 0 1px 2px rgb(53 23 71 / 0.06), 0 12px 32px -12px rgb(53 23 71 / 0.22);
+  --wp--preset--shadow--lift: 0 2px 4px rgb(53 23 71 / 0.08), 0 30px 60px -24px rgb(53 23 71 / 0.45);
+  --wp--preset--shadow--sticker: 0 18px 24px -14px rgb(53 23 71 / 0.45);
+
+  --wp--custom--radius--pill: 999px;
+  --wp--custom--radius--card: 1.5rem;
+  --wp--custom--radius--sheet: clamp(1.75rem, 1rem + 3vw, 3rem);
+  --wp--custom--layout--content: 42rem;
+  --wp--custom--layout--wide: 76rem;
+  --wp--custom--ease--spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%, 1.017 19.4%, 1.067, 1.099 24.3%, 1.108 26%, 1.100, 1.078 30.9%, 1.002 38.6%, 0.983 42.7%, 0.984 46.3%, 1.001 57.4%, 1.004 63%, 1);
+  --wp--custom--ease--out: cubic-bezier(0.22, 1, 0.36, 1);
+  --wp--custom--header--height: 4rem;
+  --wp--custom--dock--height: 5.25rem;
+}

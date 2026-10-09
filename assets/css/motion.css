@@ -1,0 +1,161 @@
+/* ==========================================================================
+   VETRADENT 02 · motion.css
+   Three layers, all progressive:
+   1. Entrance reveals: time-based, toggled by IntersectionObserver (.is-inview).
+      Hidden state only exists under html.js, so no-JS visitors see everything.
+   2. Scrubbed effects: CSS scroll-driven animations inside @supports, gated on
+      prefers-reduced-motion: no-preference. Everyone else gets the static end state.
+   3. Page-to-page: cross-document View Transitions.
+   ========================================================================== */
+
+@property --num { syntax: "<integer>"; inherits: false; initial-value: 0; }
+@property --pct { syntax: "<percentage>"; inherits: true; initial-value: 0%; }
+@property --theta { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+
+/* ---------- 1. entrance reveals ---------- */
+[data-reveal] {
+  --rx: 0px; --ry: 36px; --rs: 1; --rr: 0deg;
+  transition:
+    opacity .9s var(--wp--custom--ease--out) calc(var(--d, 0) * 1ms + var(--i, 0) * 90ms),
+    translate 1s var(--wp--custom--ease--out) calc(var(--d, 0) * 1ms + var(--i, 0) * 90ms),
+    scale 1s var(--wp--custom--ease--spring) calc(var(--d, 0) * 1ms + var(--i, 0) * 90ms),
+    rotate 1s var(--wp--custom--ease--spring) calc(var(--d, 0) * 1ms + var(--i, 0) * 90ms),
+    clip-path 1.2s var(--wp--custom--ease--out) calc(var(--d, 0) * 1ms + var(--i, 0) * 90ms);
+}
+[data-reveal="fade"] { --ry: 0px; }
+[data-reveal="scale"] { --ry: 0px; --rs: .86; }
+[data-reveal="pop"] { --ry: 20px; --rs: .4; --rr: -10deg; }
+[data-reveal="left"] { --rx: -48px; --ry: 0px; }
+[data-reveal="right"] { --rx: 48px; --ry: 0px; }
+[data-reveal="tilt"] { --ry: 40px; --rs: .92; --rr: -5deg; }
+html.js [data-reveal]:not(.is-inview) { opacity: 0; translate: var(--rx) var(--ry); scale: var(--rs); rotate: var(--rr); }
+/* negative insets leave room for the element's own box-shadow once revealed */
+[data-reveal^="wipe"] { --wipe-bleed: -5rem; }
+html.js [data-reveal="wipe"]:not(.is-inview) { opacity: 1; translate: none; scale: none; rotate: none; clip-path: inset(var(--wipe-bleed) 100% var(--wipe-bleed) 0); }
+[data-reveal="wipe"] { clip-path: inset(var(--wipe-bleed)); }
+html.js [data-reveal="wipe-up"]:not(.is-inview) { opacity: 1; translate: none; scale: none; clip-path: inset(100% var(--wipe-bleed) 0 var(--wipe-bleed)); }
+[data-reveal="wipe-up"] { clip-path: inset(var(--wipe-bleed)); }
+
+/* marker highlight paints once its paragraph is in view */
+html.js .vd-marker { --marker: 0%; transition: background-size 1s var(--wp--custom--ease--out) calc(var(--m, 0) * 250ms + 350ms); }
+html.js .is-inview .vd-marker, html.js .vd-marker.is-inview { --marker: 100%; background-size: 100% var(--marker-h, 42%); }
+html.js .vd-marker { background-size: var(--marker) var(--marker-h, 42%); }
+
+/* ---------- split text ---------- */
+.split-char, .split-word { display: inline-block; white-space: pre; }
+html.js [data-split="chars"] .split-char {
+  opacity: 0; translate: 0 .5em; rotate: calc(var(--r, 6) * 1deg); scale: .6;
+  transition: opacity .5s, translate .8s var(--wp--custom--ease--spring), rotate .8s var(--wp--custom--ease--spring), scale .8s var(--wp--custom--ease--spring);
+  transition-delay: calc(var(--i) * 32ms + var(--d, 0) * 1ms);
+}
+html.js [data-split="chars"].is-inview .split-char { opacity: 1; translate: none; rotate: none; scale: 1; }
+
+/* ---------- inline SVG letter drop (wordmark) ---------- */
+.vd-wordmark path { transform-box: fill-box; transform-origin: 50% 100%; }
+html.js .vd-wordmark path {
+  opacity: 0; translate: 0 -40px; scale: 1 .4;
+  animation: vd-letter-drop .7s var(--wp--custom--ease--out) forwards;
+  animation-delay: calc(var(--i) * 60ms + 250ms);
+}
+@keyframes vd-letter-drop {
+  0% { opacity: 0; translate: 0 -40px; scale: 1 .4; }
+  100% { opacity: 1; translate: none; scale: 1; }
+}
+
+/* ---------- ambient loops ---------- */
+.vd-float { animation: vd-float 6s ease-in-out infinite alternate; animation-delay: calc(var(--i, 0) * -1.3s); }
+@keyframes vd-float { from { translate: 0 -8px; rotate: -3deg; } to { translate: 0 8px; rotate: 3deg; } }
+.vd-spin { animation: vd-spin 18s linear infinite; }
+@keyframes vd-spin { to { rotate: 360deg; } }
+.vd-wiggle:hover, .vd-wiggle:focus-visible { animation: vd-wiggle .6s var(--wp--custom--ease--spring); }
+@keyframes vd-wiggle { 0%, 100% { rotate: 0deg; } 25% { rotate: -6deg; } 60% { rotate: 5deg; } }
+
+/* ---------- 2. scroll-driven (scrubbed) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+@supports (animation-timeline: view()) {
+  .site-header__progress { animation: vd-progress linear both; animation-timeline: scroll(root); }
+  @keyframes vd-progress { to { transform: scaleX(1); } }
+
+  .site-header:not(.is-minimal) .site-header__bar { animation: vd-header-tighten linear both; animation-timeline: scroll(root); animation-range: 0 260px; }
+  @keyframes vd-header-tighten {
+    to { min-height: 3.1rem; background: color-mix(in oklab, var(--wp--preset--color--ink) 94%, transparent); }
+  }
+  @media (min-width: 64rem) {
+    .site-header:not(.is-minimal) .site-header__bar { animation-name: vd-header-shrink; }
+    @keyframes vd-header-shrink {
+      to { max-width: 72rem; min-height: 3.1rem; background: color-mix(in oklab, var(--wp--preset--color--ink) 94%, transparent); }
+    }
+  }
+
+  [data-parallax] { animation: vd-parallax linear both; animation-timeline: view(); }
+  @keyframes vd-parallax {
+    from { translate: 0 calc(var(--parallax, 1) * 60px); }
+    to { translate: 0 calc(var(--parallax, 1) * -60px); }
+  }
+  [data-drift] { animation: vd-drift linear both; animation-timeline: view(); }
+  @keyframes vd-drift {
+    from { translate: calc(var(--drift, 1) * 12%) 0; }
+    to { translate: calc(var(--drift, 1) * -22%) 0; }
+  }
+  [data-zoom] { animation: vd-zoom linear both; animation-timeline: view(); animation-range: cover 0% cover 100%; }
+  @keyframes vd-zoom { from { scale: 1.18; } to { scale: 1; } }
+
+  /* word-by-word ink-in, scrubbed while the line is still entering the viewport
+     so the full quote finishes before the reader naturally stops scrolling */
+  [data-scrub] { view-timeline-name: --scrub; view-timeline-axis: block; }
+  [data-scrub] .split-word {
+    animation: vd-ink linear both; animation-timeline: --scrub;
+    animation-range:
+      entry calc(var(--i) / var(--n) * 50%)
+      entry calc(10% + var(--i) / var(--n) * 50%);
+  }
+  @keyframes vd-ink { from { opacity: .14; filter: blur(2px); } to { opacity: 1; filter: none; } }
+
+  /* count-up numbers: pure CSS via @property + counters */
+  .vd-count { counter-reset: num var(--num); animation: vd-count linear both; animation-timeline: view(); animation-range: entry 10% entry 90%; }
+  .vd-count::before { content: counter(num); content: counter(num) / ""; }
+  .vd-count { position: relative; }
+  .vd-count > .vd-count__static { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  @keyframes vd-count { from { --num: 0; } to { --num: var(--to); } }
+
+  .vd-bar > i { animation: vd-bar linear both; animation-timeline: view(); animation-range: entry 10% entry 90%; }
+  @keyframes vd-bar { from { transform: scaleX(0); } }
+
+  .vd-ring { animation: vd-ring linear both; animation-timeline: view(); animation-range: entry 10% entry 90%; }
+  @keyframes vd-ring { from { --pct: 0%; } }
+
+  /* scroll-snap carousels: centered card is "lifted" */
+  .vd-rail > * { animation: vd-rail-focus linear both; animation-timeline: view(inline); }
+  @keyframes vd-rail-focus {
+    0%, 100% { scale: .88; opacity: .55; }
+    35%, 65% { scale: 1; opacity: 1; }
+  }
+  @media (min-width: 64rem) { .vd-rail > * { animation: none; } }
+}
+}
+
+/* ---------- 3. view transitions ---------- */
+@view-transition { navigation: auto; }
+::view-transition-group(*) { animation-duration: .6s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+::view-transition-old(root) { animation: vd-vt-out .35s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: vd-vt-in .6s cubic-bezier(0.22, 1, 0.36, 1) .08s both; }
+@keyframes vd-vt-out { to { opacity: 0; scale: .98; filter: blur(3px); } }
+@keyframes vd-vt-in { from { opacity: 0; translate: 0 28px; } }
+::view-transition-group(dock-blob) { animation-duration: .7s; animation-timing-function: linear(0, 0.2 6%, 0.7 16%, 1.04 26%, 1.07 32%, 1.01 44%, 0.99 56%, 1); }
+::view-transition-group(po-card), ::view-transition-group(vet-card) { animation-duration: .8s; }
+::view-transition-old(po-card), ::view-transition-old(vet-card),
+::view-transition-new(po-card), ::view-transition-new(vet-card) { height: 100%; object-fit: cover; }
+
+/* ---------- reduced motion: everything settles instantly ---------- */
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+    animation-delay: 0s !important; transition-duration: .001ms !important; transition-delay: 0s !important;
+  }
+  [data-parallax], [data-drift], [data-zoom], .vd-rail > *,
+  [data-scrub] .split-word, .vd-count, .vd-bar > i, .vd-ring { animation: none !important; translate: none; scale: none; }
+  .vd-count::before { content: none; }
+  .vd-count > .vd-count__static { position: static; width: auto; height: auto; clip-path: none; }
+}

@@ -1,0 +1,258 @@
+/* Template: dental health */
+
+/* ---------- hero (matches how-it-works overlay pattern) ---------- */
+.dh-hero { padding: 5.75rem var(--wp--preset--spacing--50) 0; }
+.dh-hero__inner { position: relative; max-width: var(--wp--custom--layout--wide); margin-inline: auto; display: grid; text-align: center; }
+.dh-hero__inner > * { grid-area: 1 / 1; }
+.dh-hero__photo { position: relative; margin: 0; width: 100%; aspect-ratio: 4 / 5; border-radius: 999px 999px 2rem 2rem; overflow: hidden; box-shadow: var(--wp--preset--shadow--lift); }
+.dh-hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.dh-hero__photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgb(53 23 71 / .85), rgb(53 23 71 / .35) 45%, transparent 70%);
+}
+.dh-hero__copy {
+  position: relative; z-index: 1; align-self: end;
+  display: grid; gap: .9rem; justify-items: center;
+  padding: 0 var(--wp--preset--spacing--50) clamp(2rem, 6vw, 4.5rem);
+}
+.dh-hero__copy .vd-kicker { color: #fff; }
+.dh-hero__title { font-size: var(--wp--preset--font-size--xx-large); line-height: .95; color: #fff; text-shadow: 0 4px 30px rgb(53 23 71 / .45); max-width: 16ch; }
+.dh-hero__lead {
+  max-width: 32rem; margin: 1.5rem auto 0;
+  padding-inline: var(--wp--preset--spacing--50);
+}
+.dh-hero__prompt {
+  max-width: 36rem; margin: .65rem auto 0;
+  padding-inline: var(--wp--preset--spacing--50);
+  font-size: var(--wp--preset--font-size--medium);
+}
+.dh-hero__prompt + .day { margin-top: var(--wp--preset--spacing--60); }
+@media (min-width: 64rem) {
+  .dh-hero { padding-top: 8rem; }
+  .dh-hero__photo { aspect-ratio: 21 / 9; border-radius: 999px; }
+  .dh-hero__photo::after { background: linear-gradient(to right, rgb(53 23 71 / .8), rgb(53 23 71 / .4) 42%, transparent 68%); }
+  .dh-hero__copy { align-self: center; justify-self: start; justify-items: start; text-align: left; padding: 0 0 0 8%; }
+  .dh-hero__title { font-size: clamp(2.6rem, .9rem + 3vw, 4.25rem); max-width: 16ch; }
+  .dh-hero__lead { margin-top: 2rem; }
+}
+
+/* ---------- day dial (fallback: colored grid) ---------- */
+.day { padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50); }
+.day__sky, .day__clock { display: none; }
+.day__moments { list-style: none; margin: 0 auto; padding: 0; max-width: var(--wp--custom--layout--wide); display: grid; gap: 1rem; }
+@media (min-width: 48rem) { .day__moments { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+.moment {
+  --m-bg: var(--wp--preset--color--butter); --m-fg: var(--wp--preset--color--ink);
+  position: relative; display: grid; gap: 1rem; align-content: start;
+  padding: 1.5rem; border-radius: 2rem; background: var(--m-bg); color: var(--m-fg); overflow: hidden;
+}
+.moment.is-day { --m-bg: var(--wp--preset--color--lilac); }
+.moment.is-evening { --m-bg: var(--wp--preset--color--wisteria); --m-fg: #fff; }
+.moment.is-night { --m-bg: var(--wp--preset--color--ink); --m-fg: #fff; }
+.moment__when { font-size: var(--wp--preset--font-size--xx-large); color: inherit; padding-right: 6rem; }
+.moment__photo { position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: 1.5rem; overflow: hidden; background: rgb(255 255 255 / .3); }
+.moment__photo img { width: 100%; height: 100%; object-fit: cover; }
+.moment.is-day .moment__photo img {
+  object-position: 48% 52%;
+  scale: 1.2;
+  transform-origin: 48% 52%;
+}
+.moment__pair { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem .5rem; margin: 0; font-size: var(--wp--preset--font-size--large); line-height: 1.3; }
+.moment__pair strong { padding: .1em .5em; border-radius: .5em; background: var(--wp--preset--color--accent); color: var(--wp--preset--color--ink); }
+.moment__dots { opacity: .6; }
+.moment__sticker { position: absolute; right: 1rem; top: 1rem; height: 7.5rem; width: auto; rotate: 8deg; }
+.moment__sticker.is-wide { height: 5.5rem; }
+.moment.is-night .moment__photo { overflow: visible; }
+.moment.is-night .moment__photo > img:first-of-type { border-radius: inherit; }
+.moment.is-night .moment__sticker.is-wide {
+  left: -.65rem; right: auto; top: auto; bottom: -.85rem;
+  height: auto; width: min(72%, 16rem); max-width: none; rotate: -8deg; z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+@supports (animation-timeline: view()) {
+  html:not(.no-heavy-scrolly) .day { height: 460svh; padding: 0; view-timeline-name: --day; }
+  html:not(.no-heavy-scrolly) .day__stage {
+    position: sticky; top: 0; height: 100svh; overflow: hidden;
+    animation: day-sky linear both; animation-timeline: --day; animation-range: contain 0% contain 100%;
+  }
+  html:not(.no-heavy-scrolly) .day__sky { display: block; position: absolute; inset: 0; pointer-events: none; }
+  html:not(.no-heavy-scrolly) .day__arm {
+    --arm: 10deg;
+    position: absolute; left: 50%; bottom: -30svh; width: 0; height: 117svh;
+    transform-origin: 50% 100%;
+    animation: day-arm linear both; animation-timeline: --day; animation-range: contain 0% contain 100%;
+  }
+  html:not(.no-heavy-scrolly) .day__orb {
+    position: absolute; top: 0; left: -2.75rem; width: 5.5rem; height: 5.5rem; border-radius: 50%;
+    animation: day-orb linear both; animation-timeline: --day; animation-range: contain 0% contain 100%;
+  }
+  html:not(.no-heavy-scrolly) .day__stars { position: absolute; width: 3.5rem; left: 12%; top: 18%; opacity: 0; animation: day-stars linear both; animation-timeline: --day; animation-range: contain 70% contain 90%; }
+  html:not(.no-heavy-scrolly) .day__stars.is-b { width: 2rem; left: auto; right: 14%; top: 13%; }
+
+  html:not(.no-heavy-scrolly) .day__moments { position: absolute; inset: 6rem 1rem calc(var(--wp--custom--dock--height) + 3rem); display: block; max-width: none; }
+  html:not(.no-heavy-scrolly) .moment {
+    position: absolute; inset: 0; align-content: center; justify-items: center; text-align: center;
+    padding: 0; background: none; color: inherit; overflow: visible;
+    animation: stage-mid linear both; animation-timeline: --day;
+    animation-range: contain calc(var(--s) * 25%) contain calc(var(--s) * 25% + 25%);
+  }
+  html:not(.no-heavy-scrolly) .moment:first-child { animation-name: stage-first; }
+  html:not(.no-heavy-scrolly) .moment:last-child { animation-name: stage-last; }
+  html:not(.no-heavy-scrolly) .moment__when { font-size: var(--wp--preset--font-size--huge); padding-right: 0; }
+  html:not(.no-heavy-scrolly) .moment__photo { width: min(100%, 34rem); border-radius: 2rem; box-shadow: var(--wp--preset--shadow--lift); }
+  html:not(.no-heavy-scrolly) .moment__pair { justify-content: center; }
+  html:not(.no-heavy-scrolly) .moment__sticker { top: calc(50% - 6rem); bottom: auto; right: auto; left: max(-.25rem, calc(50% - 19rem)); height: 8rem; rotate: -10deg; }
+  html:not(.no-heavy-scrolly) .moment__sticker.is-wide { left: auto; right: max(-.25rem, calc(50% - 18rem)); height: 5rem; rotate: 12deg; }
+  html:not(.no-heavy-scrolly) .moment.is-night .moment__sticker.is-wide {
+    left: -.75rem; right: auto; top: auto; bottom: -1rem;
+    height: auto; width: min(70%, 15rem); rotate: -8deg;
+  }
+  html:not(.no-heavy-scrolly) .day__clock {
+    display: flex; gap: .5rem; position: absolute; left: 50%; bottom: calc(var(--wp--custom--dock--height) + 1.25rem); translate: -50% 0;
+  }
+  html:not(.no-heavy-scrolly) .day__clock i { width: .6rem; height: .6rem; border-radius: 50%; background: currentColor; opacity: .3; animation: day-dot linear both; animation-timeline: --day; }
+  html:not(.no-heavy-scrolly) .day__clock i:nth-child(1) { animation-range: contain 0% contain 3%; }
+  html:not(.no-heavy-scrolly) .day__clock i:nth-child(2) { animation-range: contain 25% contain 30%; }
+  html:not(.no-heavy-scrolly) .day__clock i:nth-child(3) { animation-range: contain 50% contain 55%; }
+  html:not(.no-heavy-scrolly) .day__clock i:nth-child(4) { animation-range: contain 75% contain 80%; }
+  @media (min-width: 64rem) {
+    html:not(.no-heavy-scrolly) .day__arm { --arm: 26deg; }
+    html:not(.no-heavy-scrolly) .day__moments { inset: 7rem 2rem 4rem; }
+    html:not(.no-heavy-scrolly) .day__clock { bottom: 2rem; }
+    html:not(.no-heavy-scrolly) .moment { grid-template-columns: minmax(0, 34rem) minmax(0, 26rem); grid-template-rows: auto auto; justify-content: center; column-gap: 3rem; text-align: left; justify-items: start; }
+    html:not(.no-heavy-scrolly) .moment__photo { grid-row: 1 / span 2; grid-column: 1; }
+    html:not(.no-heavy-scrolly) .moment__when { align-self: end; }
+    html:not(.no-heavy-scrolly) .moment__pair { justify-content: flex-start; align-self: start; }
+    html:not(.no-heavy-scrolly) .moment__sticker { top: auto; bottom: 14%; left: max(0rem, calc(50% - 35.5rem)); height: 13rem; }
+    html:not(.no-heavy-scrolly) .moment__sticker.is-wide { left: auto; bottom: 12%; right: calc(50% - 3rem); height: 7rem; }
+    html:not(.no-heavy-scrolly) .moment.is-night .moment__sticker.is-wide {
+      left: -.85rem; right: auto; top: auto; bottom: -1.15rem;
+      height: auto; width: min(78%, 17.5rem); rotate: -8deg;
+    }
+  }
+}
+}
+@keyframes day-sky {
+  0% { background: #fff3b0; color: var(--wp--preset--color--ink); }
+  30% { background: var(--wp--preset--color--lilac); color: var(--wp--preset--color--ink); }
+  60% { background: var(--wp--preset--color--wisteria); color: #fff; }
+  85%, 100% { background: #24102f; color: #fff; }
+}
+@keyframes day-arm { from { rotate: calc(var(--arm) * -1); } to { rotate: var(--arm); } }
+@keyframes day-orb {
+  0%, 50% { background: var(--wp--preset--color--accent); box-shadow: inset 0 0 0 0 var(--wp--preset--color--accent), 0 0 70px 18px rgb(255 220 0 / .55); }
+  75%, 100% { background: transparent; box-shadow: inset -1.3rem .45rem 0 0 #fff6c7, 0 0 50px 4px rgb(255 255 255 / .25); }
+}
+@keyframes day-stars { from { opacity: 0; scale: .4; } to { opacity: 1; scale: 1; } }
+@keyframes day-dot { to { opacity: 1; background: var(--wp--preset--color--accent); scale: 1.5; } }
+
+/* ---------- six signs panel ---------- */
+.signs {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--wp--preset--spacing--70);
+  background: var(--wp--preset--color--lavender);
+}
+.signs__photo {
+  display: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.signs__wash {
+  display: none;
+}
+.signs__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--wp--custom--layout--wide);
+  margin-inline: auto;
+  padding-inline: var(--wp--preset--spacing--50);
+}
+.signs__head {
+  display: grid;
+  gap: .5rem;
+  margin-bottom: 1.25rem;
+  max-width: 28rem;
+}
+.signs__title { font-size: var(--wp--preset--font-size--xx-large); margin: 0; }
+.signs__head p { margin: 0; }
+.signs__head sup a { color: var(--wp--preset--color--secondary); }
+.signs__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+  max-width: 32rem;
+}
+.sign {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 0;
+  padding: .85rem 1rem;
+  border-radius: 1.35rem;
+  background: #fff;
+  color: var(--wp--preset--color--primary);
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+.sign__icon {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  padding: .35rem;
+  border-radius: 50%;
+  background: var(--wp--preset--color--lavender);
+  color: var(--wp--preset--color--secondary);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sign p {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--wp--preset--font-size--small);
+  line-height: 1.2;
+}
+@media (min-width: 36rem) {
+  .signs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 48rem) {
+  .signs__photo { display: block; }
+}
+@media (min-width: 64rem) {
+  .signs { padding-block: var(--wp--preset--spacing--80); min-height: 32rem; }
+}
+
+/* ---------- why it matters ---------- */
+.why__sheet { max-width: calc(var(--wp--custom--layout--wide) + 4rem); margin-inline: auto; padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50); }
+.why__grid { display: grid; gap: 2rem; align-items: center; }
+.why__copy { display: grid; gap: .25rem; }
+.why__title { font-size: var(--wp--preset--font-size--xx-large); margin-bottom: 1rem; }
+.why__copy sup a { color: var(--wp--preset--color--secondary); }
+.why__photo { margin: 0 0 .25rem; width: min(80%, 16rem); }
+.perfect {
+  display: grid; justify-items: center; gap: .75rem; text-align: center;
+  padding: 1.75rem 1.5rem 2rem; border-radius: var(--wp--custom--radius--card);
+  background: var(--wp--preset--color--butter); border: 2px solid var(--wp--preset--color--accent);
+}
+.perfect__word {
+  margin: 0; font-size: var(--wp--preset--font-size--x-large); line-height: .95; color: var(--wp--preset--color--primary);
+  min-height: 1em; font-variant-numeric: tabular-nums;
+}
+.perfect__text { margin: 0; max-width: 24rem; font-size: var(--wp--preset--font-size--medium); line-height: 1.45; }
+.why__ref { margin: var(--wp--preset--spacing--60) 0 0; font-size: var(--wp--preset--font-size--x-small); opacity: .7; }
+@media (min-width: 64rem) {
+  .why__sheet { padding: var(--wp--preset--spacing--80) 4rem; }
+  .why__grid { grid-template-columns: 1.2fr .8fr; gap: 4rem; }
+}

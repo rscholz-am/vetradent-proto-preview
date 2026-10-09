@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js no-chantal" data-audience="gate" data-page="Audience Gate">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VETRADENT® Home Dental Care for Dogs & Cats | Dechra</title>
+  <meta name="description" content="Choose the Pet Owner or Veterinary Professional experience and explore VETRADENT® home dental care products for dogs & cats.">
+  <meta name="theme-color" content="#54266f">
+  <meta name="view-transition" content="same-origin">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/nxb5ptr.css">
+  <link rel="preload" href="./assets/fonts/Sora-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./assets/css/tokens.css">
+  <link rel="stylesheet" href="./assets/css/blocks.css">
+  <link rel="stylesheet" href="./assets/css/patterns.css">
+  <link rel="stylesheet" href="./assets/css/templates/gate.css">
+  <link rel="stylesheet" href="./assets/css/motion.css">
+  <link rel="stylesheet" href="./assets/css/proof-print.css">
+  <link rel="icon" href="./assets/img/icon-home-tooth.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.replace('no-js', 'js');
+      try {
+        if (window.CSS && CSS.supports('animation-timeline: view()')) d.classList.add('has-sda');
+      } catch (_) {}
+      // iPad/iPhone Safari: skip tall sticky scrollytelling (GPU/memory kills).
+      var ua = navigator.userAgent || '';
+      var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (ios) d.classList.add('no-heavy-scrolly');
+      var params = new URLSearchParams(location.search);
+      if (params.get('proof') === '1') {
+        d.classList.add('proof', 'no-heavy-scrolly');
+      }
+      var requested = params.get('set_audience');
+      var path = location.pathname;
+      var audience = requested === 'pet-owner' || requested === 'veterinarian'
+        ? requested
+        : path.indexOf('/veterinarian') !== -1 ? 'veterinarian'
+        : path.indexOf('/pet-owner') !== -1 ? 'pet-owner' : '';
+      if (audience) document.cookie = 'vetradent_audience=' + audience + ';path=/;max-age=31536000;SameSite=Lax';
+      if (document.fonts && document.fonts.load) {
+        document.fonts.load('1em chantal').then(function (f) { if (f.length) d.classList.remove('no-chantal'); });
+      }
+    })();
+  </script>
+  <script src="./assets/js/store.js" defer></script>
+  <script src="./assets/js/motion.js" defer></script>
+  <script src="./assets/js/blocks.js" defer></script>
+  <script src="./assets/js/page-states.js" defer></script>
+  <script src="./assets/js/page-meta.js" defer></script>
+  <script src="./assets/js/fit-finder.js" defer></script>
+  <script src="./assets/js/proof-export.js" defer></script>
+</head>
+<body class="wp-site-blocks is-gate">
+  <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+  
+  <main id="main" class="wp-block-group site-main">
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (params.get('gate') || params.get('proof') === '1') return;
+    var match = document.cookie.match(/(?:^|; )vetradent_audience=([^;]*)/);
+    var audience = match ? decodeURIComponent(match[1]) : '';
+    if (audience === 'pet-owner') location.replace('./pet-owner/index.html');
+    if (audience === 'veterinarian') location.replace('./veterinarian/index.html');
+  })();
+</script>
+<section class="wp-block-group gate alignfull">
+  <div class="gate__grid">
+    <a class="gate__logo" href="./index.html?gate=1" data-reveal="fade"><img src="./assets/img/logo-vetradent-dechra-brand-purple.svg" alt="VETRADENT® — A Dechra Brand" width="250" height="72"></a>
+    <figure class="wp-block-image gate__arch" data-reveal="wipe-up">
+      <img class="gate__photo" src="./assets/img/img-hero-family-cropped-3.jpg" alt="VETRADENT® product family on a table: water additive, wipes, powder, spray, veggie chews, and toothpaste" width="1800" height="1067" fetchpriority="high">
+      <figcaption class="gate__tagline">Premium Home Dental Care</figcaption>
+    </figure>
+    <img class="vd-doodle gate__star vd-float" style="--i:2" src="./assets/img/art-stars.svg" alt="" width="44" height="44">
+    <div class="vd-badge gate__badge" aria-hidden="true">
+  <svg class="vd-badge__ring" viewBox="0 0 200 200">
+    <defs><path id="badge-path-gate" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+    <circle cx="100" cy="100" r="98"/>
+    <text><textPath href="#badge-path-gate" textLength="462">Real Doable Dental ✦ Dogs & Cats ✦&#160;</textPath></text>
+  </svg>
+  <img class="vd-badge__icon" src="./assets/img/icon-home-tooth-purple.svg" alt="" width="43" height="37">
+</div>
+
+
+    <div class="gate__copy">
+      <h1 class="gate__question" data-reveal="fade" style="--d:300">WhicH expEriencE is right for you?</h1>
+
+      <div class="gate__choices" data-stagger>
+        <a class="gate-choice is-owner" data-reveal="tilt" style="--d:700" href="./pet-owner/index.html?set_audience=pet-owner" data-tilt="8">
+          <span class="gate-choice__art vd-blob"><img src="./assets/img/img-gate-pet-owner.png" alt="" width="1816" height="866" loading="eager"></span>
+          <span class="gate-choice__body">
+            <span class="gate-choice__eyebrow">Pet owners</span>
+            <h2 class="gate-choice__title">I’m a pet owner</h2>
+            <span class="gate-choice__text">Find the dental routine that fits you and your pet and unlock XX%&nbsp;off.</span>
+          </span>
+          <span class="gate-choice__go" aria-hidden="true">→</span>
+        </a>
+        <a class="gate-choice is-vet" data-reveal="tilt" style="--d:700" href="./veterinarian/index.html?set_audience=veterinarian" data-tilt="8">
+          <span class="gate-choice__art vd-blob"><img src="./assets/img/img-clinic-shutterstock_2602440631.jpg" alt="" width="1536" height="1024" loading="eager"></span>
+          <span class="gate-choice__body">
+            <span class="gate-choice__eyebrow">Clinic teams</span>
+            <h2 class="gate-choice__title">I’m a vetErinaRy profesSiOnal</h2>
+            <span class="gate-choice__text">Explore clinical studies, product details and clinic team resources.</span>
+          </span>
+          <span class="gate-choice__go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+  <footer class="wp-block-template-part site-footer">
+  <div class="site-footer__marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
+      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
+    </div>
+  </div>
+  <div class="site-footer__inner wp-block-group is-layout-constrained">
+    <img src="./assets/img/logo-dechra-vrt.svg" alt="Dechra" class="site-footer__logo" width="160" height="115" loading="lazy">
+    <p class="site-footer__contact">
+      <a href="mailto:support@dechra.com">support@dechra.com</a>
+      <span aria-hidden="true">·</span>
+      <a href="tel:+18669332472">(866) 933-2472</a>
+    </p>
+    <nav class="site-footer__nav" aria-label="Legal">
+      <a href="./privacy-policy/index.html">Privacy Policy</a>
+      <a href="./terms-of-use/index.html">Terms of Use</a>
+      <a href="./cookies/index.html">Cookies</a>
+      <a href="./customer-support/index.html">Customer Support</a>
+    </nav>
+    <p class="site-footer__legal">
+      ©2026 Dechra Veterinary Products, LLC. All rights reserved. Dechra is a registered trademark of Dechra Pharmaceuticals Limited. VETRADENT and Biotrate are registered trademarks of Dechra Veterinary Products, LLC. All other trademarks are trademarks of their respective owners.<br>M-00000 0000
+    </p>
+    <a class="site-footer__gate" href="./index.html?gate=1">Switch experience ↺</a>
+  </div>
+</footer>
+
+  
+</body>
+</html>

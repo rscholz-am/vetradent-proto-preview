@@ -1,0 +1,356 @@
+/* Template: pet owner home */
+
+/* ---------- hero: orbiting stickers ---------- */
+.po-hero {
+  position: relative; overflow-x: clip; padding: 5.75rem .75rem 2rem;
+  background:
+    radial-gradient(40rem 26rem at 80% 10%, rgb(255 220 0 / .35), transparent 65%),
+    radial-gradient(40rem 30rem at 0% 90%, rgb(160 130 187 / .35), transparent 60%);
+}
+.po-hero__grid {
+  max-width: var(--wp--custom--layout--wide); margin-inline: auto;
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+}
+.po-hero__stage {
+  position: relative; aspect-ratio: 1 / 1.02; isolation: isolate;
+  view-transition-name: po-card;
+  transform: perspective(1200px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform .6s var(--wp--custom--ease--out);
+}
+/* pin the open mouth (48% 56% of the photo) to the stage center, which is also the orbit center */
+.po-hero__dog,
+.po-hero__snout {
+  position: absolute; left: 50%; top: 50%; width: auto; max-width: none; height: 114%;
+  translate: -48% -56%;
+}
+.po-hero__dog {
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(#000 68%, transparent 97%); mask-image: linear-gradient(#000 68%, transparent 97%);
+}
+.po-hero__snout {
+  z-index: 2; pointer-events: none; user-select: none;
+}
+.orbit {
+  position: absolute; inset: -14% -18%; container-type: size; z-index: 1;
+  animation: po-orbit 48s linear 2.1s infinite;
+}
+.po-hero__stage:hover .orbit { animation-play-state: paused; }
+@keyframes po-orbit { to { --theta: 360deg; } }
+.orbit__item {
+  --a: calc(var(--theta) + var(--i) * 60deg);
+  position: absolute; left: 50%; top: 50%; width: var(--w, 18cqw); height: auto;
+  translate: calc(-50% + cos(var(--a)) * 33cqw) calc(-50% + sin(var(--a)) * 31cqh);
+  /* smaller toward the top of the orbit (sin ≈ -1), larger toward the bottom */
+  scale: calc(.58 + (sin(var(--a)) + 1) * .22);
+  z-index: calc(10 + round(sin(var(--a)) * 10));
+  opacity: 0;
+  transition: filter .3s;
+}
+.orbit__item img { display: block; width: 100%; height: auto; }
+.orbit__item:is(:hover, :focus-visible) { filter: drop-shadow(0 20px 20px rgb(53 23 71 / .5)) brightness(1.05); }
+.po-hero__stage:focus-within .orbit { animation-play-state: paused; }
+.po-hero__headline {
+  order: 1; display: grid; gap: .65rem; justify-items: center; text-align: center;
+  width: min(100%, 32rem); padding-inline: .5rem;
+}
+.po-hero__mark { margin: 0; width: min(100%, 22rem); line-height: 0; }
+.po-hero__wordmark { width: 100%; }
+.po-hero__wordmark .is-real { fill: var(--wp--preset--color--primary); }
+.po-hero__wordmark .is-doable { fill: var(--wp--preset--color--plum); }
+.po-hero__wordmark .is-dental { fill: var(--wp--preset--color--wisteria); }
+/* Flatten wrappers on mobile so headline can sit above the rotator */
+.po-hero__copy, .po-hero__visual { display: contents; }
+.po-hero__copy > .vd-kicker { order: 0; margin-bottom: -1rem; }
+.po-hero__tagline {
+  margin: 0; width: min(100%, 22rem); text-align: center;
+  font-family: var(--wp--preset--font-family--body); font-weight: 700;
+  font-size: clamp(1.05rem, .8rem + 1.1vw, 1.65rem); line-height: 1.2; letter-spacing: -.01em;
+  color: var(--wp--preset--color--primary); text-wrap: balance;
+}
+.po-hero__stage { order: 2; width: min(100%, 36rem); }
+.po-hero__explore { order: 3; justify-content: center; }
+.po-hero__offer {
+  order: 4; display: grid; gap: .85rem; justify-items: stretch; text-align: start;
+  grid-template-columns: minmax(6.5rem, .95fr) minmax(0, 1.35fr);
+  align-items: center; width: min(100%, 32rem); justify-self: center; margin-inline: .5rem; margin-block-start: 1.5rem;
+  padding: .65rem; border-radius: var(--wp--custom--radius--card);
+  background: var(--wp--preset--color--butter); border: 2px solid var(--wp--preset--color--accent);
+  box-shadow: var(--wp--preset--shadow--soft); overflow: hidden;
+}
+.po-hero__offer-media {
+  margin: 0; overflow: hidden; width: 100%;
+  aspect-ratio: 1; height: 100%; min-height: 6.5rem; max-height: 8.5rem;
+  border-radius: calc(var(--wp--custom--radius--card) - .35rem);
+}
+.po-hero__offer-photo {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 48% 82%;
+  scale: 1.65; transform-origin: 48% 82%;
+}
+.po-hero__offer-body { display: grid; gap: .75rem; justify-items: start; padding: .25rem .55rem .25rem .1rem; }
+.po-hero__offer .wp-block-buttons { justify-content: start; }
+.po-hero__lede { font-size: var(--wp--preset--font-size--small); line-height: 1.35; margin: 0; color: var(--wp--preset--color--primary); }
+.po-hero__lede strong { color: var(--wp--preset--color--plum); }
+.po-hero__scroll {
+  display: none; position: absolute; left: 50%; bottom: 1.25rem; translate: -50% 0;
+  width: 1.6rem; height: 2.6rem; border: 2px solid var(--wp--preset--color--primary); border-radius: 999px;
+}
+.po-hero__scroll span { position: absolute; left: 50%; top: .45rem; width: 4px; height: .55rem; margin-left: -2px; border-radius: 4px; background: var(--wp--preset--color--primary); animation: po-scroll 1.8s ease-in-out infinite; }
+@keyframes po-scroll { 0% { translate: 0 0; opacity: 1; } 80%, 100% { translate: 0 .9rem; opacity: 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .po-hero__dog,
+  .po-hero__snout {
+    opacity: 0;
+    animation: po-dog-in .85s var(--wp--custom--ease--out) .15s both;
+  }
+  @keyframes po-dog-in {
+    from { opacity: 0; scale: .94; }
+    to { opacity: 1; scale: 1; }
+  }
+  .orbit__item {
+    animation: po-orbit-item-in .55s var(--wp--custom--ease--out) calc(1.35s + var(--i) * .14s) both;
+  }
+  @keyframes po-orbit-item-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+@supports (animation-timeline: view()) {
+  .po-hero__stage { animation: po-hero-exit linear both; animation-timeline: view(); animation-range: exit 10% exit 100%; }
+  @keyframes po-hero-exit { to { scale: .86; opacity: .3; translate: 0 8%; } }
+}
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit__item { opacity: 1; }
+  .orbit { animation: none; }
+}
+
+@media (min-width: 64rem) {
+  .po-hero { min-height: 100svh; display: grid; align-items: start; padding: 7rem 2.5rem 4rem; }
+  .po-hero__grid {
+    display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: start; gap: 4rem;
+  }
+  .po-hero__copy {
+    display: grid; order: -1; gap: .65rem; justify-items: center; text-align: center;
+    align-content: start; padding-inline: .5rem; padding-top: .25rem;
+  }
+  .po-hero__copy > .vd-kicker { margin-bottom: 0; }
+  .po-hero__headline {
+    order: unset; gap: 1.25rem; justify-items: center; text-align: center; padding-inline: 0;
+  }
+  .po-hero__mark { width: min(100%, 26rem); }
+  .po-hero__tagline { width: min(100%, 26rem); text-align: center; }
+  .po-hero__visual {
+    display: grid; gap: clamp(3rem, 7vw, 5rem); justify-items: center;
+    padding-top: 0;
+    /* slight lift so dog ears tuck just behind the fixed header bar */
+    margin-top: .35rem;
+  }
+  .po-hero__stage {
+    order: unset; aspect-ratio: 1; max-height: calc(80svh - 5rem);
+    justify-self: end; width: 100%;
+  }
+  .po-hero__explore { order: unset; justify-content: center; }
+  .po-hero__offer {
+    order: unset; margin-inline: 0; justify-self: center;
+    grid-template-columns: minmax(7.5rem, .95fr) minmax(0, 1.35fr);
+  }
+  .po-hero__offer-media { min-height: 7.5rem; max-height: 9.5rem; }
+  .po-hero__offer-body { padding: .35rem .7rem .35rem .15rem; }
+  .po-hero__lede { font-size: var(--wp--preset--font-size--medium); line-height: 1.4; }
+  .po-hero__scroll { display: block; }
+}
+
+/* ---------- doable (no sheet edge; copy above photo) ---------- */
+.po-doable { padding-block: var(--wp--preset--spacing--60) 0; }
+.po-doable__sheet {
+  padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+  background: transparent; box-shadow: none; border-radius: 0; margin-inline: 0; overflow: visible;
+}
+.po-doable__cols {
+  display: grid; max-width: var(--wp--custom--layout--wide); margin-inline: auto;
+  gap: var(--wp--preset--spacing--50); justify-items: center;
+}
+.po-doable__copy { display: grid; gap: 1.25rem; justify-items: center; text-align: center; width: min(100%, 42rem); }
+.po-doable__title { max-width: 28ch; text-wrap: balance; }
+.po-doable__photo {
+  margin: 0; justify-self: center; width: min(100%, 42rem);
+  aspect-ratio: 16 / 10;
+  border-radius: var(--wp--custom--radius--card); overflow: hidden;
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+.po-doable__photo img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 55%;
+  scale: 1.12; transform-origin: 50% 55%;
+}
+
+/* ---------- tagline marquees (no caution-tape yellow) ---------- */
+.po-tapes { position: relative; z-index: 2; height: clamp(8rem, 16vw, 12rem); overflow-x: clip; margin-top: var(--wp--preset--spacing--50); margin-bottom: 0; }
+.po-tape {
+  position: absolute; left: -6%; right: -6%; top: 50%; padding: .85rem 0; overflow: hidden;
+  box-shadow: none;
+}
+.po-tape.is-sun {
+  background: color-mix(in oklab, var(--wp--preset--color--lavender) 70%, #fff);
+  rotate: -2deg; translate: 0 -105%; z-index: 2;
+  border-block: 1.5px solid color-mix(in oklab, var(--wp--preset--color--primary) 18%, transparent);
+}
+.po-tape.is-ink {
+  background: var(--wp--preset--color--primary); rotate: 1.5deg; translate: 0 12%;
+}
+.po-tape__track {
+  display: flex; gap: 1.25rem; width: max-content; align-items: center; white-space: nowrap;
+  font-family: var(--wp--preset--font-family--display); font-weight: 400; font-synthesis: none; line-height: 1;
+  font-size: clamp(1.15rem, 0.7rem + 2.1vw, 2.15rem); color: var(--wp--preset--color--primary);
+}
+.po-tape__track span { font-weight: 400; font-synthesis: none; }
+.no-chantal .po-tape__track { text-transform: uppercase; font-weight: 700; letter-spacing: -.01em; }
+.no-chantal .po-tape__track span { font-weight: 700; }
+.po-tape.is-ink .po-tape__track { color: #fff; }
+.po-tape__track i { font-style: normal; font-size: .5em; color: var(--wp--preset--color--secondary); }
+.po-tape.is-ink .po-tape__track i { color: var(--wp--preset--color--lilac); }
+/* Mobile: one centered phrase — marquee/drift reads left-biased in a narrow viewport */
+@media (max-width: 47.99rem) {
+  .po-tape {
+    left: -18%; right: -18%; padding-inline: 1.25rem;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .po-tape__track {
+    width: auto; max-width: 100%;
+    justify-content: center; gap: 0;
+    white-space: normal; text-align: center; text-wrap: balance;
+    animation: none !important; translate: none !important;
+  }
+  .po-tape__track > i,
+  .po-tape__track > span ~ span { display: none; }
+}
+/* no scroll timelines: fall back to a gentle marquee (desktop+) */
+@supports not (animation-timeline: view()) {
+  @media (min-width: 48rem) {
+    .po-tape__track { animation: vd-marquee 30s linear infinite; }
+    .po-tape.is-ink .po-tape__track { animation-direction: reverse; }
+  }
+}
+
+/* ---------- sticky stacking cards ---------- */
+.po-stack.section { padding-block: var(--wp--preset--spacing--50) var(--wp--preset--spacing--80); }
+.po-stack__cta { justify-content: center; margin: .5rem auto 2.5rem; padding-inline: clamp(.75rem, 3vw, 2rem); }
+.stack-cards { list-style: none; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 2rem) 2rem; max-width: 760px; }
+.stack-card {
+  position: sticky; top: calc(5rem + var(--i) * .85rem);
+  margin-bottom: 1.25rem;
+}
+/* Mobile / stacked: side uses contents so order stays copy → art → buys */
+.stack-card__inner {
+  --card-bg: var(--wp--preset--color--lilac); --card-fg: var(--wp--preset--color--ink);
+  position: relative; display: grid; grid-template-columns: 1fr;
+  grid-template-areas: "copy" "art" "buys";
+  align-content: start; align-items: stretch; gap: 1rem;
+  min-height: 0; padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1.25rem, 4vw, 3rem); overflow: hidden;
+  border-radius: 2rem; background: var(--card-bg); color: var(--card-fg); text-decoration: none;
+  box-shadow: 0 -10px 30px -18px rgb(53 23 71 / .55);
+  transition: transform .6s var(--wp--custom--ease--spring);
+}
+.stack-card.is-tint-sun .stack-card__inner { --card-bg: var(--wp--preset--color--accent); }
+.stack-card.is-tint-plum .stack-card__inner { --card-bg: var(--wp--preset--color--primary); --card-fg: #fff; }
+.stack-card__inner:hover { transform: translateY(-6px) rotate(-.6deg); }
+.stack-card__side { display: contents; }
+.stack-card__copy { position: relative; grid-area: copy; display: grid; gap: .45rem; max-width: none; }
+.stack-card__title { margin: 0 0 .55rem; font-size: clamp(1.5rem, 1rem + 2.5vw, 3.4rem); color: inherit; }
+.stack-card__line { margin: 0; font-size: var(--wp--preset--font-size--small); line-height: 1.45; }
+.stack-card__art {
+  position: relative; grid-area: art; justify-self: center; align-self: center;
+  display: block; height: auto; width: min(100%, 16rem); max-width: 100%;
+}
+.stack-card__sticker {
+  display: block; height: auto; width: 100%; max-height: clamp(9rem, 42vw, 14rem); object-fit: contain;
+  rotate: calc((var(--i) - 2.5) * 3deg);
+  transition: rotate .6s var(--wp--custom--ease--spring), scale .6s var(--wp--custom--ease--spring);
+}
+.stack-card__inner:hover .stack-card__sticker { rotate: 0deg; scale: 1.06; }
+.stack-card__cover { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.stack-card__title a { color: inherit; text-decoration: none; }
+.stack-card__note {
+  margin: .35rem 0 0; max-width: 36ch;
+  display: flex; align-items: flex-start; gap: .55rem;
+  font-size: .68rem; line-height: 1.35; font-weight: 500;
+  color: color-mix(in oklab, var(--card-fg) 72%, transparent);
+}
+.stack-card__seal {
+  flex: none; width: 2.4rem; height: auto; margin-top: .05rem;
+  background: #fff; border-radius: .4rem;
+  box-shadow: 0 1px 3px rgb(53 23 71 / .12);
+}
+.stack-card__buys {
+  position: relative; z-index: 2; grid-area: buys;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 0;
+}
+.stack-card__buy {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--card-fg); text-decoration: none;
+  background: var(--card-fg); color: var(--card-bg); font-weight: 700; font-size: var(--wp--preset--font-size--x-small);
+  line-height: 1.2; transition: background .25s, color .25s;
+}
+.stack-card__buy.is-outline { background: transparent; color: var(--card-fg); }
+.stack-card__buy:is(:hover, :focus-visible) { background: transparent; color: var(--card-fg); }
+.stack-card__buy.is-outline:is(:hover, :focus-visible) { background: var(--card-fg); color: var(--card-bg); }
+
+/* Toothpaste (wide sticker): keep stacked proportions; art absorbs free height so buys stay pill-sized */
+.stack-card.is-stacked .stack-card__inner {
+  min-height: clamp(22rem, 62svh, 34rem);
+  grid-template-rows: auto 1fr auto;
+  align-content: stretch;
+}
+.stack-card.is-stacked .stack-card__art { width: min(100%, 28rem); }
+.stack-card.is-stacked .stack-card__sticker { max-height: clamp(10rem, 36vw, 18rem); }
+
+/* Tablet+: side (copy+buys) left / photo right — side box centers as a unit */
+@media (min-width: 36rem) {
+  .stack-card:not(.is-stacked) .stack-card__inner {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "side art";
+    align-items: center; gap: 1rem;
+    min-height: clamp(18rem, 48svh, 34rem);
+  }
+  .stack-card:not(.is-stacked) .stack-card__side {
+    display: grid; grid-area: side; gap: .7rem 0; row-gap: 1.15rem; align-content: center; max-width: 30rem;
+  }
+  .stack-card:not(.is-stacked) .stack-card__copy,
+  .stack-card:not(.is-stacked) .stack-card__buys { grid-area: unset; }
+  .stack-card:not(.is-stacked) .stack-card__art {
+    grid-area: art; align-self: center;
+    height: clamp(10rem, 32vw, 24rem); width: auto;
+  }
+  .stack-card:not(.is-stacked) .stack-card__sticker {
+    height: 100%; width: auto; max-height: none;
+  }
+}
+
+/* ---------- quote ---------- */
+.po-quote { overflow: clip; }
+.po-quote__grid {
+  max-width: var(--wp--custom--layout--wide); margin-inline: auto; padding-inline: var(--wp--preset--spacing--50);
+  display: grid; gap: 2rem; align-items: center;
+}
+.po-quote__dog {
+  position: relative; margin: 0; justify-self: center; width: min(80%, 26rem); aspect-ratio: 1;
+  border-radius: 50%; background: var(--wp--preset--color--accent); overflow: visible;
+}
+.po-quote__dog > img:first-child {
+  position: absolute; z-index: 1; left: 0; bottom: 0; width: 100%;
+  /* Half-width radius on both axes so the bottom curve is a circle, not an ellipse of the taller image box. */
+  clip-path: inset(-40% 0 0 0 round 0 0 50% 50% / 0 0 calc(50% * 800 / 917) calc(50% * 800 / 917));
+  animation: none; translate: none;
+}
+.po-quote__stars { width: 22%; right: -4%; top: 4%; }
+.po-quote__body { margin: 0; display: grid; gap: 1.25rem; justify-items: center; text-align: center; }
+.po-quote__text { margin: 0; font-size: clamp(2.1rem, 1.2rem + 4.2vw, 4.6rem); line-height: 1; color: var(--wp--preset--color--primary); }
+.po-quote__body cite { font-style: normal; font-weight: 700; color: var(--wp--preset--color--secondary); }
+.po-quote__body .wp-block-buttons { justify-content: center; }
+@media (min-width: 64rem) {
+  .po-quote__grid { grid-template-columns: .8fr 1.2fr; gap: 4rem; }
+  .po-quote__body { justify-items: start; text-align: start; }
+  .po-quote__body .wp-block-buttons { justify-content: start; }
+}

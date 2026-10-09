@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js no-chantal" data-audience="pet-owner" data-page="Pet Owner Find Your Fit">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Find Your Pet Dental Care Routine | VETRADENT®</title>
+  <meta name="description" content="Take a short quiz to find a VETRADENT® home dental care routine that fits you, your pet and your lifestyle.">
+  <meta name="theme-color" content="#54266f">
+  <meta name="view-transition" content="same-origin">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/nxb5ptr.css">
+  <link rel="preload" href="../../assets/fonts/Sora-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/blocks.css">
+  <link rel="stylesheet" href="../../assets/css/patterns.css">
+  <link rel="stylesheet" href="../../assets/css/templates/po-fit.css">
+  <link rel="stylesheet" href="../../assets/css/motion.css">
+  <link rel="stylesheet" href="../../assets/css/proof-print.css">
+  <link rel="icon" href="../../assets/img/icon-home-tooth.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.replace('no-js', 'js');
+      try {
+        if (window.CSS && CSS.supports('animation-timeline: view()')) d.classList.add('has-sda');
+      } catch (_) {}
+      // iPad/iPhone Safari: skip tall sticky scrollytelling (GPU/memory kills).
+      var ua = navigator.userAgent || '';
+      var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (ios) d.classList.add('no-heavy-scrolly');
+      var params = new URLSearchParams(location.search);
+      if (params.get('proof') === '1') {
+        d.classList.add('proof', 'no-heavy-scrolly');
+      }
+      var requested = params.get('set_audience');
+      var path = location.pathname;
+      var audience = requested === 'pet-owner' || requested === 'veterinarian'
+        ? requested
+        : path.indexOf('/veterinarian') !== -1 ? 'veterinarian'
+        : path.indexOf('/pet-owner') !== -1 ? 'pet-owner' : '';
+      if (audience) document.cookie = 'vetradent_audience=' + audience + ';path=/;max-age=31536000;SameSite=Lax';
+      if (document.fonts && document.fonts.load) {
+        document.fonts.load('1em chantal').then(function (f) { if (f.length) d.classList.remove('no-chantal'); });
+      }
+    })();
+  </script>
+  <script src="../../assets/js/store.js" defer></script>
+  <script src="../../assets/js/motion.js" defer></script>
+  <script src="../../assets/js/blocks.js" defer></script>
+  <script src="../../assets/js/page-states.js" defer></script>
+  <script src="../../assets/js/page-meta.js" defer></script>
+  <script src="../../assets/js/fit-finder.js" defer></script>
+  <script src="../../assets/js/proof-export.js" defer></script>
+</head>
+<body class="wp-site-blocks ">
+  <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+  <header class="wp-block-template-part site-header">
+  <div class="site-header__bar">
+    <a class="site-header__logo" href="../../pet-owner/index.html" aria-label="VETRADENT® home"><img src="../../assets/img/logo-vetradent-dechra-brand.svg" alt="VETRADENT® a Dechra brand" width="125" height="36"></a>
+    <nav class="wp-block-navigation site-header__nav" aria-label="Primary"><ul class="wp-block-navigation__container"><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/index.html">Home</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/how-it-works/index.html">How It Works</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/dental-health/index.html">Dental Health</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/products/index.html">Products</a></li><li class="wp-block-navigation-item is-cta"><a class="wp-block-navigation-item__content" href="../../pet-owner/find-your-fit/index.html" aria-current="page">Find Your Fit</a></li></ul></nav>
+    <a class="site-header__switch" href="../../veterinarian/index.html?set_audience=veterinarian"><span class="u-desktop">For veterinary professionals</span><span class="u-mobile">Vet Pro</span> <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="site-header__progress" aria-hidden="true"></div>
+</header>
+  <main id="main" class="wp-block-group site-main">
+<section
+  id="fit-finder"
+  class="wp-block-group fit-finder alignfull"
+  data-slot="fit-finder-quiz"
+  data-root="../../"
+  data-products="../../pet-owner/products/index.html"
+  data-privacy="../../privacy-policy/index.html"
+  data-phase="intro"
+  data-fyf-view="form"
+  data-intro-title="Find Your Pet Dental Care Routine | VETRADENT®"
+  data-intro-description="Take a short quiz to find a VETRADENT® home dental care routine that fits you, your pet and your lifestyle."
+  data-intro-page="Pet Owner Find Your Fit"
+  data-results-title="Your VETRADENT® Dental Care Match"
+  data-results-description="See your personalized VETRADENT® home dental care recommendation and next steps for building a doable home dental routine."
+  data-results-page="Pet Owner Find Your Fit Results"
+>
+  <div class="fyf-shell" data-fyf="intro">
+    <div class="fyf-intro">
+      <p class="vd-kicker fyf-brand-kicker">Dental Fit Finder</p>
+      <h1 class="fit-hero__title fyf-intro__title">Find a doable dental care routine for you and your pet</h1>
+      <p class="lead fyf-intro__lead">Answer a few easy questions and we’ll match you with a simple place to start, plus a XX% discount to try it.</p>
+      <p class="fyf-intro__meta"><strong>Takes 2 minutes.</strong> No account, no pressure — change any answer as you go.</p>
+      <div class="wp-block-buttons is-content-justification-center">
+        <div class="wp-block-button is-shimmer">
+          <button type="button" class="wp-block-button__link" data-fyf-start>Take the Quiz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fyf-shell fyf-quiz" data-fyf="quiz" hidden aria-hidden="true" aria-live="polite"></div>
+
+  <div class="fyf-shell fyf-loading" data-fyf="loading" hidden aria-hidden="true" role="status">
+    <div class="fyf-loading__inner">
+      <span class="fyf-loading__paw" aria-hidden="true">🐾</span>
+      <h2 class="fyf-loading__title">Finding your match…</h2>
+      <p>One second while we put together your routine.</p>
+    </div>
+  </div>
+
+  <div class="fyf-shell fyf-results" data-fyf="results" hidden aria-hidden="true"></div>
+
+  <dialog class="vd-dialog biotrate-dialog" id="dlg-biotrate" aria-labelledby="bt-title-fyf">
+    <span class="vd-dialog__grab" aria-hidden="true"></span>
+    <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+    <div class="vd-dialog__body">
+      <div class="biotrate is-dialog" data-wp-interactive="vetradent/toggle" data-wp-context='{"active":"binds","options":["binds","softens"]}' data-wp-bind--data-active="context.active">
+  <div class="biotrate__copy">
+    <img class="biotrate__logo" src="../../assets/img/logo-biotrate.svg" alt="Biotrate® Technology" width="476" height="172" loading="lazy" data-reveal="fade">
+    <h2 class="biotrate__title" id="bt-title-fyf" data-reveal>How VETRADENT<sup>®</sup> patented Biotrate<sup>®</sup> Technology works</h2>
+    <p class="biotrate__text" data-reveal>The active ingredients in VETRADENT<sup>®</sup> immediately bind to the minerals found in a pet’s saliva, making them unavailable to calcify plaque into tartar.</p>
+  </div>
+  <div class="biotrate__media">
+    <div class="biotrate__panels" data-reveal="scale">
+      <figure class="biotrate__panel" role="tabpanel" id="bt-panel-binds-fyf" aria-labelledby="bt-tab-binds-fyf" data-wp-context='{"value":"binds"}' data-wp-class--is-active="state.isActive">
+        <img src="../../assets/img/art-biotrate-how-it-works-01.jpg" alt="Illustration: Biotrate® binds to minerals in saliva and carries them away from plaque" width="1024" height="620" loading="lazy">
+      </figure>
+      <figure class="biotrate__panel" role="tabpanel" id="bt-panel-softens-fyf" aria-labelledby="bt-tab-softens-fyf" data-wp-context='{"value":"softens"}' data-wp-class--is-active="state.isActive">
+        <img src="../../assets/img/art-biotrate-how-it-works-02.jpg" alt="Illustration: without available minerals, plaque stays soft and tartar is prevented" width="1024" height="620" loading="lazy">
+      </figure>
+    </div>
+    <div class="biotrate__switch" role="tablist" aria-label="Biotrate® mode of action" data-reveal>
+      <span class="biotrate__thumb" aria-hidden="true"></span>
+      <button type="button" role="tab" id="bt-tab-binds-fyf" aria-controls="bt-panel-binds-fyf" data-wp-context='{"value":"binds"}' data-wp-on--click="actions.select" data-wp-bind--aria-selected="state.isActive">Binds and Removes Minerals</button>
+      <button type="button" role="tab" id="bt-tab-softens-fyf" aria-controls="bt-panel-softens-fyf" data-wp-context='{"value":"softens"}' data-wp-on--click="actions.select" data-wp-bind--aria-selected="state.isActive">Prevents and Softens Tartar</button>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </dialog>
+
+  <dialog class="vd-dialog fyf-email-preview" data-fyf="email-preview" aria-labelledby="fyf-email-preview-title">
+    <form method="dialog"><button class="vd-dialog__close" type="submit" aria-label="Close">✕</button></form>
+    <div class="fyf-email-preview__frame" data-fyf-email-body>
+      <p class="fyf-email-preview__empty">Complete the Fit Finder to preview the offer email.</p>
+    </div>
+  </dialog>
+</section>
+
+<page-states
+  states='[{"id":"form","label":"Quiz Results"},{"id":"email-results","label":"Email Results"},{"id":"email","label":"Email","action":true},{"id":"pet-name","label":"Pet Name","action":true,"toggle":true}]'
+  default="form"
+  target="#fit-finder"
+  storage-key="fyf-results"
+  label="State"
+  placement="dock"
+  style="--vd-dock-bottom: calc(var(--wp--custom--dock--height) + 1.25rem);"
+></page-states>
+
+  </main>
+  <footer class="wp-block-template-part site-footer">
+  <div class="site-footer__marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
+      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
+    </div>
+  </div>
+  <div class="site-footer__inner wp-block-group is-layout-constrained">
+    <img src="../../assets/img/logo-dechra-vrt.svg" alt="Dechra" class="site-footer__logo" width="160" height="115" loading="lazy">
+    <p class="site-footer__contact">
+      <a href="mailto:support@dechra.com">support@dechra.com</a>
+      <span aria-hidden="true">·</span>
+      <a href="tel:+18669332472">(866) 933-2472</a>
+    </p>
+    <nav class="site-footer__nav" aria-label="Legal">
+      <a href="../../privacy-policy/index.html">Privacy Policy</a>
+      <a href="../../terms-of-use/index.html">Terms of Use</a>
+      <a href="../../cookies/index.html">Cookies</a>
+      <a href="../../customer-support/index.html">Customer Support</a>
+    </nav>
+    <p class="site-footer__legal">
+      ©2026 Dechra Veterinary Products, LLC. All rights reserved. Dechra is a registered trademark of Dechra Pharmaceuticals Limited. VETRADENT and Biotrate are registered trademarks of Dechra Veterinary Products, LLC. All other trademarks are trademarks of their respective owners.<br>M-00000 0000
+    </p>
+    <a class="site-footer__gate" href="../../index.html?gate=1">Switch experience ↺</a>
+  </div>
+</footer>
+
+  <nav class="wp-block-navigation dock" aria-label="Quick navigation" style="--count:5;--active:4">
+  <span class="dock__blob" aria-hidden="true"></span>
+  <ul><li class="dock__item"><a href="../../pet-owner/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a></li><li class="dock__item"><a href="../../pet-owner/how-it-works/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span>How It<br>Works</span></a></li><li class="dock__item"><a href="../../pet-owner/dental-health/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Dental<br>Health</span></a></li><li class="dock__item"><a href="../../pet-owner/products/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5zM4 8.5l8 4.5 8-4.5M12 13v7"/></svg><span>Products</span></a></li><li class="dock__item is-cta"><a href="../../pet-owner/find-your-fit/index.html" aria-current="page"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg><span>Your Fit</span></a></li></ul>
+</nav>
+</body>
+</html>

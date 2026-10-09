@@ -1,0 +1,5 @@
+/* Template: legal stub */
+.legal { padding-top: 8rem; text-align: center; }
+.legal h1 { margin: 1rem auto 2rem; }
+.legal__sheet { padding: var(--wp--preset--spacing--60); text-align: left; margin-inline: auto !important; }
+.legal__sheet .wp-block-buttons { margin-top: 1.5rem; }

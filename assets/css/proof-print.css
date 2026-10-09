@@ -1,0 +1,853 @@
+/* Proof pack / ?proof=1 — desktop layout, expanded copy, print-friendly PDF */
+
+/*
+ * Tabloid portrait sheet. Desktop layout stays at a fixed 1280px canvas and is
+ * scaled to the printable width in @media print (see zoom on .proof-pack).
+ */
+@page {
+  size: 11in 17in; /* tabloid portrait */
+  margin: 0.4in;
+}
+
+html.proof {
+  scroll-behavior: auto;
+  /* Prefer desktop token scale */
+  font-size: 100%;
+}
+
+html.proof,
+html.proof body {
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Fixed desktop canvas (matches site desktop breakpoint language) */
+html.proof .proof-pack,
+html.proof.proof body > .proof-pack,
+html.proof body.is-proof-pack .proof-pack,
+html.proof #main.proof-pack {
+  width: 1280px;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+html.proof .proof-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #1e1e20;
+  color: #f4f1f6;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 0.25);
+  width: 1280px;
+  max-width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+html.proof .proof-toolbar__title {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+html.proof .proof-toolbar__btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  background: #7a2981;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+html.proof .proof-toolbar__btn:hover {
+  background: #54266f;
+}
+
+html.proof .proof-toolbar__hint {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.8125rem;
+}
+
+html.proof .proof-section {
+  padding-block: 1rem 1.5rem;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+html.proof .proof-banner {
+  margin: 0 0 1rem;
+  padding: 0.65rem 1.25rem;
+  background: #54266f;
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+html.proof .proof-banner--email {
+  background: #2a1a35;
+}
+
+/* Kill viewport-height heroes / scrolly pins that create empty printed pages.
+   Target section shells only — NOT .po-hero__dog / __snout (those must stay
+   position:absolute so they share the orbit center). */
+html.proof .po-hero,
+html.proof .vet-hero,
+html.proof .hiw-hero,
+html.proof .dh-hero,
+html.proof .pr-hero,
+html.proof .fit-finder,
+html.proof .fyf-shell,
+html.proof .stages,
+html.proof .stages__pin,
+html.proof .stages__track,
+html.proof .day,
+html.proof .day__stage {
+  min-height: 0 !important;
+  height: auto !important;
+  position: relative !important;
+}
+
+/* Pet-owner hero: dog + snout stay pinned to the orbit center */
+html.proof .po-hero__dog,
+html.proof .po-hero__snout {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  height: 114% !important;
+  width: auto !important;
+  max-width: none !important;
+  translate: -48% -56% !important;
+  opacity: 1 !important;
+  animation: none !important;
+}
+html.proof .po-hero__stage {
+  animation: none !important;
+  opacity: 1 !important;
+  scale: none !important;
+  translate: none !important;
+}
+html.proof .orbit {
+  animation: none !important;
+}
+html.proof .orbit__item {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* ---------- Desktop layouts (belt + suspenders; JS also hoists min-width media) ---------- */
+html.proof .po-hero__grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  align-items: start !important;
+  gap: 4rem !important;
+}
+html.proof .po-hero__copy { order: -1 !important; }
+html.proof .po-hero__offer {
+  grid-template-columns: minmax(7.5rem, 0.95fr) minmax(0, 1.35fr) !important;
+}
+
+html.proof .vet-hero__grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.65rem 5rem !important;
+}
+html.proof .vet-hero__stage {
+  position: static !important;
+  grid-column: 2 !important;
+  grid-row: 1 / -1 !important;
+}
+html.proof .vet-hero__copy { grid-column: 1 !important; grid-row: 1 !important; }
+html.proof .vet-hero__offer {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  grid-template-columns: minmax(7.5rem, 0.95fr) minmax(0, 1.35fr) !important;
+}
+
+html.proof .tech__sheet {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  align-items: center !important;
+  gap: 4rem !important;
+  margin-inline: auto !important;
+}
+
+html.proof .hiw-hero__photo { aspect-ratio: 21 / 9 !important; border-radius: 999px !important; }
+html.proof .hiw-hero__copy {
+  align-self: center !important;
+  justify-self: start !important;
+  justify-items: start !important;
+  text-align: left !important;
+}
+
+html.proof .dh-hero__photo { aspect-ratio: 21 / 9 !important; border-radius: 999px !important; }
+html.proof .dh-hero__copy {
+  align-self: center !important;
+  justify-self: start !important;
+  justify-items: start !important;
+  text-align: left !important;
+}
+
+html.proof .day__moments {
+  position: static !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  inset: auto !important;
+}
+html.proof .moment {
+  position: relative !important;
+  inset: auto !important;
+  animation: none !important;
+}
+html.proof .day__sky,
+html.proof .day__clock,
+html.proof .day__arm { display: none !important; }
+
+html.proof .stages__list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+html.proof .stages__rail { display: none !important; }
+html.proof .stage,
+html.proof .stage__frame {
+  position: relative !important;
+  opacity: 1 !important;
+  animation: none !important;
+  width: 100% !important;
+  max-height: none !important;
+}
+
+html.proof .biotrate {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important;
+  gap: 4rem !important;
+}
+html.proof .biotrate[data-proof-expanded] .biotrate__panels {
+  grid-template-areas: none !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+html.proof .biotrate[data-proof-expanded] .biotrate__panel {
+  position: relative !important;
+  grid-area: auto !important;
+  opacity: 1 !important;
+  scale: 1 !important;
+  rotate: 0deg !important;
+  pointer-events: auto !important;
+}
+
+html.proof .ingredients:not(.is-vet) {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+  gap: 4rem !important;
+  align-items: start !important;
+}
+
+html.proof .proof__inner {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important;
+  align-items: center !important;
+  gap: 4rem !important;
+  margin-inline: auto !important;
+}
+
+html.proof .cs-hero__grid {
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 4rem !important;
+}
+html.proof .cs-halitosis {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 4rem !important;
+}
+html.proof .cs-safety__intro {
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 4rem !important;
+}
+html.proof .cs-resources__groups {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem !important;
+}
+html.proof .cs-tabs {
+  position: static !important;
+}
+
+html.proof .vd-form {
+  grid-template-columns: 1fr 1fr !important;
+}
+html.proof .vd-form .is-full {
+  grid-column: 1 / -1 !important;
+}
+
+html.proof .spec-dialog__body {
+  display: grid !important;
+}
+
+html.proof .cta-fit__card,
+html.proof .order__card,
+html.proof .cs-sheet,
+html.proof .hiw-biotrate__sheet,
+html.proof .cs-biotrate__sheet {
+  margin-inline: auto !important;
+}
+
+/* Keep full-bleed sections inside the 1280px proof canvas */
+html.proof .proof-pack .alignfull {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+}
+
+/*
+ * Gate — force a contained desktop two-column layout.
+ * Previous overflow:visible + stretched arch made the lilac oval dominate the page.
+ */
+html.proof .gate {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 2rem 2.5rem 2.5rem !important;
+  display: block !important;
+  align-items: unset !important;
+}
+html.proof .gate__grid {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) !important;
+  grid-template-areas:
+    "arch logo"
+    "arch copy" !important;
+  gap: 1.5rem 3rem !important;
+  align-items: start !important;
+  max-width: 72rem !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+}
+html.proof .gate__arch {
+  grid-area: arch !important;
+  position: relative !important;
+  align-self: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 32rem !important;
+  max-height: 32rem !important;
+  margin: 0 !important;
+  border-radius: 999px 999px 2.25rem 2.25rem !important;
+  overflow: hidden !important;
+  background: var(--wp--preset--color--lilac, #c4b5d4) !important;
+}
+html.proof .gate__photo {
+  animation: none !important;
+  scale: 1 !important;
+  translate: none !important;
+  rotate: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 72% !important;
+  display: block !important;
+}
+html.proof .gate__logo {
+  grid-area: logo !important;
+  justify-self: start !important;
+  align-self: end !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+html.proof .gate__copy {
+  grid-area: copy !important;
+  text-align: left !important;
+  gap: 1.6rem !important;
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+}
+html.proof .gate__badge {
+  position: absolute !important;
+  z-index: 3 !important;
+  width: 8.5rem !important;
+  max-width: 8.5rem !important;
+  height: auto !important;
+  top: auto !important;
+  bottom: 12% !important;
+  right: auto !important;
+  left: calc(48% - 4.25rem) !important;
+}
+html.proof .gate__badge .vd-badge__ring {
+  animation: none !important;
+}
+html.proof .gate__star {
+  position: absolute !important;
+  left: auto !important;
+  right: 48% !important;
+  top: 8% !important;
+  width: 3.5rem !important;
+  z-index: 2 !important;
+}
+html.proof .gate__logo img { height: 4.2rem !important; width: auto !important; }
+html.proof .gate__question { padding: 0 !important; text-align: left !important; }
+html.proof .gate__choices { display: grid !important; gap: 0.8rem !important; }
+html.proof .gate-choice {
+  grid-template-columns: 6rem 1fr auto !important;
+  padding: 1.1rem 1.25rem 1.1rem 1.1rem !important;
+  transform: none !important;
+}
+html.proof .gate-choice__art { width: 6rem !important; }
+html.proof .gate-choice__art.vd-blob,
+html.proof .gate .vd-blob {
+  animation: none !important;
+  border-radius: 50% !important;
+}
+
+/* Neutralize sticky / scrolly only — do NOT blanket [data-reveal] (breaks gate/arch) */
+html.proof .site-header,
+html.proof .stages__pin,
+html.proof .ingredients__head,
+html.proof .fyf-offer {
+  position: static !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+html.proof .stages__list,
+html.proof .day__moments,
+html.proof .stages__rail {
+  position: static !important;
+  display: grid !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+html.proof .stage__frame {
+  width: 100% !important;
+  max-height: none !important;
+}
+
+html.proof .vd-float {
+  animation: none !important;
+  translate: none !important;
+}
+
+/* Footer: readable, no spinning marquee waste */
+html.proof .site-footer {
+  margin-top: 1.5rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+html.proof .site-footer__marquee {
+  rotate: 0 !important;
+  scale: 1 !important;
+  margin-top: 0 !important;
+  overflow: hidden;
+}
+html.proof .marquee__track {
+  animation: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: center;
+  flex-wrap: wrap;
+  white-space: normal;
+  gap: 0.75rem 1.25rem;
+  transform: none !important;
+}
+
+/* Reveal motion: show everything */
+html.proof [data-reveal] {
+  opacity: 1 !important;
+  translate: none !important;
+  scale: none !important;
+  rotate: none !important;
+  clip-path: none !important;
+}
+
+/*
+ * Scroll-driven count/bar/ring animations scrub with view(). On this long
+ * concatenated pack they freeze mid-keyframe (numbers stuck at 0%). Force the
+ * static end state for on-screen proofing and PDF export.
+ */
+html.proof [data-zoom],
+html.proof [data-parallax],
+html.proof [data-drift],
+html.proof [data-scrub] .split-word,
+html.proof .vd-count,
+html.proof .vd-bar > i,
+html.proof .vd-ring {
+  animation: none !important;
+  translate: none !important;
+  scale: none !important;
+  filter: none !important;
+}
+html.proof .vd-count::before {
+  content: none !important;
+}
+html.proof .vd-count > .vd-count__static {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip-path: none !important;
+  white-space: inherit !important;
+}
+
+/* Desktop labels only in PDF (layout is desktop) */
+html.proof .u-desktop {
+  display: inline !important;
+}
+html.proof .u-mobile {
+  display: none !important;
+}
+
+/* Pet-owner products — show all 6 cards (desktop grid, not horizontal rail) */
+html.proof .shelf .vd-rail {
+  display: grid !important;
+  grid-auto-flow: row !important;
+  grid-auto-columns: unset !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+  max-width: var(--wp--custom--layout--wide, 72rem) !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+  padding: 2rem var(--wp--preset--spacing--50, 1.5rem) !important;
+}
+html.proof .shelf__nav,
+html.proof .shelf .vd-rail-dots {
+  display: none !important;
+}
+html.proof .product-card {
+  translate: none !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Vet portfolio — desktop 2×3 product grid */
+html.proof .portfolio__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+html.proof .spec-tile__benefit {
+  display: block !important;
+}
+html.proof .spec-tile__btn {
+  min-height: 21rem !important;
+  padding: 1.5rem !important;
+}
+html.proof .spec-tile__sticker {
+  height: 10.5rem !important;
+  right: 1rem !important;
+  top: 1rem !important;
+}
+html.proof .spec-tile__name {
+  font-size: var(--wp--preset--font-size--x-large, 1.75rem) !important;
+}
+
+/* Details open (FAQ + ingredient listing) */
+html.proof .wp-block-details > :not(summary),
+html.proof .wp-block-details::details-content {
+  display: block !important;
+  block-size: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+html.proof details.ingredient[open],
+html.proof details.wp-block-details[open] {
+  overflow: visible !important;
+}
+
+/* Dialogs as stacked sections — allow page breaks inside tall ones */
+html.proof .vd-dialog {
+  display: block !important;
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  max-width: min(42rem, 100%) !important;
+  max-height: none !important;
+  width: 100% !important;
+  margin: 1.25rem auto !important;
+  padding: 0 !important;
+  border: 1px solid rgb(84 38 111 / 0.2) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: var(--wp--preset--shadow--soft, 0 8px 24px rgb(0 0 0 / 0.08)) !important;
+  background: #fff !important;
+  overflow: visible !important;
+  z-index: auto !important;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+html.proof .vd-dialog::backdrop {
+  display: none !important;
+}
+
+html.proof .vd-dialog__grab,
+html.proof .vd-dialog > form[method="dialog"],
+html.proof .vd-dialog__close {
+  display: none !important;
+}
+
+/* Host for dialogs moved out of portfolio tiles */
+html.proof .proof-dialogs {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: min(42rem, 100%);
+  margin: 1.75rem auto 0;
+  padding-inline: var(--wp--preset--spacing--50, 1.5rem);
+  clear: both;
+}
+html.proof .proof-dialogs .vd-dialog {
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+/* Contact / sheets stay in document flow — never overlay portfolio or dialogs */
+html.proof .contact,
+html.proof .contact__sheet,
+html.proof .order__card,
+html.proof .fyf-offer,
+html.proof .fyf-offer__panel {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  z-index: auto !important;
+}
+
+html.proof .fyf-email-preview {
+  max-width: 600px !important;
+  background: #f4f1f6 !important;
+}
+
+/* Biotrate: all panels visible */
+html.proof .biotrate__panels {
+  grid-template-areas: none !important;
+  display: grid !important;
+  gap: 1rem !important;
+}
+
+html.proof .biotrate__panel {
+  position: relative !important;
+  opacity: 1 !important;
+  scale: 1 !important;
+  rotate: 0deg !important;
+  pointer-events: auto !important;
+  grid-area: auto !important;
+}
+
+/* Fit Finder offer expanded */
+html.proof .fyf-offer,
+html.proof .fyf-offer.is-unlocked {
+  display: block !important;
+}
+
+html.proof .fyf-offer__panel {
+  display: block !important;
+}
+
+html.proof .fyf-offer__backdrop {
+  display: none !important;
+}
+
+html.proof .fyf-offer__toggle {
+  pointer-events: none;
+}
+
+/* Proof dump blocks */
+html.proof .proof-fyf {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1.25rem 1.5rem;
+  max-width: 64rem;
+  margin-inline: auto;
+}
+
+html.proof .proof-fyf__block {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid rgb(84 38 111 / 0.15);
+  border-radius: 1rem;
+  background: #fff;
+  break-inside: auto;
+  page-break-inside: auto;
+}
+
+html.proof .proof-fyf__label {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7a2981;
+}
+
+html.proof .proof-fyf__q-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+html.proof .proof-fyf__q {
+  display: grid;
+  gap: 0.35rem;
+}
+
+html.proof .proof-fyf__options {
+  margin: 0.25rem 0 0;
+  padding-left: 1.1rem;
+}
+
+html.proof .proof-fyf__note {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+html.proof .proof-fyf__products {
+  display: grid;
+  gap: 1rem;
+}
+
+html.proof .proof-fyf__routine {
+  margin: 0;
+  font-family: var(--wp--preset--font-family--display, inherit);
+  font-size: var(--wp--preset--font-size--x-large, 1.75rem);
+  line-height: 1;
+}
+
+html.proof .proof-fyf__block--results .fyf-card {
+  max-width: none;
+}
+
+/* Email locked at 600px (screen + print) */
+html.proof .fyf-email-page__stage,
+html.proof .proof-email-stage,
+html.proof .fyf-email-preview__frame {
+  width: 600px !important;
+  max-width: 600px !important;
+  margin-inline: auto !important;
+}
+
+html.proof .fyf-mail {
+  width: 600px !important;
+  max-width: 600px !important;
+  margin-inline: auto;
+}
+
+/* Hide chrome that isn't content */
+html.proof .dock,
+html.proof .site-header__progress,
+html.proof .skip-link {
+  display: none !important;
+}
+
+@media print {
+  html.proof .proof-toolbar,
+  html.proof .site-header,
+  html.proof .dock,
+  html.proof .skip-link,
+  html.proof page-meta,
+  html.proof page-states {
+    display: none !important;
+  }
+
+  html.proof,
+  html.proof body {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: #fff;
+  }
+
+  /*
+   * Keep the desktop canvas (do not collapse to page width / mobile MQ).
+   * Scale 1280px into printable width: 11in − 0.8in margins ≈ 10.2in.
+   */
+  html.proof .proof-pack,
+  html.proof body.is-proof-pack .proof-pack,
+  html.proof #main.proof-pack {
+    width: 1280px !important;
+    max-width: 1280px !important;
+    margin-inline: auto !important;
+    zoom: calc((11in - 0.8in) / 1280px);
+  }
+
+  /* Soft section breaks — each site chunk starts a tabloid sheet */
+  html.proof .proof-section {
+    break-before: page;
+    page-break-before: always;
+    padding-block: 0 0.75rem;
+    orphans: 3;
+    widows: 3;
+  }
+
+  html.proof .proof-section:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  /* Don't leave a nearly empty page after short sections */
+  html.proof .proof-section .site-footer {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  html.proof .fyf-email-page__stage,
+  html.proof .proof-email-stage,
+  html.proof .fyf-mail {
+    width: 600px !important;
+    max-width: 600px !important;
+    box-shadow: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Scroll-driven end state is already forced on html.proof above */
+
+  html.proof img {
+    display: block;
+    max-width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html.proof .stage__frame img,
+  html.proof .biotrate__panel img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

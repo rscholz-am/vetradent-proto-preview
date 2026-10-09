@@ -1,0 +1,108 @@
+/* Template: gate (audience chooser) */
+.gate {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100svh; padding: max(1rem, env(safe-area-inset-top)) 1rem 2.5rem;
+  background:
+    radial-gradient(60rem 40rem at 110% -10%, rgb(255 220 0 / .28), transparent 60%),
+    radial-gradient(50rem 40rem at -20% 110%, rgb(160 130 187 / .45), transparent 60%),
+    var(--wp--preset--color--lavender);
+}
+.gate__grid { position: relative; max-width: var(--wp--custom--layout--wide); margin-inline: auto; display: grid; gap: 1.25rem; }
+
+.gate__arch {
+  position: relative; margin: 0; height: min(52svh, 30rem);
+  border-radius: 999px 999px 2.25rem 2.25rem; overflow: hidden;
+  box-shadow: var(--wp--preset--shadow--lift), inset 0 0 0 6px #fff;
+  background: var(--wp--preset--color--lilac);
+}
+.gate__photo {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%;
+  animation: gate-kenburns 22s ease-in-out infinite alternate;
+}
+@keyframes gate-kenburns { from { scale: 1.06; translate: 0 0; } to { scale: 1.22; translate: -2% -3%; } }
+.gate__tagline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.15rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: clamp(.78rem, .6rem + .55vw, .95rem);
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--primary);
+  background: none;
+  pointer-events: none;
+}
+.gate__star { width: 3rem; left: 4%; top: 36%; }
+.gate__badge { position: absolute; right: -.25rem; top: calc(min(52svh, 30rem) - 4.5rem); z-index: 3; width: 6.5rem; }
+.gate__badge .vd-badge__ring text { font-family: var(--wp--preset--font-family--display); font-size: 21px; font-weight: 600; letter-spacing: .02em; }
+.no-chantal .gate__badge .vd-badge__ring text { font-size: 17px; font-weight: 800; text-transform: uppercase; }
+
+.gate__logo {
+  justify-self: center;
+  z-index: 2;
+}
+.gate__logo img { height: 3.4rem; width: auto; display: block; }
+.gate__copy { display: grid; gap: 1.1rem; text-align: center; }
+.gate__question {
+  font-size: clamp(2.1rem, 1.2rem + 4.5vw, 4.4rem); line-height: .95; color: var(--wp--preset--color--primary);
+  padding-inline: .25rem;
+}
+
+.gate__choices { display: grid; gap: .8rem; margin-top: .25rem; }
+.gate-choice {
+  --lift: 0px;
+  position: relative; display: grid; grid-template-columns: 4.75rem 1fr auto; align-items: center; gap: 1rem;
+  padding: .9rem 1rem .9rem .9rem; border-radius: 1.75rem; text-align: left; text-decoration: none;
+  background: #fff; border: 2px solid transparent; box-shadow: var(--wp--preset--shadow--soft);
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(var(--lift));
+  transition: transform .5s var(--wp--custom--ease--spring), border-color .3s, box-shadow .3s;
+}
+.gate-choice.is-owner { view-transition-name: po-card; }
+.gate-choice.is-vet { view-transition-name: vet-card; }
+.gate-choice:hover { --lift: -4px; border-color: var(--wp--preset--color--wisteria); box-shadow: var(--wp--preset--shadow--lift); }
+.gate-choice:active { --lift: 2px; }
+.gate-choice__art { width: 4.75rem; aspect-ratio: 1; background: var(--wp--preset--color--accent); }
+.gate-choice__art img { width: 100%; height: 100%; object-fit: cover; }
+.gate-choice.is-vet .gate-choice__art { background: var(--wp--preset--color--wisteria); animation-delay: -5s; }
+.gate-choice.is-vet .gate-choice__art img {
+  scale: 2.1;
+  object-position: 48% 52%;
+  transform-origin: 48% 52%;
+}
+.gate-choice__body { display: grid; gap: .2rem; }
+.gate-choice__eyebrow { font-size: .66rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--wp--preset--color--secondary); }
+.gate-choice__title { font-size: clamp(1.35rem, 1rem + 1.4vw, 1.9rem); line-height: 1; }
+.gate-choice__text { font-size: var(--wp--preset--font-size--x-small); line-height: 1.45; color: color-mix(in oklab, var(--wp--preset--color--ink) 78%, transparent); }
+.gate-choice__go {
+  display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%;
+  background: var(--wp--preset--color--lavender); color: var(--wp--preset--color--primary); font-weight: 700; font-size: 1.15rem;
+  transition: background .3s, transform .5s var(--wp--custom--ease--spring);
+}
+.gate-choice:hover .gate-choice__go { background: var(--wp--preset--color--accent); transform: translateX(4px) rotate(-10deg); }
+
+@media (min-width: 64rem) {
+  .gate { padding: 2rem 2.5rem; display: grid; align-items: center; }
+  .gate__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    grid-template-areas:
+      "arch logo"
+      "arch copy";
+    gap: clamp(1.25rem, 3vw, 2rem) clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+  .gate__arch { grid-area: arch; height: min(86svh, 50rem); align-self: center; }
+  .gate__logo { grid-area: logo; justify-self: start; align-self: end; }
+  .gate__copy { grid-area: copy; text-align: left; gap: 1.6rem; }
+  .gate__tagline { bottom: 1.65rem; letter-spacing: .16em; }
+  .gate__badge { width: 9rem; top: auto; bottom: 10%; right: auto; left: calc(52% - 5.5rem); }
+  .gate__star { left: auto; right: 48%; top: 8%; width: 4rem; }
+  .gate__logo img { height: 4.2rem; }
+  .gate__question { padding: 0; }
+  .gate-choice { grid-template-columns: 6rem 1fr auto; padding: 1.1rem 1.25rem 1.1rem 1.1rem; }
+  .gate-choice__art { width: 6rem; }
+}
