@@ -98,6 +98,25 @@
   scale: 1.5;
   transform-origin: 48% 82%;
 }
+.cs-eff__pets.is-wipes img {
+  aspect-ratio: 4 / 3;
+  object-position: center;
+  scale: 1;
+  transform-origin: center;
+}
+.cs-efficacy sup {
+  font-size: .65em;
+  font-weight: 700;
+  line-height: 0;
+}
+.cs-eff__beat { display: grid; gap: 1.25rem; }
+.cs-eff__beat--water {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / .14);
+  gap: 1rem;
+}
+.cs-eff__water-copy { margin: 0; color: rgb(255 255 255 / .88); max-width: 40rem; }
+.cs-eff__notes { display: grid; gap: .35rem; }
 .cs-rings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
 .cs-ring { display: grid; justify-items: center; gap: .6rem; text-align: center; }
 .vd-ring {
@@ -140,7 +159,7 @@
 }
 .cs-product__name { display: block; }
 .cs-sheet.is-ink .vd-footnote {
-  max-width: none; margin: .25rem 0 0; padding: 0;
+  max-width: none; margin: 0; padding: 0;
   color: rgb(255 255 255 / .72); text-align: start;
 }
 .cs-product:hover { background: rgb(255 255 255 / .12); border-color: var(--wp--preset--color--accent); transform: translateX(4px); }
@@ -149,8 +168,10 @@
   .cs-eff__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 4rem; align-items: center; }
   .cs-eff__pets { max-width: 28rem; justify-self: center; width: 100%; }
   .cs-rings { gap: 1.5rem; }
-  .cs-products { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-  .cs-product { width: 100%; }
+  .cs-products.is-one { grid-template-columns: minmax(0, 24rem); justify-items: start; }
+  .cs-products.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; max-width: 40rem; }
+  .cs-products.is-one .cs-product,
+  .cs-products.is-two .cs-product { width: 100%; }
 }
 
 .cs-halitosis-section {
