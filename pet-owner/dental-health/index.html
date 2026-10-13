@@ -77,7 +77,7 @@
 </section>
 
 <p class="lead has-text-align-center dh-hero__lead" data-reveal>It may be easier than you think to make a home dental routine stick.</p>
-<p class="lead has-text-align-center dh-hero__prompt" data-reveal>Try pairing it with something you already do — in the morning, with exercise, while relaxing, or at bedtime. <span class="vd-marker">Would one of these work for you?</span></p>
+<p class="lead has-text-align-center dh-hero__prompt" data-reveal>Try pairing it with something you already do — in the morning, with exercise, while relaxing or at bedtime. <span class="vd-marker">Would one of these work for you?</span></p>
 
 <section class="wp-block-group day alignfull" aria-label="A dental routine from morning to bedtime">
   <div class="day__stage">
@@ -88,7 +88,7 @@
     </div>
     <ol class="day__moments">
       <li class="moment is-morning" style="--s:0">
-        <h2 class="moment__when">MorniNg</h2>
+        <h2 class="moment__when" aria-label="Morning">MorniNg</h2>
         <figure class="moment__photo"><img src="../../assets/img/img-cat-water-istockphoto-1036669758.jpg" alt="A cat drinking from its water bowl" width="1672" height="941" loading="lazy"></figure>
         <p class="moment__pair"><span>Making coffee</span> <span class="moment__dots" aria-hidden="true">…</span> <strong>Mixing water additive</strong></p>
         <img class="moment__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-water-additive.png" alt="" loading="lazy">
@@ -100,13 +100,13 @@
         <img class="moment__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="" loading="lazy">
       </li>
       <li class="moment is-evening" style="--s:2">
-        <h2 class="moment__when">EveniNg</h2>
+        <h2 class="moment__when" aria-label="Evening">EveniNg</h2>
         <figure class="moment__photo"><img src="../../assets/img/img-hero-vetradent-dental-spray.jpg" alt="A dog receiving VETRADENT® Dental Spray" width="1512" height="720" loading="lazy"></figure>
         <p class="moment__pair"><span>Watching TV</span> <span class="moment__dots" aria-hidden="true">…</span> <strong>Spraying their mouth</strong></p>
         <img class="moment__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="" loading="lazy">
       </li>
       <li class="moment is-night" style="--s:3">
-        <h2 class="moment__when">BedtimE</h2>
+        <h2 class="moment__when" aria-label="Bedtime">BedtimE</h2>
         <figure class="moment__photo">
           <img src="../../assets/img/img-hero-vetradent-toothpaste-gettyimages-1322177841-1024x1024.jpg" alt="A pet owner brushing a dog’s teeth with VETRADENT® toothpaste" width="1024" height="683" loading="lazy">
           <img class="moment__sticker vd-sticker is-wide" src="../../assets/img/img-sticker-vetradent-toothpaste-toothbrush.png" alt="" loading="lazy">
@@ -114,7 +114,12 @@
         <p class="moment__pair"><span>Brushing teeth</span> <span class="moment__dots" aria-hidden="true">…</span> <strong>Trying it with your pet too!</strong></p>
       </li>
     </ol>
-    <div class="day__clock" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <nav class="day__clock" aria-label="Times of day">
+      <button type="button" aria-label="Morning"><i></i></button>
+      <button type="button" aria-label="Daytime"><i></i></button>
+      <button type="button" aria-label="Evening"><i></i></button>
+      <button type="button" aria-label="Bedtime"><i></i></button>
+    </nav>
   </div>
 </section>
 
@@ -124,7 +129,7 @@
   <div class="signs__inner">
     <header class="signs__head">
       <h2 id="signs-title" class="signs__title" data-reveal="fade">6 signs of dental disease</h2>
-      <p data-reveal>Talk to your veterinarian if you notice any of these signs.<sup><a href="#ref-1" aria-label="Reference 1">1</a></sup></p>
+      <p data-reveal>Talk with your veterinarian if you notice any of these signs.<sup><a href="#ref-1" aria-label="Reference 1">1</a></sup></p>
     </header>
     <ul class="signs__grid" aria-label="Signs of dental disease">
       <li class="sign"><svg class="sign__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2m15.5-8a2.5 2.5 0 1 1 2 4H2m7.8-7.6A2 2 0 1 1 11 8H2"/></svg><p>Bad breath</p></li>
@@ -151,11 +156,11 @@
         <figure class="why__photo">
           <img src="../../assets/img/img-dog-yellow.png" alt="A dog with its eyes closed and tongue out, looking blissful" width="900" height="845" loading="lazy">
         </figure>
-        <p class="perfect__word vd-display" data-reveal="fade">NoBody’s pErfect</p>
+        <p class="perfect__word vd-display" data-reveal="fade" aria-label="Nobody’s perfect">NoBody’s pErfect</p>
         <p class="perfect__text">Home dental care isn’t about perfection. It’s about finding a doable routine you can start and stick with.</p>
       </aside>
     </div>
-    <p id="ref-1" class="why__ref"><sup>1</sup> American Animal Hospital Association (AAHA). <cite>Dog &amp; cat dental disease: Signs, professional cleanings, anesthesia, and home care</cite>. Updated January 26, 2026. Accessed September 8, 2026.</p>
+    <p id="ref-1" class="why__ref"><sup>1</sup> American Animal Hospital Association (AAHA). <cite>Dog &amp; cat dental disease: Signs, professional cleanings, anesthesia, and home care</cite>. Updated January 26, 2026. Accessed September 8, 2026. <a href="https://www.aaha.org/resources/your-pets-dental-care/" target="_blank" rel="noopener noreferrer">https://www.aaha.org/resources/your-pets-dental-care/</a></p>
   </div>
 </section>
 
@@ -175,7 +180,7 @@
 
   </main>
   <footer class="wp-block-template-part site-footer">
-  <div class="site-footer__marquee" aria-hidden="true">
+  <div class="site-footer__marquee" aria-hidden="true" data-inview>
     <div class="marquee__track">
       <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
       <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>

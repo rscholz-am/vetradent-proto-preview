@@ -219,4 +219,73 @@
       Array.from(rail.children).forEach((c) => obs.observe(c));
     }
   });
+
+  /* Day dial: each clock dot scrolls to that time of day. */
+  document.querySelectorAll('.day__clock').forEach((clock) => {
+    if (getComputedStyle(clock).display === 'none') return;
+    const section = clock.closest('.day');
+    const buttons = Array.from(clock.querySelectorAll('button'));
+    if (!section || !buttons.length) return;
+    /* Midpoint of each moment while it is fully held on the view timeline. */
+    const stops = [0.1, 0.375, 0.625, 0.9];
+
+    const range = () => {
+      const cs = getComputedStyle(document.documentElement);
+      const padTop = parseFloat(cs.scrollPaddingTop) || 0;
+      const padBottom = parseFloat(cs.scrollPaddingBottom) || 0;
+      const vh = document.documentElement.clientHeight;
+      const top = section.getBoundingClientRect().top + window.scrollY;
+      const start = top - padTop;
+      const end = top + section.offsetHeight - vh + padBottom;
+      return { start, end: Math.max(start, end) };
+    };
+
+    const setCurrent = () => {
+      const { start, end } = range();
+      const span = end - start;
+      const p = span > 0 ? (window.scrollY - start) / span : 0;
+      const inside = p >= -0.02 && p <= 1.02;
+      const index = inside ? Math.min(buttons.length - 1, Math.max(0, Math.floor(Math.min(p, 0.999) * buttons.length))) : -1;
+      buttons.forEach((btn, i) => {
+        if (i === index) btn.setAttribute('aria-current', 'true');
+        else btn.removeAttribute('aria-current');
+      });
+    };
+
+    buttons.forEach((btn, i) => {
+      btn.addEventListener('click', () => {
+        const { start, end } = range();
+        window.scrollTo({
+          top: start + (stops[i] ?? 0) * (end - start),
+          behavior: reduced.matches ? 'instant' : 'smooth',
+        });
+      });
+    });
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        setCurrent();
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    setCurrent();
+  });
+
+  /* Hero orbit: a persistent pause for touch, where hover never fires. */
+  document.querySelectorAll('.po-hero__pause').forEach((btn) => {
+    const stage = btn.closest('.po-hero__stage') || document.querySelector('.po-hero__stage');
+    if (!stage) return;
+    btn.addEventListener('click', () => {
+      const paused = stage.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+      btn.setAttribute('aria-label', paused ? 'Play product motion' : 'Pause product motion');
+      const text = btn.querySelector('.po-hero__pause-text');
+      if (text) text.textContent = paused ? 'Play' : 'Pause';
+    });
+  });
 })();

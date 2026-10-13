@@ -114,13 +114,15 @@
 .biotrate__copy { display: grid; gap: 1.1rem; justify-items: start; }
 .biotrate__logo { width: 9.5rem; }
 .biotrate__title { font-size: var(--wp--preset--font-size--x-large); }
-/* Keep ® marks the same optical size after ALL-CAPS VETRADENT vs mixed-case Biotrate */
+/* Chantal draws ® at cap size on the baseline. Body face, smaller and raised, so both marks read as superscripts. */
 .biotrate__title sup {
-  font-size: .55em;
-  font-weight: 600;
-  line-height: 0;
-  vertical-align: .35em;
-  position: static;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: .42em;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: baseline;
+  position: relative;
+  top: -.85em;
 }
 .biotrate__switch {
   position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: 30rem;
@@ -181,9 +183,18 @@ html.js .biotrate__panel.is-active { opacity: 1; scale: 1; rotate: 0deg; pointer
 .vd-rail::-webkit-scrollbar { display: none; }
 .vd-rail > * { scroll-snap-align: center; }
 .vd-rail:focus-visible { outline: 3px solid var(--wp--preset--color--secondary); outline-offset: -3px; }
-.vd-rail-dots { display: flex; justify-content: center; gap: .4rem; }
-.vd-rail-dots button { width: .55rem; height: .55rem; padding: 0; border: 0; border-radius: 999px; background: var(--wp--preset--color--lilac); cursor: pointer; transition: width .4s var(--wp--custom--ease--spring), background .3s; }
-.vd-rail-dots button[data-active] { width: 1.6rem; background: var(--wp--preset--color--primary); }
+.vd-rail-dots { display: flex; justify-content: center; align-items: center; gap: .15rem; }
+.vd-rail-dots button {
+  position: relative; width: 1.5rem; height: 1.5rem; padding: 0; border: 0; border-radius: 999px;
+  background: transparent; cursor: pointer;
+}
+.vd-rail-dots button::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: .55rem; height: .55rem;
+  translate: -50% -50%; border-radius: 999px; background: var(--wp--preset--color--lilac);
+  transition: width .4s var(--wp--custom--ease--spring), background .3s;
+}
+.vd-rail-dots button[data-active] { width: 2.2rem; }
+.vd-rail-dots button[data-active]::before { width: 1.6rem; background: var(--wp--preset--color--primary); }
 .vd-rail-nav { display: flex; gap: .5rem; }
 .vd-rail-nav button {
   width: 3rem; height: 3rem; border-radius: 50%; border: 2px solid var(--wp--preset--color--primary); background: #fff; cursor: pointer;

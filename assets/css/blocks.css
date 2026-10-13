@@ -27,7 +27,12 @@ h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 button { font: inherit; color: inherit; }
 sup { font-size: 0.6em; line-height: 0; }
 ::selection { background: var(--wp--preset--color--accent); color: var(--wp--preset--color--ink); }
-:focus-visible { outline: 3px solid var(--wp--preset--color--accent); outline-offset: 3px; border-radius: 6px; }
+:focus-visible {
+  outline: 3px solid var(--wp--preset--color--ink);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 3px var(--wp--preset--color--accent);
+  border-radius: 6px;
+}
 
 .screen-reader-text {
   position: absolute !important; width: 1px; height: 1px; overflow: hidden;
@@ -307,11 +312,25 @@ body:has(.dock) { padding-bottom: calc(var(--wp--custom--dock--height) + 1.5rem)
 .marquee__track {
   display: flex; gap: 1.5rem; width: max-content; align-items: center; white-space: nowrap;
   font-family: var(--wp--preset--font-family--display); font-size: var(--wp--preset--font-size--x-large); font-weight: 400; line-height: 1;
-  animation: vd-marquee 28s linear infinite;
+}
+.site-footer__marquee.is-inview .marquee__track {
+  animation: vd-footer-marquee 5s linear 1 forwards;
 }
 .no-chantal .marquee__track { text-transform: uppercase; font-weight: 800; }
 .marquee__track i { font-style: normal; font-size: .6em; color: var(--wp--preset--color--lilac); }
 @keyframes vd-marquee { to { transform: translateX(-50%); } }
+/* 4s linear at the old marquee speed, then 1s of deceleration to a stop. */
+@keyframes vd-footer-marquee {
+  from {
+    transform: translateX(0);
+    animation-timing-function: linear;
+  }
+  80% {
+    transform: translateX(calc(-50% * 4 / 28));
+    animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1);
+  }
+  to { transform: translateX(calc(-50% * 4.5 / 28)); }
+}
 .site-footer__inner { padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50) var(--wp--preset--spacing--60); display: grid; justify-items: center; gap: 1.25rem; }
 .site-footer__logo { height: 6.5rem; width: auto; filter: brightness(0) invert(1); }
 .site-footer__contact { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 0; font-weight: 600; }
@@ -494,7 +513,7 @@ body:has(dialog[open]) { overflow: hidden; }
 .vd-field input:focus, .vd-field select:focus { outline: none; border-color: var(--wp--preset--color--secondary); box-shadow: 0 0 0 4px rgb(122 41 129 / .15); }
 .vd-field label {
   position: absolute; left: 1.1rem; top: 1.15rem; pointer-events: none;
-  font-size: var(--wp--preset--font-size--small); color: color-mix(in oklab, var(--wp--preset--color--ink) 60%, transparent);
+  font-size: var(--wp--preset--font-size--small); color: color-mix(in oklab, var(--wp--preset--color--ink) 75%, transparent);
   transform-origin: 0 0; transition: transform .3s var(--wp--custom--ease--out), color .3s;
 }
 .vd-field input:is(:focus, :not(:placeholder-shown)) + label,

@@ -39,6 +39,22 @@
 }
 .gate__star { width: 3rem; left: 4%; top: 36%; }
 .gate__badge { position: absolute; right: -.25rem; top: calc(min(52svh, 30rem) - 4.5rem); z-index: 3; width: 6.5rem; }
+.gate__badge .vd-badge__ring,
+.gate__badge:hover .vd-badge__ring {
+  animation: vd-gate-spin 5s linear 1 forwards;
+}
+/* Same pace as the 16s spin: 4s linear, then 1s of deceleration to a stop. */
+@keyframes vd-gate-spin {
+  from {
+    rotate: 0deg;
+    animation-timing-function: linear;
+  }
+  80% {
+    rotate: 90deg;
+    animation-timing-function: cubic-bezier(0.333, 0.667, 0.667, 1);
+  }
+  to { rotate: 101.25deg; }
+}
 .gate__badge .vd-badge__ring text { font-family: var(--wp--preset--font-family--display); font-size: 21px; font-weight: 600; letter-spacing: .02em; }
 .no-chantal .gate__badge .vd-badge__ring text { font-size: 17px; font-weight: 800; text-transform: uppercase; }
 

@@ -74,7 +74,7 @@
       chewy: 'https://www.chewy.com/s?query=vetradent+toothpaste',
       vohc: false,
       blurb: (pet) =>
-        `When you and ${pet} are this comfortable together, the enhanced cleaning of toothbrushing only makes sense. Gently brush their teeth with a pea-sized amount of allergy-friendly, chicken-flavored toothpaste once daily. No rinsing required!`,
+        `When you and ${pet} are this comfortable together, the enhanced cleaning of toothbrushing only makes sense. Gently brush their teeth with a pea-size amount of allergy-friendly, chicken-flavored toothpaste once daily. No rinsing required!`,
     },
     chews: {
       id: 'chews',
@@ -150,7 +150,7 @@
       id: 'petName',
       kicker: 'Introductions, please',
       title: 'What’s your pet’s name?',
-      help: 'We’ll accept silly nicknames too.',
+      help: 'We’ll accept silly nicknames, too.',
       type: 'text',
       placeholder: 'Pet name',
     },
@@ -178,7 +178,7 @@
       options: [
         { value: 'scratch', label: 'Starting from scratch' },
         { value: 'building', label: 'Building a habit' },
-        { value: 'inconsistent', label: 'Doing our best but inconsistent TBH' },
+        { value: 'inconsistent', label: 'Doing our best, but inconsistent TBH' },
         { value: 'everyday', label: 'Already part of our everyday' },
       ],
     },
@@ -327,6 +327,14 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Keep the last two words together so a question never ends on a one-word line.
+  function escapeQuestion(text) {
+    const parts = String(text).trim().split(/\s+/);
+    if (parts.length < 2) return escapeHtml(text);
+    const last = parts.pop();
+    return `${escapeHtml(parts.join(' '))}&nbsp;${escapeHtml(last)}`;
+  }
+
   // Match build.mjs: superscript ® in text nodes only (JS-injected HTML skips the build pass).
   function superscriptMarks(html) {
     let skip = 0;
@@ -471,7 +479,7 @@
         </section>
         <section class="proof-fyf__block">
           <p class="proof-fyf__label">Loading</p>
-          <h3>Finding your match…</h3>
+          <h3>Finding your match …</h3>
           <p>One second while we put together your routine.</p>
         </section>
         <section class="proof-fyf__block">
@@ -661,8 +669,8 @@
       let body = '';
       if (q.type === 'text') {
         body = `<div class="fyf-field">
-          <label class="screen-reader-text" for="fyf-pet-name">${escapeHtml(q.placeholder || 'Pet name')}</label>
-          <input id="fyf-pet-name" class="fyf-input" type="text" maxlength="40" autocomplete="off" placeholder="${escapeHtml(q.placeholder || '')}" value="${escapeHtml(state.answers.petName || '')}">
+          <label class="fyf-label" for="fyf-pet-name">Pet name</label>
+          <input id="fyf-pet-name" class="fyf-input" type="text" maxlength="40" autocomplete="off" placeholder="Nicknames welcome" value="${escapeHtml(state.answers.petName || '')}">
           <button type="button" class="wp-block-button__link fyf-continue" data-fyf-continue>Continue</button>
         </div>`;
       } else if (q.type === 'multi') {
@@ -679,7 +687,8 @@
           <button type="button" class="wp-block-button__link fyf-continue" data-fyf-continue>See my routine</button>
         </div>`;
       } else {
-        body = `<div class="fyf-options" role="list">
+        body = `<p class="fyf-choose">Choose one to continue</p>
+        <div class="fyf-options" role="list">
           ${q.options
             .map((o) => {
               const icon = o.icon
@@ -697,7 +706,7 @@
           <div class="fyf-progress__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(progress)}"><i style="width:${progress}%"></i></div>
         </div>
         <p class="fyf-kicker">${escapeHtml(q.kicker)}</p>
-        <h2 class="fyf-question">${escapeHtml(fillPet(q.title, state.answers.petName))}</h2>
+        <h2 class="fyf-question">${escapeQuestion(fillPet(q.title, state.answers.petName))}</h2>
         <p class="fyf-help">${escapeHtml(fillPet(q.help, state.answers.petName))}</p>
         ${body}
         ${q.tip ? `<p class="fyf-tip"><strong>Doable Tip:</strong> ${escapeHtml(q.tip)}</p>` : ''}

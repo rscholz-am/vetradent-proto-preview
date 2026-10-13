@@ -104,25 +104,6 @@
     overflow-wrap: anywhere;
     user-select: text;
   }
-  .dock__export {
-    display: block;
-    width: 100%;
-    margin: 0;
-    padding: 0.45rem 0.65rem;
-    border: 0;
-    border-radius: 0.65rem;
-    background: #7a2981;
-    color: #fff;
-    font: inherit;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-  }
-  .dock__export:hover { background: #9a3aa3; color: #fff; }
   `;
 
   class PageMeta extends HTMLElement {
@@ -159,7 +140,6 @@
               <dt>Meta Description</dt>
               <dd data-meta="description"></dd>
             </dl>
-            <a class="dock__export" data-meta-export href="#">Export PDF</a>
           </div>
         </div>
       `;
@@ -168,18 +148,6 @@
       this.#pageEl = shadow.querySelector('[data-meta="page"]');
       this.#titleEl = shadow.querySelector('[data-meta="title"]');
       this.#descEl = shadow.querySelector('[data-meta="description"]');
-      const exportBtn = shadow.querySelector('[data-meta-export]');
-      if (exportBtn) {
-        exportBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const root = this.#proofRoot();
-          if (document.documentElement.classList.contains('proof') || location.pathname.includes('/proof/')) {
-            window.print();
-            return;
-          }
-          location.href = root + 'proof/index.html';
-        });
-      }
       this.#toggle.addEventListener('change', () => this.#applyExpanded(this.#toggle.checked));
       this.#applyExpanded(localStorage.getItem(EXPANDED_KEY) === 'true');
       this.#refresh();
@@ -206,25 +174,6 @@
       this.#dock.classList.toggle('dock--expanded', expanded);
       this.#toggle.setAttribute('aria-expanded', String(expanded));
       localStorage.setItem(EXPANDED_KEY, String(expanded));
-    }
-
-    #proofRoot() {
-      const path = location.pathname || '';
-      const parts = path.split('/').filter(Boolean);
-      // Drop filename if present
-      if (parts.length && /\.html?$/i.test(parts[parts.length - 1])) parts.pop();
-      // Site root depth: each remaining segment is one level under host root of the site
-      // Prefer data-root from fit-finder or first stylesheet
-      const fyf = document.getElementById('fit-finder');
-      if (fyf && fyf.dataset.root) return fyf.dataset.root;
-      const css = document.querySelector('link[href*="assets/css/tokens.css"]');
-      if (css) {
-        const href = css.getAttribute('href') || '';
-        const idx = href.indexOf('assets/css/tokens.css');
-        if (idx >= 0) return href.slice(0, idx) || './';
-      }
-      if (!parts.length) return './';
-      return '../'.repeat(parts.length);
     }
 
     #refresh() {

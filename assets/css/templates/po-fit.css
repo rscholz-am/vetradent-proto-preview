@@ -69,7 +69,7 @@
   font-weight: 700;
   letter-spacing: .06em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--wp--preset--color--ink) 55%, transparent);
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 75%, transparent);
 }
 .fyf-progress__bar {
   height: .45rem;
@@ -90,15 +90,26 @@
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--wp--preset--color--ink) 50%, transparent);
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 75%, transparent);
 }
 .fyf-question {
   margin: 0;
   font-size: clamp(1.75rem, 1rem + 2vw, 2.75rem);
   line-height: 1.05;
-  max-width: 18ch;
+  max-width: 22ch;
 }
 .fyf-help { margin: 0; max-width: 36rem; }
+.fyf-choose {
+  margin: .15rem 0 0;
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 700;
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 75%, transparent);
+}
+.fyf-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--ink);
+}
 .fyf-tip {
   margin: .25rem 0 0;
   padding: .9rem 1.1rem;
@@ -314,7 +325,7 @@
   letter-spacing: -.01em;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .fyf-hero-tape.is-front .fyf-hero-tape__track { animation: vd-marquee 28s linear infinite; }
+  .fyf-hero-tape.is-front .fyf-hero-tape__track { animation: vd-footer-marquee 5s linear 1 forwards; }
 }
 @media (prefers-reduced-motion: reduce) {
   .fyf-results__species { animation: none; }

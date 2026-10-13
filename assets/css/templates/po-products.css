@@ -82,7 +82,7 @@
 .product-card__line { margin-block: 0; font-size: var(--wp--preset--font-size--small); line-height: 1.4; }
 .product-card__vohc {
   margin-block: .2rem 0; display: flex; align-items: flex-start; gap: .55rem;
-  font-size: var(--wp--preset--font-size--x-small); font-style: italic;
+  font-size: var(--wp--preset--font-size--x-small);
 }
 .product-card__vohc span { opacity: .8; }
 .product-card__seal {

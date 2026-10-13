@@ -103,6 +103,10 @@
   font-weight: 700;
   line-height: 0;
 }
+.cs-eff__headline sup {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: .36em;
+}
 .cs-eff__beat { display: grid; gap: 1.25rem; }
 .cs-eff__beat--water {
   padding-top: 1.5rem;

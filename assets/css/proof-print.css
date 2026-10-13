@@ -149,9 +149,15 @@ html.proof .po-hero__stage {
 html.proof .orbit {
   animation: none !important;
 }
+html.proof .po-hero__pause { display: none !important; }
 html.proof .orbit__item {
   opacity: 1 !important;
   animation: none !important;
+}
+html.proof .po-hero__explore {
+  opacity: 1 !important;
+  animation: none !important;
+  translate: none !important;
 }
 
 /* ---------- Desktop layouts (belt + suspenders; JS also hoists min-width media) ---------- */

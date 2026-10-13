@@ -47,7 +47,8 @@
   padding: 1.5rem; border-radius: 2rem; background: var(--m-bg); color: var(--m-fg); overflow: hidden;
 }
 .moment.is-day { --m-bg: var(--wp--preset--color--lilac); }
-.moment.is-evening { --m-bg: var(--wp--preset--color--wisteria); --m-fg: #fff; }
+/* Darker than brand wisteria so the white body line clears 4.5:1. Wordmark fills stay #a082bb. */
+.moment.is-evening { --m-bg: #7a5299; --m-fg: #fff; }
 .moment.is-night { --m-bg: var(--wp--preset--color--ink); --m-fg: #fff; }
 .moment__when { font-size: var(--wp--preset--font-size--xx-large); color: inherit; padding-right: 6rem; }
 .moment__photo { position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: 1.5rem; overflow: hidden; background: rgb(255 255 255 / .3); }
@@ -109,17 +110,25 @@
     height: auto; width: min(70%, 15rem); rotate: -8deg;
   }
   html:not(.no-heavy-scrolly) .day__clock {
-    display: flex; gap: .5rem; position: absolute; left: 50%; bottom: calc(var(--wp--custom--dock--height) + 1.25rem); translate: -50% 0;
+    display: flex; gap: 0; position: absolute; z-index: 2; left: 50%;
+    bottom: calc(var(--wp--custom--dock--height) + max(.6rem, env(safe-area-inset-bottom)) + .25rem); translate: -50% 0;
   }
-  html:not(.no-heavy-scrolly) .day__clock i { width: .6rem; height: .6rem; border-radius: 50%; background: currentColor; opacity: .3; animation: day-dot linear both; animation-timeline: --day; }
-  html:not(.no-heavy-scrolly) .day__clock i:nth-child(1) { animation-range: contain 0% contain 3%; }
-  html:not(.no-heavy-scrolly) .day__clock i:nth-child(2) { animation-range: contain 25% contain 30%; }
-  html:not(.no-heavy-scrolly) .day__clock i:nth-child(3) { animation-range: contain 50% contain 55%; }
-  html:not(.no-heavy-scrolly) .day__clock i:nth-child(4) { animation-range: contain 75% contain 80%; }
+  html:not(.no-heavy-scrolly) .day__clock button {
+    padding: 20px; border: 0; background: none; color: inherit; line-height: 0; cursor: pointer;
+  }
+  html:not(.no-heavy-scrolly) .day__clock i {
+    display: block; width: .6rem; height: .6rem; border-radius: 50%; background: currentColor; opacity: .3;
+    box-shadow: 0 0 0 1.5px var(--wp--preset--color--ink);
+    animation: day-dot linear both; animation-timeline: --day;
+  }
+  html:not(.no-heavy-scrolly) .day__clock button:nth-child(1) i { animation-range: contain 0% contain 3%; }
+  html:not(.no-heavy-scrolly) .day__clock button:nth-child(2) i { animation-range: contain 25% contain 30%; }
+  html:not(.no-heavy-scrolly) .day__clock button:nth-child(3) i { animation-range: contain 50% contain 55%; }
+  html:not(.no-heavy-scrolly) .day__clock button:nth-child(4) i { animation-range: contain 75% contain 80%; }
   @media (min-width: 64rem) {
     html:not(.no-heavy-scrolly) .day__arm { --arm: 26deg; }
     html:not(.no-heavy-scrolly) .day__moments { inset: 7rem 2rem 4rem; }
-    html:not(.no-heavy-scrolly) .day__clock { bottom: 2rem; }
+    html:not(.no-heavy-scrolly) .day__clock { bottom: calc(2rem - 20px); }
     html:not(.no-heavy-scrolly) .moment { grid-template-columns: minmax(0, 34rem) minmax(0, 26rem); grid-template-rows: auto auto; justify-content: center; column-gap: 3rem; text-align: left; justify-items: start; }
     html:not(.no-heavy-scrolly) .moment__photo { grid-row: 1 / span 2; grid-column: 1; }
     html:not(.no-heavy-scrolly) .moment__when { align-self: end; }
@@ -136,7 +145,7 @@
 @keyframes day-sky {
   0% { background: #fff3b0; color: var(--wp--preset--color--ink); }
   30% { background: var(--wp--preset--color--lilac); color: var(--wp--preset--color--ink); }
-  60% { background: var(--wp--preset--color--wisteria); color: #fff; }
+  60% { background: #7a5299; color: #fff; }
   85%, 100% { background: #24102f; color: #fff; }
 }
 @keyframes day-arm { from { rotate: calc(var(--arm) * -1); } to { rotate: var(--arm); } }
@@ -252,6 +261,7 @@
 }
 .perfect__text { margin: 0; max-width: 24rem; font-size: var(--wp--preset--font-size--medium); line-height: 1.45; }
 .why__ref { margin: var(--wp--preset--spacing--60) 0 0; font-size: var(--wp--preset--font-size--x-small); opacity: .7; }
+.why__ref cite { font-style: normal; }
 @media (min-width: 64rem) {
   .why__sheet { padding: var(--wp--preset--spacing--80) 4rem; }
   .why__grid { grid-template-columns: 1.2fr .8fr; gap: 4rem; }
