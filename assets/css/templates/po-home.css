@@ -267,7 +267,8 @@
   position: sticky; top: calc(5rem + var(--i) * .85rem);
   margin-bottom: 1.25rem;
 }
-.stack-card:focus-within { z-index: 4; }
+/* Pointer clicks leave :focus and would pin this card above later ones. */
+.stack-card:has(:focus-visible) { z-index: 4; }
 /* Mobile / stacked: side uses contents so order stays copy → art → buys */
 .stack-card__inner {
   --card-bg: var(--wp--preset--color--lilac); --card-fg: var(--wp--preset--color--ink);

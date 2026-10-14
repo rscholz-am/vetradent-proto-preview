@@ -276,6 +276,14 @@
     setCurrent();
   });
 
+  /* A shop link opens a new tab and keeps focus, which pins its sticky card. */
+  document.querySelectorAll('.stack-card__buy').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.detail === 0) return;
+      link.blur();
+    });
+  });
+
   /* Hero orbit: a persistent pause for touch, where hover never fires. */
   document.querySelectorAll('.po-hero__pause').forEach((btn) => {
     const stage = btn.closest('.po-hero__stage') || document.querySelector('.po-hero__stage');

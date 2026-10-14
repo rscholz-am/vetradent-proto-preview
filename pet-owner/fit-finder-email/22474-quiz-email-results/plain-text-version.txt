@@ -13,10 +13,10 @@ USE CODE: DOABLEXX
 (#insertUrlLink)
 
 SHOP AMAZON
-(https://www.amazon.com/)
+(https://www.amazon.com/Vetradent%C2%AE-Water-Additive-Dogs-Cats/dp/B0CC3ZVPRQ)
 
 SHOP CHEWY
-(https://www.chewy.com/)
+(https://www.chewy.com/vetradent-dog-cat-dental-water/dp/1180350)
 
 Thanks for using our Fit Finder!
 

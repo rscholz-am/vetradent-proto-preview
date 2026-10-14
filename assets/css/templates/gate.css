@@ -17,9 +17,9 @@
 }
 .gate__photo {
   width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%;
-  animation: gate-kenburns 22s ease-in-out infinite alternate;
+  animation: gate-kenburns 5s ease-in-out 1 both;
 }
-@keyframes gate-kenburns { from { scale: 1.06; translate: 0 0; } to { scale: 1.22; translate: -2% -3%; } }
+@keyframes gate-kenburns { from { scale: 1.22; translate: -2% -3%; } to { scale: 1.06; translate: 0 0; } }
 .gate__tagline {
   position: absolute;
   left: 0;
