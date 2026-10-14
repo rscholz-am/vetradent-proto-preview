@@ -687,22 +687,13 @@
   padding: .5rem .25rem .25rem;
   width: 100%;
 }
-.fyf-thanks__bar {
-  margin: 0;
-  font-size: var(--wp--preset--font-size--x-small);
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--wp--preset--color--secondary);
-}
-.fyf-thanks__logo { width: min(100%, 14rem); height: auto; }
 .fyf-thanks__title {
   margin: .25rem 0 0;
   font-family: var(--wp--preset--font-family--display);
   font-weight: 600;
   font-size: clamp(1.65rem, 1.2rem + 1.5vw, 2.25rem);
   line-height: 1.15;
-  color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--plum);
 }
 .no-chantal .fyf-thanks__title {
   text-transform: uppercase;

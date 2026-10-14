@@ -928,8 +928,6 @@
               <div class="fyf-offer__backdrop" data-fyf-offer-backdrop></div>
               <div class="fyf-offer__panel" id="fyf-offer-panel">
                 <div class="fyf-thanks__body">
-                  <p class="fyf-thanks__bar">Premium Home Dental Care</p>
-                  <img class="fyf-thanks__logo" src="${assetRoot}assets/img/logo-vetradent-dechra-brand-purple.svg" alt="VETRADENT® — A Dechra Brand" width="200" height="56">
                   <h2 id="fyf-thanks-title" class="fyf-thanks__title">Thanks for using our Fit Finder!</h2>
                   <p>We’ve sent an email to <strong data-fyf-email>${escapeHtml(state.lead.email || '')}</strong> with your discount code and a link to your personalized Real Doable Dental routine.</p>
                   <img class="fyf-thanks__dechra" src="${assetRoot}assets/img/logo-dechra-vrt.svg" alt="Dechra" width="240" height="100">
@@ -1109,11 +1107,7 @@
     }
 
     function openEmailPreview() {
-      renderEmailPreview();
-      if (!els.emailPreview) return;
-      if (typeof els.emailPreview.showModal === 'function' && !els.emailPreview.open) {
-        els.emailPreview.showModal();
-      }
+      location.assign(`${assetRoot}pet-owner/fit-finder-email/`);
     }
 
     function buildPardotPayload(form) {

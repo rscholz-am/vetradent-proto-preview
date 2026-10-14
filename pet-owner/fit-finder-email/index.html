@@ -1,168 +1,250 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js no-chantal" data-audience="pet-owner" data-page="Pet Owner Fit Finder Email">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Fit Finder Offer Email (example) | VETRADENT®</title>
-  <meta name="description" content="Standalone review of the Fit Finder offer email example (Keep It Effortless routine).">
-  <meta name="theme-color" content="#54266f">
-  <meta name="view-transition" content="same-origin">
-  <link rel="preconnect" href="https://use.typekit.net">
-  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
-  <link rel="stylesheet" href="https://use.typekit.net/nxb5ptr.css">
-  <link rel="preload" href="../../assets/fonts/Sora-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="../../assets/css/tokens.css">
-  <link rel="stylesheet" href="../../assets/css/blocks.css">
-  <link rel="stylesheet" href="../../assets/css/patterns.css">
-  <link rel="stylesheet" href="../../assets/css/templates/po-fit.css">
-  <link rel="stylesheet" href="../../assets/css/motion.css">
-  <link rel="stylesheet" href="../../assets/css/proof-print.css">
-  <link rel="icon" href="../../assets/img/icon-home-tooth.svg" type="image/svg+xml">
-  <script>
-    (function () {
-      var d = document.documentElement;
-      d.classList.replace('no-js', 'js');
-      try {
-        if (window.CSS && CSS.supports('animation-timeline: view()')) d.classList.add('has-sda');
-      } catch (_) {}
-      // iPad/iPhone Safari: skip tall sticky scrollytelling (GPU/memory kills).
-      var ua = navigator.userAgent || '';
-      var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      if (ios) d.classList.add('no-heavy-scrolly');
-      var params = new URLSearchParams(location.search);
-      if (params.get('proof') === '1') {
-        d.classList.add('proof', 'no-heavy-scrolly');
-      }
-      var requested = params.get('set_audience');
-      var path = location.pathname;
-      var audience = requested === 'pet-owner' || requested === 'veterinarian'
-        ? requested
-        : path.indexOf('/veterinarian') !== -1 ? 'veterinarian'
-        : path.indexOf('/pet-owner') !== -1 ? 'pet-owner' : '';
-      if (audience) document.cookie = 'vetradent_audience=' + audience + ';path=/;max-age=31536000;SameSite=Lax';
-      if (document.fonts && document.fonts.load) {
-        document.fonts.load('1em chantal').then(function (f) { if (f.length) d.classList.remove('no-chantal'); });
-      }
-    })();
-  </script>
-  <script src="../../assets/js/store.js" defer></script>
-  <script src="../../assets/js/motion.js" defer></script>
-  <script src="../../assets/js/blocks.js" defer></script>
-  <script src="../../assets/js/page-states.js" defer></script>
-  <script src="../../assets/js/page-meta.js" defer></script>
-  <script src="../../assets/js/fit-finder.js" defer></script>
-  <script src="../../assets/js/proof-export.js" defer></script>
+<meta charset="utf-8">
+<title>22474 - Dechra - Vetradent.com (Preview)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex" />
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIBSURBVHgB7ZpblcIwFEXTWSMACUhAAhJwAA7AAUUBOAAHSAAHSEACOLjD6az8lCQ3bZO0Te9eKz/QRzbJuaQPpQRBEARhMBSfVqoJAWFSE+JHTQwRzp1f2xfL5bJqY+R+v1fNBtlaWZY0Nk6nE7mcFPMl7XY7GgOv14s2mw0nywujzedzej6fNFTQt8Vi4SPrJ6ylH48HDQ30CX3z9VANNqwaMjIUPPLqJ3w8HmnoxQy1xda/2WxG5/PZXxggF66pgsz0kWuc8/N36RW9RsL64K5ikLqYcXmtD0JjYQ03fVLk+nK5VOey9WO73X7t01oY7Pf73nKNY7vOjZpjopMw4KbUarUKOsWxmODyervdrPt3FgZcMQuV6xBFM4gwwC/P5fp6vVJbsK8rr+v1uuoDRzBhTYxcc3nFOX0JLgwwGq6phwW9z2hwi3+MuCuvJqIIg665jlUXogkDjBCqtGpYUfGZK684ps8MMRFVWNMk19ziv0leTSQRBli4u0YNFd5n8d+VZMKAy6Vr6oe67k4qDLgrm3rDtm3zaiK5sIbLNZpp8d+V3oSB66aCbfHflV6FQf3iI/Z9st6Fgb6pkOKOicnN+PTwf9u4vN9v9fn7UTEpiuL7M9WTcApMwvL0MHdEOHdEOHfklQdwOBxUrsh7WrkjwrmDopVvhRIEQRCEYfMHNBLK4GKXyjoAAAAASUVORK5CYII=">
+<style>
+body {
+font-family: 'Helvetica', 'Arial', sans-serif;
+margin: 0;
+padding: 32px 16px;
+background: #fff;
+}
+h2 {
+color: #111;
+font-size: 24px;
+font-weight: bold;
+margin: 0;
+}
+h3 {
+color: #666;
+font-size: 14px;
+font-weight: normal;
+margin: 0;
+}
+.email__subheading {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 8px 0;
+height: 34px;
+}
+.btn {
+display: inline-block;
+vertical-align: middle;
+border: 0;
+padding: 12px 24px;
+color: #fff;
+border: 1px solid #000;
+background: #000;
+font-weight: bold;
+font-size: 16px;
+border-radius: 50px;
+cursor: pointer;
+}
+.btn--alt {
+color: #000;
+background: #fff;
+margin-left: 24px;
+border: 1px solid #000;
+}
+.btn:hover {
+background: #222;
+border: 1px solid #222;
+}
+.btn--alt:hover {
+color: #555;
+border: 1px solid #555;
+background: #fff;
+}
+.btn-icon,
+.btn-txt {
+display: inline-block;
+vertical-align: middle;
+}
+.btn-icon {
+margin-right: 4px;
+}
+.email {
+max-width: 1400px;
+margin: auto;
+}
+.email__creative {
+display: flex;
+justify-content: space-around;
+margin: 30px 0 100px;
+}
+@media screen and (max-width: 1300px) {
+.email__creative {
+flex-direction: column;
+align-items: center;
+}
+.email__col--small {
+margin-top: 32px;
+}
+}
+.email__resizer {
+display: block;
+width: 214px;
+padding: 8px;
+appearance: none;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 14px;
+cursor: pointer;
+padding-right: 20px;
+background-image: url("data:image/svg+xml,%3Csvg clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m16.843 10.211c.108-.141.157-.3.157-.456 0-.389-.306-.755-.749-.755h-8.501c-.445 0-.75.367-.75.755 0 .157.05.316.159.457 1.203 1.554 3.252 4.199 4.258 5.498.142.184.36.29.592.29.23 0 .449-.107.591-.291 1.002-1.299 3.044-3.945 4.243-5.498z'/%3E%3C/svg%3E"); background-position: right center;
+background-size: 20px 20px;
+background-repeat: no-repeat;
+background-position: right 6px center;
+}
+.email__resizer::ms-expand {
+display: none;
+}
+.email__frame {
+border: 0;
+background: #fff;
+display: block;
+}
+.email__frame--small {
+width: 393px;
+height: 852px;
+transition: width 220ms ease;
+border: 12px solid #111;
+border-radius: 24px;
+}
+.email__frame--large {
+border-radius: 4px;
+background: #f5f5f5;
+width: 700px;
+height: 700px;
+}
+.email__header {
+background: #fff;
+border-radius: 4px;
+padding: 16px;
+}
+.preview {
+margin-top: 8px;
+width: 100%;
+border-spacing: 0px 8px;
+}
+.preview__text {
+font-size: 14px;
+}
+.preview__text--subject {
+color: #202124;
+}
+.preview__text--preheader {
+color: #5f6368;
+opacity: 0.7;
+}
+.preview__text--warning {
+background: rgb(253, 246, 178);
+color: rgb(142, 75, 16);
+border-radius: 4px;
+padding: 12px;
+}
+.icon,
+.txt {
+display: inline-block;
+vertical-align: middle;
+}
+.icon {
+margin-right: 4px;
+fill: rgb(142, 75, 16);
+}</style>
 </head>
-<body class="wp-site-blocks fyf-email-page">
-  <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
-  <header class="wp-block-template-part site-header">
-  <div class="site-header__bar">
-    <a class="site-header__logo" href="../../pet-owner/index.html" aria-label="VETRADENT® home"><img src="../../assets/img/logo-vetradent-dechra-brand.svg" alt="VETRADENT® a Dechra brand" width="125" height="36"></a>
-    <nav class="wp-block-navigation site-header__nav" aria-label="Primary"><ul class="wp-block-navigation__container"><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/index.html">Home</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/how-it-works/index.html">How It Works</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/dental-health/index.html">Dental Health</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../../pet-owner/products/index.html">Products</a></li><li class="wp-block-navigation-item is-cta"><a class="wp-block-navigation-item__content" href="../../pet-owner/find-your-fit/index.html" aria-current="page">Find Your Fit</a></li></ul></nav>
-    <a class="site-header__switch" href="../../veterinarian/index.html?set_audience=veterinarian"><span class="u-desktop">For veterinary professionals</span><span class="u-mobile">Vet Pro</span> <span aria-hidden="true">→</span></a>
-  </div>
-  <div class="site-header__progress" aria-hidden="true"></div>
-</header>
-  <main id="main" class="wp-block-group site-main">
-<section class="wp-block-group alignfull fyf-email-page__wrap has-global-padding">
-  <div class="fyf-email-page__intro is-layout-constrained">
-    <p class="vd-kicker">Review only</p>
-    <h1 class="has-large-font-size">Fit Finder offer email</h1>
-    <p class="lead">Example for the <strong>Keep It Effortless</strong> routine. Same markup as the in-quiz email preview — no quiz required.</p>
-    <p><a href="../../pet-owner/find-your-fit/index.html">← Back to Find Your Fit</a></p>
-  </div>
+<body>
+<div class="emails">
+<div class="email">
+<div class="email__header">
+<h2>22474-Quiz-Email-Results</h2><table class="preview">
+<tr class="preview__row">
+<td class="preview__text preview__text--subject">Your VETRADENT® Dental Discount is Here! ✨<span class="preview__text--preheader"> - Start your Real Doable Dental routine today.</span></td></tr></table>
+</div>
+<div class="email__creative">
+<div class="email__col email__col--large">
+<div class="email__subheading">
+<h3>Desktop Preview (600px)</h3>
+</div>
+<iframe class="email__frame email__frame--large" style="width: 720px; height: 2510px;" src="22474-quiz-email-results/index.html"></iframe>
+</div>
+<div class="email__col email__col--small">
+<div class="email__subheading">
+<h3>Mobile Preview</h3>
+<select class="email__resizer" onchange="updateIframeSizes(this)">
+<option value="430">iPhone 16 Pro Max (430px)</option>
+<option value="393" selected>iPhone 16 (393px)</option>
+<option value="375">iPhone 13 Mini (375px)</option>
+<option value="360">iPhone 12 Mini (360px)</option>
+<option value="320">iPhone SE (320px)</option>
+</select>
+</div>
+<iframe class="email__frame email__frame--small" src="22474-quiz-email-results/index.html"></iframe>
+</div>
+</div>
+</div>
+</div><script>
+      var userAgent = window.navigator.userAgent;
+      var isWindows = /Win32|Win64|Windows|Windows NT|WinCE/gi.test(userAgent);
+      if(isWindows) {
+        var emails = document.getElementsByClassName('email__frame');
+        for (var i = 0; i < emails.length; ++i) {
+          var email = emails[i];
+          var w = parseInt(email.style.width.replace('px', ''), 10);
 
-  <div class="fyf-email-page__stage">
-    <article class="fyf-mail" aria-labelledby="fyf-email-preview-title">
-      <div class="fyf-mail__brand">
-        <img src="../../assets/img/logo-dechra-vrt.svg" alt="Dechra" width="192" height="140">
-      </div>
-      <img class="fyf-mail__hero" src="../../assets/img/hero-email-keepiteffortless.jpg" alt="VETRADENT® Real Doable Dental. Keep It Effortless. Premium Home Dental Care." width="1200" height="1080">
-      <div class="fyf-mail__body">
-        <section class="fyf-mail__offer">
-          <p class="fyf-mail__offer-flag">Limited-time offer</p>
-          <h2 id="fyf-email-preview-title" class="fyf-mail__headline">Save XX% on your personalized dental routine.</h2>
-          <p class="fyf-mail__copy">Give [Pet-Name] cleaner teeth and fresher breath for less. Your Real Doable Dental routine starts here.</p>
-          <p class="fyf-mail__code">USE CODE: <strong>DOABLEXX</strong></p>
-          <div class="fyf-mail__cta">
-            <a href="https://www.amazon.com/s?k=vetradent+water+additive" target="_blank" rel="noopener noreferrer">Shop Amazon</a>
-            <a href="https://www.chewy.com/s?query=vetradent+water+additive" target="_blank" rel="noopener noreferrer">Shop Chewy</a>
-          </div>
-        </section>
-        <section class="fyf-mail__next">
-          <h3 class="fyf-mail__subhead">Thanks for using our Fit Finder!</h3>
-          <p class="fyf-mail__copy">You can refer to your dental routine recommendations anytime. Based on your answers, we’ve created a doable VETRADENT<sup>®</sup> dental routine that meets you and your pet where you&nbsp;are&nbsp;now.</p>
-          <p class="fyf-mail__cheer">⭐ You can do this! ⭐</p>
-          <p class="fyf-mail__copy">Think progress over perfection to improve your pet’s dental&nbsp;health.</p>
-          <p class="fyf-mail__review"><a href="../../pet-owner/find-your-fit/index.html">Review your results</a></p>
-          <ul class="fyf-mail__callouts">
-            <li>
-              <div class="fyf-mail__callout-art">
-                <img src="../../assets/img/icon-flask.svg" alt="" width="48" height="48">
-              </div>
-              <strong>BIOTRATE<sup>®</sup> TECHNOLOGY</strong>
-              <span>Patented science behind every&nbsp;smile</span>
-            </li>
-            <li>
-              <div class="fyf-mail__callout-art">
-                <img src="../../assets/img/icon-stack.svg" alt="" width="48" height="48">
-              </div>
-              <strong>FLEXIBLE FORMATS</strong>
-              <span>Made for real-life&nbsp;routines</span>
-            </li>
-            <li>
-              <div class="fyf-mail__callout-art">
-                <img src="../../assets/img/icon-tooth.svg" alt="" width="48" height="48">
-              </div>
-              <strong>REAL RESULTS</strong>
-              <span>Control tartar &amp; freshen&nbsp;breath</span>
-            </li>
-          </ul>
-          <p class="fyf-mail__note">*Achieved in dogs only. VETRADENT<sup>®</sup> Water Additive was achieved with once monthly brushing in accordance with the study&nbsp;design.</p>
-        </section>
-      </div>
-      <footer class="fyf-mail__footer">
-        <img src="../../assets/img/logo-dechra-vrt.svg" alt="Dechra" width="192" height="140">
-        <p>© 2026 Dechra Veterinary Products, LLC. All rights reserved. Dechra is a registered trademark of Dechra Pharmaceuticals Limited. VETRADENT and Biotrate are registered trademarks of Dechra Veterinary Products, LLC. All other trademarks are trademarks of their respective owners.</p>
-        <p>One Marina Park Drive, Suite 1300, Boston, MA 02210</p>
-        <p class="fyf-mail__unsub"><a href="#">Unsubscribe</a> <span aria-hidden="true">|</span> <a href="#">Update Subscription Preferences</a></p>
-        <p class="fyf-mail__code-line">M-00000 0000</p>
-      </footer>
-    </article>
-  </div>
-</section>
+          if (isNaN(w)) {
+            w = parseInt(window.getComputedStyle(email).width.replace('px', ''), 10);
+          }
 
-  </main>
-  <footer class="wp-block-template-part site-footer">
-  <div class="site-footer__marquee" aria-hidden="true" data-inview>
-    <div class="marquee__track">
-      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
-      <span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i><span>Real Doable Dental</span><i>✦</i>
-    </div>
-  </div>
-  <div class="site-footer__inner wp-block-group is-layout-constrained">
-    <img src="../../assets/img/logo-dechra-vrt.svg" alt="Dechra" class="site-footer__logo" width="160" height="115" loading="lazy">
-    <p class="site-footer__contact">
-      <a href="mailto:support@dechra.com">support@dechra.com</a>
-      <span aria-hidden="true">·</span>
-      <a href="tel:+18669332472">(866) 933-2472</a>
-    </p>
-    <nav class="site-footer__nav" aria-label="Legal">
-      <a href="../../privacy-policy/index.html">Privacy Policy</a>
-      <a href="../../terms-of-use/index.html">Terms of Use</a>
-      <a href="../../cookies/index.html">Cookies</a>
-      <a href="../../customer-support/index.html">Customer Support</a>
-    </nav>
-    <p class="site-footer__legal">
-      ©2026 Dechra Veterinary Products, LLC. All rights reserved. Dechra is a registered trademark of Dechra Pharmaceuticals Limited. VETRADENT and Biotrate are registered trademarks of Dechra Veterinary Products, LLC. All other trademarks are trademarks of their respective owners.<br>M-00000 0000
-    </p>
-    <a class="site-footer__gate" href="../../index.html?gate=1">Switch experience ↺</a>
-  </div>
-</footer>
+          if (!isNaN(w)) {
+            email.style.width = w + 18 + 'px';
+          }
+        }
+      }
 
-  <nav class="wp-block-navigation dock" aria-label="Quick navigation" style="--count:5;--active:4">
-  <span class="dock__blob" aria-hidden="true"></span>
-  <ul><li class="dock__item"><a href="../../pet-owner/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a></li><li class="dock__item"><a href="../../pet-owner/how-it-works/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span>How It<br>Works</span></a></li><li class="dock__item"><a href="../../pet-owner/dental-health/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Dental<br>Health</span></a></li><li class="dock__item"><a href="../../pet-owner/products/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5zM4 8.5l8 4.5 8-4.5M12 13v7"/></svg><span>Products</span></a></li><li class="dock__item is-cta"><a href="../../pet-owner/find-your-fit/index.html" aria-current="page"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg><span>Your Fit</span></a></li></ul>
-</nav>
+      function updateIframeSizes(selectElement) {
+        const selectedValue = selectElement.value;
+        const selectedWidth = parseInt(selectedValue, 10);
+        const iframes = document.querySelectorAll('.email__frame--small');
+        const selects = document.querySelectorAll('.email__resizer');
+
+        if (isNaN(selectedWidth)) {
+          return;
+        }
+
+        iframes.forEach(iframe => {
+          // Set the width based on the platform
+          const width = selectedWidth + (isWindows ? 18 : 0);
+          iframe.style.width = width + 'px';
+
+          // Define viewport sizes for specific iPhone models (in pixels)
+          const iphoneViewports = {
+              "430": { width: 430, height: 932 }, // iPhone 16 Pro Max
+              "393": { width: 393, height: 852 }, // iPhone 16
+              "375": { width: 375, height: 812 }, // iPhone 13 Mini
+              "360": { width: 360, height: 780 }, // iPhone 12 Mini
+              "320": { width: 320, height: 568 }  // iPhone SE
+          };
+
+          // Ensure the selected value matches one of the defined options
+          if (iphoneViewports[selectedValue]) {
+              const viewport = iphoneViewports[selectedValue];
+              // Calculate and set the height based on the viewport aspect ratio
+              const aspectRatio = viewport.height / viewport.width;
+              const height = selectedWidth * aspectRatio;
+              iframe.style.height = height + 'px';
+          }
+        });
+
+        selects.forEach(select => {
+          select.value = selectedValue;
+        });
+      }
+</script>
 </body>
 </html>
