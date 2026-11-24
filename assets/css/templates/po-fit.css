@@ -34,6 +34,13 @@
   .fyf-intro__title { font-size: clamp(2.75rem, 1rem + 3.2vw, 4.5rem); }
 }
 .fyf-intro__lead { max-width: 36rem; margin: 0; }
+.fyf-intro__fine {
+  margin: -.35rem 0 0;
+  max-width: 36rem;
+  font-size: clamp(.62rem, .56rem + .15vw, .7rem);
+  line-height: 1.3;
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 58%, transparent);
+}
 .fyf-intro__meta { margin: 0; max-width: 32rem; }
 
 /* ---------- quiz ---------- */
@@ -656,8 +663,16 @@
 .fyf-legal {
   margin: 0;
   font-size: var(--wp--preset--font-size--x-small);
+  line-height: 1.45;
   color: color-mix(in oklab, var(--wp--preset--color--ink) 70%, transparent);
 }
+.fyf-legal a {
+  color: var(--wp--preset--color--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: .12em;
+}
+.fyf-legal a:hover { color: var(--wp--preset--color--secondary); }
 .fyf-results__actions {
   display: flex;
   flex-wrap: wrap;

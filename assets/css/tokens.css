@@ -13,6 +13,8 @@
   --wp--preset--color--lavender: #efe8f4;
   --wp--preset--color--lilac: #ddd6ec;
   --wp--preset--color--wisteria: #a082bb;
+  /* White copy ≥4.5:1 on surfaces; brand wisteria (#a082bb) stays for fills/decorative use */
+  --wp--preset--color--wisteria-strong: #7a5299;
   --wp--preset--color--plum: #812d8c;
   --wp--preset--color--secondary: #7a2981;
   --wp--preset--color--primary: #54266f;

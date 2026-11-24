@@ -284,6 +284,41 @@
     });
   });
 
+  /* Mobile dock: in-page hash links (e.g. #portfolio) move the active pill. */
+  document.querySelectorAll('nav.dock').forEach((nav) => {
+    const items = Array.from(nav.querySelectorAll('.dock__item a'));
+    const onPage = items
+      .map((a, i) => {
+        let url;
+        try { url = new URL(a.getAttribute('href'), location.href); } catch { return null; }
+        if (url.pathname !== location.pathname) return null;
+        return { i, hash: url.hash };
+      })
+      .filter(Boolean);
+    if (!onPage.some((x) => x.hash)) return;
+
+    const setActive = (index) => {
+      nav.style.setProperty('--active', String(index));
+      items.forEach((a, i) => {
+        if (i === index) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+    };
+
+    const sync = () => {
+      const hash = location.hash;
+      if (hash) {
+        const hit = onPage.find((x) => x.hash === hash);
+        if (hit) { setActive(hit.i); return; }
+      }
+      const home = onPage.find((x) => !x.hash);
+      if (home) setActive(home.i);
+    };
+
+    sync();
+    window.addEventListener('hashchange', sync);
+  });
+
   /* Hero orbit: a persistent pause for touch, where hover never fires. */
   document.querySelectorAll('.po-hero__pause').forEach((btn) => {
     const stage = btn.closest('.po-hero__stage') || document.querySelector('.po-hero__stage');

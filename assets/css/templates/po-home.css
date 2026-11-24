@@ -20,7 +20,7 @@
 /* pin the open mouth (48% 56% of the photo) to the stage center, which is also the orbit center */
 .po-hero__dog,
 .po-hero__snout {
-  position: absolute; left: 50%; top: 50%; width: auto; max-width: none; height: 114%;
+  position: absolute; left: 50%; top: 50%; width: auto; max-width: none; height: 102.6%;
   translate: -48% -56%;
 }
 .po-hero__dog {
@@ -32,6 +32,7 @@
 }
 .orbit {
   position: absolute; inset: -14% -18%; container-type: size; z-index: 1;
+  translate: 0 30px;
   animation: po-orbit 48s linear 2.1s infinite;
 }
 .po-hero__stage:hover .orbit,
@@ -106,6 +107,12 @@
 .po-hero__offer .wp-block-buttons { justify-content: start; }
 .po-hero__lede { font-size: var(--wp--preset--font-size--small); line-height: 1.35; margin: 0; color: var(--wp--preset--color--primary); }
 .po-hero__lede strong { color: var(--wp--preset--color--plum); }
+.po-hero__fine {
+  margin: -.35rem 0 0;
+  font-size: clamp(.62rem, .56rem + .15vw, .7rem);
+  line-height: 1.3;
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 58%, transparent);
+}
 .po-hero__scroll {
   display: none; position: absolute; left: 50%; bottom: 1.25rem; translate: -50% 0;
   width: 1.6rem; height: 2.6rem; border: 2px solid var(--wp--preset--color--primary); border-radius: 999px;
@@ -176,6 +183,7 @@
     max-height: calc(100svh - 17.75rem);
     justify-self: end; width: 100%;
   }
+  .orbit { translate: 0 20px; }
   .po-hero__explore { order: unset; justify-content: center; }
   .po-hero__offer {
     order: unset; margin-inline: 0; justify-self: center;
@@ -197,10 +205,11 @@
   display: grid; max-width: var(--wp--custom--layout--wide); margin-inline: auto;
   gap: var(--wp--preset--spacing--50); justify-items: center;
 }
-.po-doable__copy { display: grid; gap: 1.25rem; justify-items: center; text-align: center; width: min(100%, 42rem); }
+.po-doable__copy { display: grid; gap: 1.25rem; justify-items: center; text-align: center; width: min(100%, 54rem); }
 .po-doable__title { max-width: 28ch; text-wrap: balance; }
+.po-doable__media { display: grid; gap: 1rem; justify-self: center; width: min(100%, 42rem); }
 .po-doable__photo {
-  margin: 0; justify-self: center; width: min(100%, 42rem);
+  margin: 0; width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: var(--wp--custom--radius--card); overflow: hidden;
   box-shadow: var(--wp--preset--shadow--soft);
@@ -209,6 +218,32 @@
   display: block; width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 55%;
   scale: 1.12; transform-origin: 50% 55%;
+}
+.po-doable__vohc {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .85rem 1.1rem; align-items: start;
+  padding: 1rem 1.15rem 1.1rem; text-align: left;
+  background: #fff; border-radius: var(--wp--custom--radius--card);
+  box-shadow: var(--wp--preset--shadow--soft); color: var(--wp--preset--color--ink);
+}
+.po-doable__vohc-logo { width: 4.25rem; height: auto; }
+.po-doable__vohc-copy { display: grid; gap: .35rem; min-width: 0; }
+.po-doable__vohc-title {
+  font-family: var(--wp--preset--font-family--body); font-size: var(--wp--preset--font-size--small);
+  font-weight: 700; letter-spacing: 0; line-height: 1.25; text-transform: none;
+  color: var(--wp--preset--color--primary);
+}
+.po-doable__vohc-text {
+  margin: 0; font-size: var(--wp--preset--font-size--x-small); line-height: 1.45;
+  color: color-mix(in oklab, var(--wp--preset--color--ink) 82%, transparent);
+}
+.po-doable__vohc-text a {
+  color: var(--wp--preset--color--primary); font-weight: 700;
+  text-decoration: underline; text-underline-offset: .12em;
+}
+.po-doable__vohc-text a:hover { color: var(--wp--preset--color--secondary); }
+@media (min-width: 48rem) {
+  .po-doable__vohc { padding: 1.15rem 1.35rem 1.25rem; gap: 1rem 1.25rem; }
+  .po-doable__vohc-logo { width: 5rem; }
 }
 
 /* ---------- tagline marquees (no caution-tape yellow) ---------- */
@@ -260,7 +295,8 @@
 }
 
 /* ---------- sticky stacking cards ---------- */
-.po-stack.section { padding-block: var(--wp--preset--spacing--50) var(--wp--preset--spacing--80); }
+.po-stack.section { padding-block: var(--wp--preset--spacing--50) var(--wp--preset--spacing--50); }
+.po-stack .po-quote__dog { margin: 0 auto 1.5rem; }
 .po-stack__cta { justify-content: center; margin: .5rem auto 2.5rem; padding-inline: clamp(.75rem, 3vw, 2rem); }
 .stack-cards { list-style: none; margin: 0 auto; padding: 0 clamp(.75rem, 3vw, 2rem) 2rem; max-width: 760px; }
 .stack-card {
@@ -281,6 +317,13 @@
   transition: transform .6s var(--wp--custom--ease--spring);
 }
 .stack-card.is-tint-sun .stack-card__inner { --card-bg: var(--wp--preset--color--accent); }
+.stack-card.is-tint-wisteria .stack-card__inner {
+  --card-bg: var(--wp--preset--color--wisteria);
+  --card-fg: var(--wp--preset--color--ink);
+}
+.stack-card.is-tint-wisteria .stack-card__note {
+  color: var(--wp--preset--color--ink);
+}
 .stack-card.is-tint-plum .stack-card__inner { --card-bg: var(--wp--preset--color--primary); --card-fg: #fff; }
 .stack-card__inner:hover { transform: translateY(-6px) rotate(-.6deg); }
 .stack-card__side { display: contents; }
@@ -304,8 +347,8 @@
   color: color-mix(in oklab, var(--card-fg) 72%, transparent);
 }
 .stack-card__seal {
-  flex: none; width: 2.4rem; height: auto; margin-top: .05rem;
-  background: #fff; border-radius: .4rem;
+  flex: none; width: 3.3rem; height: auto; margin-top: .05rem;
+  background: #fff; border-radius: .45rem;
   box-shadow: 0 1px 3px rgb(53 23 71 / .12);
 }
 .stack-card__buys {
@@ -354,13 +397,13 @@
 }
 
 /* ---------- quote ---------- */
-.po-quote { overflow: clip; }
+.po-quote { overflow: clip; padding-block: var(--wp--preset--spacing--60); }
 .po-quote__grid {
   max-width: var(--wp--custom--layout--wide); margin-inline: auto; padding-inline: var(--wp--preset--spacing--50);
   display: grid; gap: 2rem; align-items: center;
 }
 .po-quote__dog {
-  position: relative; margin: 0; justify-self: center; width: min(80%, 26rem); aspect-ratio: 1;
+  position: relative; margin: 0; justify-self: center; width: min(53.6%, 17.42rem); aspect-ratio: 1;
   border-radius: 50%; background: var(--wp--preset--color--accent); overflow: visible;
 }
 .po-quote__dog > img:first-child {

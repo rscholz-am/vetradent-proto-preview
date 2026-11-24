@@ -76,7 +76,7 @@
 <section class="wp-block-group shelf section alignfull" aria-labelledby="shelf-spoken" data-rail>
   <div class="shelf__head">
     <p class="vd-kicker" data-reveal="fade"><span>The VETRADENT<sup>®</sup> portfolio</span></p>
-    <h2 id="shelf-title" class="shelf__title" data-reveal="fade" aria-labelledby="shelf-spoken"><span id="shelf-spoken" class="screen-reader-text">Something doable for every pet, every owner, every lifestyle</span>Something doable for evEry pet, evEry owner, evEry lifestyLE</h2>
+    <h2 id="shelf-title" class="shelf__title" data-reveal="fade" aria-labelledby="shelf-spoken"><span id="shelf-spoken" class="screen-reader-text">Something doable for every pet, every owner, every lifestyle</span>Something doable for<br>evEry pet, evEry owner,<br>evEry lifestyLE</h2>
     <div class="vd-rail-nav shelf__nav" aria-hidden="true">
       <button type="button" tabindex="-1" data-rail-step="-1">←</button>
       <button type="button" tabindex="-1" data-rail-step="1">→</button>
@@ -87,173 +87,406 @@
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-hero-vetradent-water-additive.jpg" alt="" loading="lazy" width="1200" height="800">
+      
+      <span class="product-card__vohc"><img src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="44" height="44"><span aria-hidden="true">*</span></span>
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Water Additive</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-water-additive.png" alt="VETRADENT® Water Additive package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> effortless support in every sip</p>
-        <p class="product-card__line"><strong>Best for:</strong> convenience seekers or anyone just getting started</p>
-        
-        
-        <p class="product-card__vohc">
-          <img class="product-card__seal" src="../../assets/img/logo-vohc-on-white.svg" alt="" width="64" height="72" loading="lazy">
-          <span>Achieved in dogs only. VETRADENT<sup>®</sup> Water Additive was achieved with once monthly brushing in accordance with the study design.</span>
-        </p>
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent%C2%AE-Water-Additive-Dogs-Cats/dp/B0CC3ZVPRQ" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-dog-cat-dental-water/dp/1180350" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent%C2%AE-Water-Additive-Dogs-Cats/dp/B0CC3ZVPRQ" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Water Additive</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-dog-cat-dental-water/dp/1180350" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Water Additive</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-water" aria-haspopup="dialog" aria-label="View Water Additive details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-water is-tint-lilac" id="po-spec-water" aria-labelledby="po-spec-water-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-hero-vetradent-water-additive.jpg" alt="VETRADENT® Water Additive in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-water-additive.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-water-title">Water Additive</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> effortless support in every sip</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> convenience seekers or anyone just getting started</span></li>
+      </ul>
+      
+      <p class="spec-dialog__note">
+        <img class="spec-dialog__vohc" src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="48" height="54" loading="lazy">
+        <span>Achieved in dogs only. VETRADENT<sup>®</sup> Water Additive was achieved with once monthly brushing in accordance with the study design.</span>
+      </p>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent%C2%AE-Water-Additive-Dogs-Cats/dp/B0CC3ZVPRQ" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Water Additive</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-dog-cat-dental-water/dp/1180350" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Water Additive</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      
+      <div><dt>Administration</dt><dd>Dilute in pet’s drinking water with every bowl refill</dd></div>
+      <div><dt>Active ingredients</dt><dd>Sodium citrate, citric acid, zinc chloride</dd></div>
+      <div><dt>Package size</dt><dd>17 oz</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>SO much better!</strong> We began using Vetradent after our dog's 2nd teeth cleaning, per the recommendation of our trusted vet. Our dog's teeth had been yellow, caked with yuck, and her breath was stinky. After the dental cleaning, and using Vetradent, our dog's teeth look clean as the day after her cleaning, and her bad breath is gone. Yippee!!</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Gabby on Chewy, Apr 8, 2025
+        <a href="https://www.chewy.com/vetradent-dog-cat-dental-water/dp/1180350" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Water Additive on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
-<li class="product-card is-tint-sun" id="product-powder" style="--i:1">
+<li class="product-card is-tint-wisteria" id="product-powder" style="--i:1">
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-water-additive-cat-and-dog-kitchen.jpg" alt="" loading="lazy" width="1200" height="800">
+      
+      <span class="product-card__vohc"><img src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="44" height="44"><span aria-hidden="true">*</span></span>
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Powder Water Additive</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-powder-water-additive.png" alt="VETRADENT® Powder Water Additive package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> stretches budgets with more servings per package than liquid VETRADENT<sup>®</sup> Water Additive</p>
-        <p class="product-card__line"><strong>Best for:</strong> the cost-conscious or multi-pet households</p>
-        
-        
-        <p class="product-card__vohc">
-          <img class="product-card__seal" src="../../assets/img/logo-vohc-on-white.svg" alt="" width="64" height="72" loading="lazy">
-          <span>Achieved in dogs only. VETRADENT<sup>®</sup> Powder Water Additive was achieved with once monthly brushing in accordance with the study design.</span>
-        </p>
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Powder-Water-Additive-Dogs/dp/B0CC3MFF2Q" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-dog-cat-powder-dental-water/dp/1180398" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Powder-Water-Additive-Dogs/dp/B0CC3MFF2Q" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Powder Water Additive</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-dog-cat-powder-dental-water/dp/1180398" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Powder Water Additive</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-powder" aria-haspopup="dialog" aria-label="View Powder Water Additive details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-powder is-tint-wisteria" id="po-spec-powder" aria-labelledby="po-spec-powder-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-water-additive-cat-and-dog-kitchen.jpg" alt="VETRADENT® Powder Water Additive in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-powder-water-additive.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-powder-title">Powder Water Additive</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> stretches budgets with more servings per package than VETRADENT<sup>®</sup> liquid water additive</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> the cost-conscious or multi-pet households</span></li>
+      </ul>
+      
+      <p class="spec-dialog__note">
+        <img class="spec-dialog__vohc" src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="48" height="54" loading="lazy">
+        <span>Achieved in dogs only. VETRADENT<sup>®</sup> Powder Water Additive was achieved with once monthly brushing in accordance with the study design.</span>
+      </p>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent-Powder-Water-Additive-Dogs/dp/B0CC3MFF2Q" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Powder Water Additive</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-dog-cat-powder-dental-water/dp/1180398" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Powder Water Additive</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      
+      <div><dt>Administration</dt><dd>Add prepared drinking water with every bowl refill</dd></div>
+      <div><dt>Active ingredients</dt><dd>Sodium citrate, citric acid, zinc citrate</dd></div>
+      <div><dt>Package size</dt><dd>10.6 oz</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>Great product — fast shipping</strong> This product was recommended to us by our vet due to our pittie's mouth breathing. The vet said it will help keep her teeth in good shape over the course of her life & we've noticed her breath smells better after use. We use it 2–3x a week in her bowl and love it.</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Katie on Chewy, Feb 16, 2025
+        <a href="https://www.chewy.com/vetradent-dog-cat-powder-dental-water/dp/1180398" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Powder Water Additive on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
 <li class="product-card is-tint-plum" id="product-chews" style="--i:2">
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-hero-vetradent-dental-chews-2.jpg" alt="" loading="lazy" width="1200" height="800">
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Veggie Dental Chews</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="VETRADENT® Veggie Dental Chews package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> cleans even hard-to-reach teeth with 5-ridge design</p>
-        <p class="product-card__line"><strong>Best for:</strong> reward-motivated dogs or to complement an existing regimen</p>
-        
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent%C2%AE-Veggie-Dental-Chews-Small/dp/B0FHXPT4ZV" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-veggie-large-adult-dog/dp/2301182" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent%C2%AE-Veggie-Dental-Chews-Small/dp/B0FHXPT4ZV" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Veggie Dental Chews</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-veggie-large-adult-dog/dp/2301182" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Veggie Dental Chews</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-chews" aria-haspopup="dialog" aria-label="View Veggie Dental Chews details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-chews is-tint-plum" id="po-spec-chews" aria-labelledby="po-spec-chews-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-hero-vetradent-dental-chews-2.jpg" alt="VETRADENT® Veggie Dental Chews in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-chews-title">Veggie Dental Chews</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> helps clean even hard-to-reach teeth with 5-ridge design</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> reward-motivated dogs or to complement an existing regimen</span></li>
+      </ul>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent%C2%AE-Veggie-Dental-Chews-Small/dp/B0FHXPT4ZV" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Veggie Dental Chews</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-veggie-large-adult-dog/dp/2301182" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Veggie Dental Chews</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      <div><dt>Features</dt><dd>Helps remove plaque and tartar via chewy, porous texture and 5-ridged design; varies by dog size<table class="spec-size-table"><tbody><tr><th scope="row">Small Dog</th><td>5–20 lbs</td></tr><tr><th scope="row">Medium Dog</th><td>21–40 lbs</td></tr><tr><th scope="row">Large Dog</th><td>41 lbs+</td></tr></tbody></table></dd></div>
+      <div><dt>Administration</dt><dd>Give 1 chew daily</dd></div>
+      <div><dt>Active ingredients</dt><dd>Proprietary blend of disodium EDTA, trisodium citrate and citric acid</dd></div>
+      <div><dt>Package size</dt><dd>30 count</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>I can hear the contact with the teeth!</strong> The number one reason for purchasing these was the veggie aspect and that these are safe for animal protein allergy dogs! When he does sit and chew you can hear the noise of the porous chew almost scrubbing and rubbing the tooth—it sounds like a sneaker on a glossy surface. While dental health is more than a chew a day, it makes me happy to know these actually scrub the tooth.</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Sarah on Chewy, Mar 20, 2026
+        <a href="https://www.chewy.com/vetradent-veggie-large-adult-dog/dp/2301182" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Veggie Dental Chews on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
 <li class="product-card is-tint-lilac" id="product-spray" style="--i:3">
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-hero-vetradent-dental-spray.jpg" alt="" loading="lazy" width="1200" height="800">
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Dental Spray</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="VETRADENT® Dental Spray package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> targeted oral care in seconds</p>
-        <p class="product-card__line"><strong>Best for:</strong> pet parents on the go or pets with low water intake</p>
-        
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Dental-Spray-Dogs-Cats/dp/B0CC3XRDKM" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-mild-vanilla-flavored-dog/dp/1180366" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Dental-Spray-Dogs-Cats/dp/B0CC3XRDKM" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Dental Spray</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-mild-vanilla-flavored-dog/dp/1180366" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Dental Spray</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-spray" aria-haspopup="dialog" aria-label="View Dental Spray details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-spray is-tint-lilac" id="po-spec-spray" aria-labelledby="po-spec-spray-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-hero-vetradent-dental-spray.jpg" alt="VETRADENT® Dental Spray in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-spray-title">Dental Spray</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> targeted oral care in seconds</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> pet parents on the go or pets with low water intake</span></li>
+      </ul>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent-Dental-Spray-Dogs-Cats/dp/B0CC3XRDKM" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Dental Spray</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-mild-vanilla-flavored-dog/dp/1180366" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Dental Spray</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      
+      <div><dt>Administration</dt><dd>Cat or Dog &lt;20 lbs: Spray 1 time on each side of the mouth twice daily<br>Dog &gt;20 lbs: Spray 2 times on each side of the mouth twice daily</dd></div>
+      <div><dt>Active ingredients</dt><dd>Sodium citrate, citric acid, zinc chloride</dd></div>
+      <div><dt>Package size</dt><dd>2 oz</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>Dog doesn't object to this!</strong> My background is in veterinary medicine & had heard of this product directly from our Dechra rep. I like the idea of changing the environment in the mouth to prevent bacteria & plaque from accumulating. It's quick and easy to use. I've been using this for only a month & his teeth are still clean.</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Janice on Chewy, Feb 28, 2026
+        <a href="https://www.chewy.com/vetradent-mild-vanilla-flavored-dog/dp/1180366" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Dental Spray on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
-<li class="product-card is-tint-sun" id="product-wipes" style="--i:4">
+<li class="product-card is-tint-wisteria" id="product-wipes" style="--i:4">
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-hero-vetradent-dental-wipes.jpg" alt="" loading="lazy" width="1200" height="800">
+      
+      <span class="product-card__vohc"><img src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="44" height="44"><span aria-hidden="true">*</span></span>
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Dental Wipes</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-dental-wipes.png" alt="VETRADENT® Dental Wipes package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> a quick, hands-on clean</p>
-        <p class="product-card__line"><strong>Best for:</strong> training young pets or owners who want a mess-free option</p>
-        
-        
-        <p class="product-card__vohc">
-          <img class="product-card__seal" src="../../assets/img/logo-vohc-on-white.svg" alt="" width="64" height="72" loading="lazy">
-          <span>Achieved in dogs only.</span>
-        </p>
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Dental-Wipes-Dogs-Cats/dp/B0CC43W2LS" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-organic-natural-mild/dp/1180382" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Dental-Wipes-Dogs-Cats/dp/B0CC43W2LS" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Dental Wipes</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-organic-natural-mild/dp/1180382" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Dental Wipes</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-wipes" aria-haspopup="dialog" aria-label="View Dental Wipes details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-wipes is-tint-wisteria" id="po-spec-wipes" aria-labelledby="po-spec-wipes-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-hero-vetradent-dental-wipes.jpg" alt="VETRADENT® Dental Wipes in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-dental-wipes.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-wipes-title">Dental Wipes</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> a quick, hands-on clean</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> training young pets or owners who want a mess-free option</span></li>
+      </ul>
+      
+      <p class="spec-dialog__note">
+        <img class="spec-dialog__vohc" src="../../assets/img/logo-vohc-on-white.svg" alt="VOHC Accepted" width="48" height="54" loading="lazy">
+        <span>Achieved in dogs only.</span>
+      </p>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent-Dental-Wipes-Dogs-Cats/dp/B0CC43W2LS" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Dental Wipes</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-organic-natural-mild/dp/1180382" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Dental Wipes</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      
+      <div><dt>Administration</dt><dd>Rub outer surface of the teeth and gumline once daily</dd></div>
+      <div><dt>Active ingredients</dt><dd>Sodium citrate, citric acid, zinc chloride</dd></div>
+      <div><dt>Package size</dt><dd>60 count</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>They work!</strong> These wipes are fantastic. I work in vet med and our docs recommend these and the spray. My own dog lets me wipe her teeth and the yellow plaque that comes off on the cloth is impressive. She doesn't mind the taste of them. They aren't going to remove tartar but will definitely prevent it from building up with regular use.</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Jan on Chewy, Mar 11, 2026
+        <a href="https://www.chewy.com/vetradent-organic-natural-mild/dp/1180382" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Dental Wipes on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
 <li class="product-card is-tint-plum is-stacked" id="product-toothpaste" style="--i:5">
   <article class="product-card__inner" data-tilt="6">
     <figure class="product-card__media">
       <img src="../../assets/img/img-hero-vetradent-toothpaste.jpg" alt="" loading="lazy" width="1200" height="800">
+      
     </figure>
     <div class="product-card__main">
       <h3 class="product-card__title">Toothpaste</h3>
       <div class="product-card__art">
         <img class="product-card__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-toothpaste-toothbrush.png" alt="VETRADENT® Toothpaste package" loading="lazy">
       </div>
-      <div class="product-card__copy">
-        <p class="product-card__line"><strong>Benefit:</strong> enhanced cleaning with allergy-friendly chicken flavor, no rinsing required</p>
-        <p class="product-card__line"><strong>Best for:</strong> young pets and confident caregivers</p>
-        <p class="product-card__includes">Includes double-headed toothbrush</p>
-        
-      </div>
     </div>
     <div class="product-card__actions">
-      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Toothpaste-Double-Headed-Toothbrush-Included/dp/B0CC3XY5JP" target="_blank" rel="noopener">Amazon</a>
-      <a class="product-card__buy" href="https://www.chewy.com/vetradent-chicken-flavored-dog-cat/dp/1180414" target="_blank" rel="noopener">Chewy</a>
+      <a class="product-card__buy" href="https://www.amazon.com/Vetradent-Toothpaste-Double-Headed-Toothbrush-Included/dp/B0CC3XY5JP" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Toothpaste</span></a>
+      <a class="product-card__buy" href="https://www.chewy.com/vetradent-chicken-flavored-dog-cat/dp/1180414" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Toothpaste</span></a>
+      <button class="product-card__go" type="button" data-open-dialog="po-spec-toothpaste" aria-haspopup="dialog" aria-label="View Toothpaste details">+</button>
     </div>
   </article>
+  <dialog class="vd-dialog spec-dialog is-toothpaste is-tint-plum" id="po-spec-toothpaste" aria-labelledby="po-spec-toothpaste-title">
+  <span class="vd-dialog__grab" aria-hidden="true"></span>
+  <form method="dialog"><button class="vd-dialog__close" aria-label="Close">✕</button></form>
+  <div class="vd-dialog__body spec-dialog__body">
+    <figure class="spec-dialog__media">
+      <img class="spec-dialog__hero" src="../../assets/img/img-hero-vetradent-toothpaste.jpg" alt="VETRADENT® Toothpaste in use" loading="lazy" width="1200" height="800">
+      <img class="spec-dialog__sticker vd-sticker" src="../../assets/img/img-sticker-vetradent-toothpaste-toothbrush.png" alt="" loading="lazy">
+    </figure>
+    <div class="spec-dialog__copy">
+      <h2 class="spec-dialog__title" id="po-spec-toothpaste-title">Toothpaste</h2>
+      <ul class="spec-dialog__points">
+        <li><img src="../../assets/img/icon-tooth-plus.svg" alt="" width="28" height="28"><span><strong>Benefit:</strong> enhanced cleaning with chicken flavor, no rinsing required</span></li>
+        <li><img src="../../assets/img/icon-best.svg" alt="" width="28" height="28"><span><strong>Best for:</strong> young pets and confident caregivers</span></li>
+      </ul>
+      
+      <div class="wp-block-buttons spec-dialog__actions">
+        <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="https://www.amazon.com/Vetradent-Toothpaste-Double-Headed-Toothbrush-Included/dp/B0CC3XY5JP" target="_blank" rel="noopener">Amazon<span class="screen-reader-text"> – buy Toothpaste</span></a></div>
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://www.chewy.com/vetradent-chicken-flavored-dog-cat/dp/1180414" target="_blank" rel="noopener">Chewy<span class="screen-reader-text"> – buy Toothpaste</span></a></div>
+      </div>
+    </div>
+    <dl class="spec-dialog__specs">
+      <div><dt>Features</dt><dd>Chicken flavor; double-headed toothbrush included</dd></div>
+      <div><dt>Administration</dt><dd>Gently brush teeth with pea-sized amount once daily; no rinsing required</dd></div>
+      <div><dt>Active ingredients</dt><dd>Sodium citrate, citric acid, zinc chloride</dd></div>
+      <div><dt>Package size</dt><dd>1.3-oz. tube</dd></div>
+    </dl>
+    
+    <figure class="spec-dialog__review">
+      <p class="spec-dialog__review-stars" aria-label="5 out of 5 stars on Chewy"><span aria-hidden="true">★★★★★</span></p>
+      <blockquote class="spec-dialog__review-quote">
+        <p><strong>This gel really helped my cat's mild gingivitis!</strong> My cat had a mild gingivitis and his vet recommended this dental gel. After using this gel for a few weeks, I noticed his gums looking healthier and less irritated. He actually likes the chicken flavor, which makes it so much easier to use. I'm really happy with the results and would definitely recommend it!</p>
+      </blockquote>
+      <figcaption class="spec-dialog__review-by">
+        — Aziza on Chewy, Jan 26, 2026
+        <a href="https://www.chewy.com/vetradent-chicken-flavored-dog-cat/dp/1180414" target="_blank" rel="noopener">Read reviews<span class="screen-reader-text"> for Toothpaste on Chewy</span></a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</dialog>
+
 </li>
 
   </ol>
   <div class="vd-rail-dots" aria-hidden="true">
     <button type="button" tabindex="-1" data-active></button><button type="button" tabindex="-1"></button><button type="button" tabindex="-1"></button><button type="button" tabindex="-1"></button><button type="button" tabindex="-1"></button><button type="button" tabindex="-1"></button>
   </div>
+  <p class="vd-footnote">*Achieved in dogs only. VETRADENT<sup>®</sup> Water Additive and Powder Water Additive were achieved with once monthly brushing in accordance with the study design.</p>
+
 </section>
 
 <section class="wp-block-group unsure alignfull" aria-labelledby="unsure-spoken">
-  <div class="unsure__card vd-sheet has-accent-background-color" data-reveal="scale">
+  <div class="unsure__card vd-sheet has-lilac-background-color" data-reveal="scale">
     <img class="vd-sticker unsure__peek is-a vd-wiggle" src="../../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="" loading="lazy">
     <img class="vd-sticker unsure__peek is-b vd-float" src="../../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="" loading="lazy">
     <h2 id="unsure-title" class="unsure__title" data-reveal="fade" aria-labelledby="unsure-spoken"><span id="unsure-spoken" class="screen-reader-text">Not sure which one fits?</span>Not sure whicH one fits?</h2>
-    <p class="lead">Answer a few questions, and we’ll match you to the best routine and unlock XX% off.</p>
+    <div class="unsure__copy">
+      <p class="lead">Answer a few questions, and we’ll match you to the best routine and unlock XX% off.</p>
+      <p class="unsure__fine">Terms and conditions apply.</p>
+    </div>
     <div class="wp-block-buttons is-content-justification-center">
       <div class="wp-block-button is-style-ink"><a class="wp-block-button__link" href="../../pet-owner/find-your-fit/index.html">Find Your Fit</a></div>
     </div>
@@ -312,7 +545,7 @@
     <p class="site-footer__legal">
       ©2026 Dechra Veterinary Products, LLC. All rights reserved. Dechra is a registered trademark of Dechra Pharmaceuticals Limited. VETRADENT and Biotrate are registered trademarks of Dechra Veterinary Products, LLC. All other trademarks are trademarks of their respective owners.<br>M-00000 0000
     </p>
-    <a class="site-footer__gate" href="../../index.html?gate=1">Switch experience ↺</a>
+    <a class="site-footer__gate" href="../../index.html?gate=1">Switch Experience ↺</a>
   </div>
 </footer>
 

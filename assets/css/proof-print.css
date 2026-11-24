@@ -133,7 +133,7 @@ html.proof .po-hero__snout {
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
-  height: 114% !important;
+  height: 102.6% !important;
   width: auto !important;
   max-width: none !important;
   translate: -48% -56% !important;
@@ -350,14 +350,30 @@ html.proof .gate__grid {
   width: 100% !important;
   margin-inline: auto !important;
 }
-html.proof .gate__arch {
+html.proof .gate__frame {
   grid-area: arch !important;
   position: relative !important;
-  align-self: stretch !important;
+  align-self: center !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: 32rem !important;
-  max-height: 32rem !important;
+  height: auto !important;
+  --gate-photo-extra-h: 200px !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+}
+html.proof .gate__frame::before {
+  content: "" !important;
+  display: block !important;
+  padding-bottom: calc(100% * 1067 / 1800 + var(--gate-photo-extra-h)) !important;
+}
+html.proof .gate__arch {
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
   margin: 0 !important;
   border-radius: 999px 999px 2.25rem 2.25rem !important;
   overflow: hidden !important;
@@ -371,7 +387,7 @@ html.proof .gate__photo {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: 50% 72% !important;
+  object-position: center !important;
   display: block !important;
 }
 html.proof .gate__logo {
@@ -396,9 +412,10 @@ html.proof .gate__badge {
   max-width: 8.5rem !important;
   height: auto !important;
   top: auto !important;
-  bottom: 12% !important;
-  right: auto !important;
-  left: calc(48% - 4.25rem) !important;
+  bottom: 20% !important;
+  right: 0 !important;
+  left: auto !important;
+  translate: 50% 0 !important;
 }
 html.proof .gate__badge .vd-badge__ring {
   animation: none !important;
@@ -632,6 +649,8 @@ html.proof .proof-dialogs .vd-dialog {
 }
 
 /* Contact / sheets stay in document flow — never overlay portfolio or dialogs */
+html.proof .contact__reveal { grid-template-rows: 1fr !important; }
+html.proof .order__card:has(.contact__reveal) .order__copy { padding-bottom: 0 !important; }
 html.proof .contact,
 html.proof .contact__sheet,
 html.proof .order__card,

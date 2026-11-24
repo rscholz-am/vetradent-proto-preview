@@ -965,10 +965,10 @@
                   <div class="fyf-optin is-full">
                     <label><input type="checkbox" name="opt_in" required> Opt me in to receive Dechra email communications.</label>
                   </div>
+                  <p class="fyf-legal is-full">By submitting, you agree to receive marketing emails from VETRADENT®. You can unsubscribe at any time using the link in any email. Your information will be handled in accordance with Dechra’s <a href="${privacyHref}">Privacy Policy</a>.</p>
                   <div class="wp-block-buttons is-full">
                     <div class="wp-block-button is-shimmer"><button class="wp-block-button__link" type="submit">Get My Offer</button></div>
                   </div>
-                  <p class="fyf-legal is-full">By submitting, you agree to receive marketing emails from VETRADENT®. You can unsubscribe at any time using the link in any email. Your information will be handled in accordance with Dechra’s <a href="${privacyHref}">Privacy Policy</a>.</p>
                 </form>
               </div>
             </section>`;

@@ -156,12 +156,25 @@ button.wp-block-button__link { font-family: inherit; }
 .wp-block-button__link:hover { transform: translateY(-2px) scale(1.02); }
 .wp-block-button__link:hover::after { transform: translateX(4px) rotate(-8deg); }
 .wp-block-button__link:active { transform: translateY(3px) scale(.98); box-shadow: 0 2px 0 -1px color-mix(in oklab, var(--btn-bg), #000 22%); }
-.wp-block-button.is-style-ink .wp-block-button__link { --btn-bg: var(--wp--preset--color--primary); --btn-fg: #fff; }
+.wp-block-button.is-style-ink .wp-block-button__link {
+  --btn-bg: var(--wp--preset--color--primary);
+  --btn-fg: #fff;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .12) inset,
+    0 2px 4px rgb(53 23 71 / .14),
+    0 10px 22px -7px rgb(53 23 71 / .48);
+}
+.wp-block-button.is-style-ink .wp-block-button__link:active {
+  box-shadow: 0 1px 2px rgb(53 23 71 / .12), 0 4px 12px -6px rgb(53 23 71 / .36);
+}
 .wp-block-button.is-sds .wp-block-button__link {
-  box-shadow: 0 1px 2px rgb(53 23 71 / .06), 0 8px 18px -10px rgb(53 23 71 / .18);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .12) inset,
+    0 2px 4px rgb(53 23 71 / .14),
+    0 10px 22px -7px rgb(53 23 71 / .48);
 }
 .wp-block-button.is-sds .wp-block-button__link:active {
-  box-shadow: 0 1px 2px rgb(53 23 71 / .05), 0 4px 10px -6px rgb(53 23 71 / .14);
+  box-shadow: 0 1px 2px rgb(53 23 71 / .12), 0 4px 12px -6px rgb(53 23 71 / .36);
 }
 .wp-block-button.is-style-outline .wp-block-button__link {
   --btn-fg: var(--wp--preset--color--primary);
@@ -379,10 +392,19 @@ body:has(.dock) { padding-bottom: calc(var(--wp--custom--dock--height) + 1.5rem)
 .vd-quote__icon {
   grid-column: 1;
   grid-row: 1 / span 2;
-  width: clamp(5.2rem, 3.8rem + 4vw, 7.5rem);
+  width: clamp(7.488rem, 5.472rem + 5.76vw, 10.8rem);
   height: auto;
+  aspect-ratio: 1;
   align-self: center;
+  border-radius: 50%;
+  object-fit: cover;
 }
+.po-quote .vd-quote {
+  grid-template-columns: minmax(0, calc(13.5 * clamp(1rem, 0.88rem + 0.7vw, 1.4rem))) auto;
+}
+.po-quote .vd-quote__icon { grid-column: 2; }
+.po-quote .vd-quote__text { grid-column: 1; grid-row: 1; }
+.po-quote .vd-quote__cite { grid-column: 1; grid-row: 2; }
 .vd-quote__text {
   grid-column: 2;
   grid-row: 1;
@@ -414,7 +436,8 @@ body:has(.dock) { padding-bottom: calc(var(--wp--custom--dock--height) + 1.5rem)
   color: var(--wp--preset--color--primary);
 }
 @media (max-width: 30rem) {
-  .vd-quote {
+  .vd-quote,
+  .po-quote .vd-quote {
     grid-template-columns: 1fr;
     justify-items: center;
     text-align: center;
@@ -426,6 +449,9 @@ body:has(.dock) { padding-bottom: calc(var(--wp--custom--dock--height) + 1.5rem)
   .vd-quote__icon { grid-row: 1; }
   .vd-quote__text { grid-row: 2; text-align: center; }
   .vd-quote__cite { grid-row: 3; text-align: center; }
+  .po-quote .vd-quote__text { grid-row: 1; }
+  .po-quote .vd-quote__cite { grid-row: 2; }
+  .po-quote .vd-quote__icon { grid-column: 1; grid-row: 3; }
 }
 
 /* ---------- details (core/details) ---------- */
@@ -503,18 +529,22 @@ body:has(dialog[open]) { overflow: hidden; }
 .vd-form { display: grid; gap: .9rem; }
 @media (min-width: 48rem) { .vd-form { grid-template-columns: 1fr 1fr; } .vd-form .is-full { grid-column: 1 / -1; } }
 .vd-field { position: relative; }
-.vd-field input, .vd-field select {
+.vd-field input, .vd-field select, .vd-field textarea {
   width: 100%; height: 3.6rem; padding: 1.35rem 1.1rem .45rem; border-radius: 1rem;
   border: 1.5px solid var(--wp--preset--color--lilac); background: #fff; color: var(--wp--preset--color--ink);
   font: inherit; font-size: var(--wp--preset--font-size--small); appearance: none;
   transition: border-color .25s, box-shadow .25s;
 }
+.vd-field textarea {
+  height: auto; min-height: 7rem; padding-bottom: .85rem; resize: vertical; line-height: 1.45;
+}
 .vd-field select { background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2354266f' stroke-width='2.2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 1rem center / 1.1rem no-repeat; }
-.vd-field input:focus, .vd-field select:focus { outline: none; border-color: var(--wp--preset--color--secondary); box-shadow: 0 0 0 4px rgb(122 41 129 / .15); }
+.vd-field input:focus, .vd-field select:focus, .vd-field textarea:focus { outline: none; border-color: var(--wp--preset--color--secondary); box-shadow: 0 0 0 4px rgb(122 41 129 / .15); }
 .vd-field label {
   position: absolute; left: 1.1rem; top: 1.15rem; pointer-events: none;
   font-size: var(--wp--preset--font-size--small); color: color-mix(in oklab, var(--wp--preset--color--ink) 75%, transparent);
   transform-origin: 0 0; transition: transform .3s var(--wp--custom--ease--out), color .3s;
 }
 .vd-field input:is(:focus, :not(:placeholder-shown)) + label,
+.vd-field textarea:is(:focus, :not(:placeholder-shown)) + label,
 .vd-field select + label { transform: translateY(-.62rem) scale(.74); color: var(--wp--preset--color--secondary); font-weight: 600; }

@@ -24,7 +24,14 @@
 }
 @media (min-width: 80rem) { .cta-fit__card { margin-inline: auto; } }
 .cta-fit__title { color: #fff; font-size: var(--wp--preset--font-size--xx-large); max-width: 15ch; }
+.cta-fit__copy { display: grid; gap: .35rem; justify-items: center; }
 .cta-fit__text { color: rgb(255 255 255 / .85); max-width: 32rem; margin: 0; }
+.cta-fit__fine {
+  margin: 0;
+  font-size: clamp(.62rem, .56rem + .15vw, .7rem);
+  line-height: 1.3;
+  color: rgb(255 255 255 / .55);
+}
 .cta-fit__peek { position: absolute; height: 6.5rem; width: auto; pointer-events: none; }
 .cta-fit__peek.is-a { left: .35rem; top: -2rem; rotate: -14deg; }
 .cta-fit__peek.is-b { right: .5rem; bottom: -2.25rem; rotate: 12deg; }
@@ -34,7 +41,7 @@
 .stages { padding: var(--wp--preset--spacing--80) var(--wp--preset--spacing--50); }
 .stages__track { max-width: var(--wp--custom--layout--wide); margin-inline: auto; }
 .stages__head { display: grid; gap: 1rem; justify-items: center; text-align: center; margin-bottom: var(--wp--preset--spacing--60); }
-.stages__title { font-size: var(--wp--preset--font-size--x-large); max-width: 18ch; }
+.stages__title { font-size: var(--wp--preset--font-size--x-large); max-width: 22ch; text-wrap: balance; line-height: 1.08; }
 .stages__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
 .stage { display: grid; gap: .75rem; }
 .stage__frame { position: relative; margin: 0; border-radius: 1.75rem; overflow: hidden; background: #efeff0; box-shadow: var(--wp--preset--shadow--soft); }
@@ -206,16 +213,28 @@ html.js .biotrate__panel.is-active { opacity: 1; scale: 1; rotate: 0deg; pointer
 .spec-dialog__body { display: grid; gap: 1.5rem; }
 .spec-dialog__media { position: relative; margin: 0 0 1.5rem; }
 .spec-dialog__hero { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 1.5rem; }
-#spec-powder .spec-dialog__hero { object-position: 48% 82%; }
-#spec-spray .spec-dialog__hero { object-position: 82% 42%; }
-#spec-chews .spec-dialog__hero { object-position: 30% 40%; }
+#spec-powder .spec-dialog__hero,
+#po-spec-powder .spec-dialog__hero,
+.spec-dialog.is-powder .spec-dialog__hero { object-position: 48% 82%; }
+#spec-spray .spec-dialog__hero,
+#po-spec-spray .spec-dialog__hero,
+.spec-dialog.is-spray .spec-dialog__hero { object-position: 82% 42%; }
+#spec-chews .spec-dialog__hero,
+#po-spec-chews .spec-dialog__hero,
+.spec-dialog.is-chews .spec-dialog__hero { object-position: 30% 40%; }
 .spec-dialog__sticker {
   position: absolute; left: -.25rem; bottom: -1.75rem;
   height: 72%; width: auto; max-width: 52%; object-fit: contain; rotate: -8deg;
 }
-#spec-powder .spec-dialog__sticker { height: 52%; max-width: 40%; }
-#spec-chews .spec-dialog__sticker { height: 54%; max-width: 42%; }
-#spec-toothpaste .spec-dialog__sticker {
+#spec-powder .spec-dialog__sticker,
+#po-spec-powder .spec-dialog__sticker,
+.spec-dialog.is-powder .spec-dialog__sticker { height: 52%; max-width: 40%; }
+#spec-chews .spec-dialog__sticker,
+#po-spec-chews .spec-dialog__sticker,
+.spec-dialog.is-chews .spec-dialog__sticker { height: 54%; max-width: 42%; }
+#spec-toothpaste .spec-dialog__sticker,
+#po-spec-toothpaste .spec-dialog__sticker,
+.spec-dialog.is-toothpaste .spec-dialog__sticker {
   bottom: -2.25rem;
   height: auto;
   width: 78%;
@@ -268,6 +287,23 @@ html.js .biotrate__panel.is-active { opacity: 1; scale: 1; rotate: 0deg; pointer
 .spec-size-table td { font-variant-numeric: tabular-nums; }
 .spec-dialog__specs dd:has(.spec-size-table) { align-self: start; }
 .spec-dialog__actions { width: auto; justify-content: flex-start; }
+.spec-dialog__review {
+  margin: 0; width: 100%; padding: 1.1rem 1.2rem 1.15rem;
+  border-radius: 1.25rem; border: 1.5px solid var(--wp--preset--color--lilac);
+  background: var(--wp--preset--color--lavender);
+  display: grid; gap: .55rem;
+}
+.spec-dialog__review-stars {
+  margin: 0; font-size: .95rem; line-height: 1; letter-spacing: .08em;
+  color: var(--wp--preset--color--primary);
+}
+.spec-dialog__review-quote { margin: 0; }
+.spec-dialog__review-quote p { margin: 0; font-size: var(--wp--preset--font-size--small); line-height: 1.45; }
+.spec-dialog__review-by {
+  margin: 0; font-size: .78rem; line-height: 1.35; color: var(--wp--preset--color--secondary);
+  display: flex; flex-wrap: wrap; gap: .35rem .65rem; align-items: baseline;
+}
+.spec-dialog__review-by a { font-weight: 700; color: var(--wp--preset--color--primary); text-decoration: underline; text-underline-offset: .15em; }
 .spec-dialog__done {
   padding: .7rem 1.4rem; border-radius: 999px; border: 1.5px solid var(--wp--preset--color--primary);
   background: transparent; color: var(--wp--preset--color--primary); font: inherit; font-weight: 700; text-transform: capitalize; cursor: pointer;
@@ -275,27 +311,40 @@ html.js .biotrate__panel.is-active { opacity: 1; scale: 1; rotate: 0deg; pointer
 .spec-dialog__done:hover { background: var(--wp--preset--color--primary); color: #fff; }
 @media (min-width: 48rem) {
   .spec-dialog__body {
-    grid-template-columns: .9fr 1.1fr;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: 1.25rem 1.75rem;
+    padding-top: 2.5rem;
+  }
+  .spec-dialog__body:has(.spec-dialog__review) {
+    grid-template-areas:
+      "media copy"
+      "specs review";
+  }
+  .spec-dialog__body:not(:has(.spec-dialog__review)) {
     grid-template-areas:
       "media copy"
       "specs specs";
-    align-items: start;
-    gap: 1.5rem 2.25rem;
-    padding-top: 2.5rem;
   }
   .spec-dialog__media { grid-area: media; margin-bottom: 1.75rem; }
   .spec-dialog__copy { grid-area: copy; }
-  .spec-dialog__specs { grid-area: specs; }
+  .spec-dialog__specs { grid-area: specs; min-width: 0; }
+  .spec-dialog__review { grid-area: review; min-width: 0; height: 100%; align-content: start; }
   .spec-dialog__hero { aspect-ratio: 4 / 5; max-height: 22rem; }
   .spec-dialog__sticker { height: 68%; max-width: 58%; }
-  #spec-powder .spec-dialog__sticker { height: 48%; max-width: 44%; }
-  #spec-chews .spec-dialog__sticker { height: 50%; max-width: 44%; }
-  #spec-toothpaste .spec-dialog__sticker {
+  #spec-powder .spec-dialog__sticker,
+  #po-spec-powder .spec-dialog__sticker,
+  .spec-dialog.is-powder .spec-dialog__sticker { height: 48%; max-width: 44%; }
+  #spec-chews .spec-dialog__sticker,
+  #po-spec-chews .spec-dialog__sticker,
+  .spec-dialog.is-chews .spec-dialog__sticker { height: 50%; max-width: 44%; }
+  #spec-toothpaste .spec-dialog__sticker,
+  #po-spec-toothpaste .spec-dialog__sticker,
+  .spec-dialog.is-toothpaste .spec-dialog__sticker {
     bottom: -2.5rem;
     height: auto;
     width: 84%;
     max-width: none;
   }
   .spec-dialog__title { font-size: clamp(2.6rem, 1.4rem + 2.8vw, 3.8rem); max-width: none; }
-  .spec-dialog__specs div { grid-template-columns: 11rem 1fr; gap: 1rem; align-items: baseline; }
 }

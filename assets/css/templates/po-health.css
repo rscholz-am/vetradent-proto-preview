@@ -48,7 +48,7 @@
 }
 .moment.is-day { --m-bg: var(--wp--preset--color--lilac); }
 /* Darker than brand wisteria so the white body line clears 4.5:1. Wordmark fills stay #a082bb. */
-.moment.is-evening { --m-bg: #7a5299; --m-fg: #fff; }
+.moment.is-evening { --m-bg: var(--wp--preset--color--wisteria-strong); --m-fg: #fff; }
 .moment.is-night { --m-bg: var(--wp--preset--color--ink); --m-fg: #fff; }
 .moment__when { font-size: var(--wp--preset--font-size--xx-large); color: inherit; padding-right: 6rem; }
 .moment__photo { position: relative; margin: 0; aspect-ratio: 16 / 10; border-radius: 1.5rem; overflow: hidden; background: rgb(255 255 255 / .3); }

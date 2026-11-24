@@ -102,6 +102,7 @@
   store('vetradent/form', {
     state: {
       get sent() { return getContext().sent; },
+      get open() { return getContext().open; },
     },
     actions: {
       submit(event) {
@@ -111,6 +112,23 @@
         getContext().sent = true;
       },
       reset() { getContext().sent = false; },
+      toggle(event) {
+        event.preventDefault();
+        const ctx = getContext();
+        ctx.open = !ctx.open;
+        if (ctx.open) requestAnimationFrame(() => document.getElementById('cf-name')?.focus());
+      },
+    },
+    callbacks: {
+      watchHash() {
+        const ctx = getContext();
+        const sync = () => { if (location.hash === '#contact') ctx.open = true; };
+        sync();
+        window.addEventListener('hashchange', () => {
+          sync();
+          window.vdInteractivity.render();
+        });
+      },
     },
   });
 

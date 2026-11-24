@@ -16,7 +16,7 @@
 .cs-hero__disc img { width: 100%; height: 100%; object-fit: cover; }
 @media (min-width: 64rem) {
   .cs-hero { padding-top: 8rem; }
-  .cs-hero__grid { grid-template-columns: 1.1fr .9fr; gap: 4rem; }
+  .cs-hero__grid { grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem, 2.5vw, 2rem); }
   .cs-hero__title { font-size: clamp(2.4rem, 3.85vw, 3.5rem); max-width: none; }
 }
 
@@ -49,6 +49,99 @@
 }
 .cs-section__head { display: grid; gap: .6rem; }
 .cs-source { margin: 0; font-size: var(--wp--preset--font-size--small); font-weight: 600; opacity: .8; }
+.cs-source--vohc {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+  justify-self: start;
+  font-weight: 400;
+}
+.cs-sheet.is-ink .cs-source--vohc { color: rgb(255 255 255 / .88); opacity: 1; }
+.cs-source__vohc {
+  position: relative; display: inline-block; flex: 0 0 auto; width: 2.035rem;
+}
+.cs-source__vohc img { display: block; width: 100%; height: auto; border-radius: 18%; }
+.cs-source__vohc > span {
+  position: absolute; top: -.35em; right: -.4em;
+  color: #fff; font-size: .7rem; line-height: 1; font-weight: 700;
+}
+/* Vet How It Works — top rhythm matches cs-hero / cs-hero--resources */
+.cs-how { padding: 0; }
+.cs-how .stages.is-vet {
+  padding: 5.75rem var(--wp--preset--spacing--50) var(--wp--preset--spacing--80);
+}
+@media (min-width: 64rem) {
+  .cs-how .stages.is-vet { padding-top: 8rem; }
+}
+html:not(.no-heavy-scrolly) .cs-how .stages.is-vet { padding: 0; }
+html:not(.no-heavy-scrolly) .cs-how .stages.is-vet .stages__track {
+  padding-top: 5.75rem;
+  padding-inline: var(--wp--preset--spacing--50);
+  padding-bottom: calc(var(--wp--custom--dock--height) + 2rem);
+}
+@media (min-width: 64rem) {
+  html:not(.no-heavy-scrolly) .cs-how .stages.is-vet .stages__track {
+    padding-top: 8rem;
+    padding-inline: var(--wp--preset--spacing--50);
+    padding-bottom: 3rem;
+  }
+}
+/* Vet How It Works — stages intro matches resources hero rhythm */
+.stages.is-vet .stages__head {
+  width: 100%;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: var(--wp--preset--spacing--50);
+  box-sizing: border-box;
+  gap: 1rem;
+}
+.stages.is-vet .stages__head .vd-kicker.is-ghost {
+  color: var(--wp--preset--color--secondary);
+}
+.stages.is-vet .stages__head .vd-kicker.is-ghost::before {
+  background: var(--wp--preset--color--accent);
+}
+.stages.is-vet .stages__title {
+  max-width: 22ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+html:not(.no-heavy-scrolly) .stages.is-vet .stages__head {
+  justify-self: center;
+}
+html:not(.no-heavy-scrolly) .stages.is-vet .stages__title {
+  max-width: 22ch;
+}
+@media (min-width: 64rem) {
+  .stages.is-vet .stages__title {
+    font-size: clamp(2.4rem, 3.85vw, 3.5rem);
+    max-width: 22ch;
+  }
+}
+.cs-halitosis__copy .vd-footnote {
+  margin: .5rem 0 0;
+  max-width: none;
+  padding-inline: 0;
+  text-align: start;
+}
+.cs-hero--resources { padding-bottom: 0; }
+.cs-hero--resources .cs-hero__grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  justify-items: center;
+}
+.cs-hero--resources .cs-hero__copy {
+  justify-items: center;
+  text-align: center;
+  max-width: 56rem;
+}
+.cs-hero--resources .cs-hero__title { max-width: 28ch; }
+.cs-hero--resources + .cs-resources {
+  padding-top: var(--wp--preset--spacing--50);
+}
+.cs-hero--resources + .cs-resources .cs-resources__groups { margin-top: 0; }
+@media (min-width: 64rem) {
+  .cs-hero--resources .cs-hero__grid { grid-template-columns: 1fr; }
+  .cs-hero--resources .cs-hero__title { max-width: 22ch; }
+}
 /* Display (Chantal) for supporting headlines + resource pill titles */
 .cs-eff__headline,
 .cs-safety__headline,
@@ -298,7 +391,7 @@
   padding: .7rem 1.1rem; border-radius: 999px; background: var(--wp--preset--color--primary); color: #fff;
   font-weight: 700; font-size: var(--wp--preset--font-size--x-small); rotate: -6deg; box-shadow: var(--wp--preset--shadow--lift);
 }
-.cs-safety__stamp b { font-family: var(--wp--preset--font-family--display); font-weight: 600; font-size: 1.6rem; color: var(--wp--preset--color--accent); }
+.cs-safety__stamp b { font-family: var(--wp--preset--font-family--body); font-weight: 700; font-size: 1.6rem; color: var(--wp--preset--color--accent); font-variant-numeric: tabular-nums; }
 .cs-safety__stamp i { font-style: normal; opacity: .6; }
 @media (min-width: 64rem) { .cs-safety__intro { grid-template-columns: 1.2fr .8fr; gap: 4rem; } }
 .ingredients.is-vet { padding-bottom: var(--wp--preset--spacing--80); }
