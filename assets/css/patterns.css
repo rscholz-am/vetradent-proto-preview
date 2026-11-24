@@ -347,4 +347,10 @@ html.js .biotrate__panel.is-active { opacity: 1; scale: 1; rotate: 0deg; pointer
     max-width: none;
   }
   .spec-dialog__title { font-size: clamp(2.6rem, 1.4rem + 2.8vw, 3.8rem); max-width: none; }
+  /* Vet pro: label | value per row (PO popups keep label over value). */
+  .spec-dialog[id^="spec-"] .spec-dialog__specs div {
+    grid-template-columns: 11rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
 }
