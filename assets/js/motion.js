@@ -318,17 +318,4 @@
     sync();
     window.addEventListener('hashchange', sync);
   });
-
-  /* Hero orbit: a persistent pause for touch, where hover never fires. */
-  document.querySelectorAll('.po-hero__pause').forEach((btn) => {
-    const stage = btn.closest('.po-hero__stage') || document.querySelector('.po-hero__stage');
-    if (!stage) return;
-    btn.addEventListener('click', () => {
-      const paused = stage.classList.toggle('is-paused');
-      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-      btn.setAttribute('aria-label', paused ? 'Play product motion' : 'Pause product motion');
-      const text = btn.querySelector('.po-hero__pause-text');
-      if (text) text.textContent = paused ? 'Play' : 'Pause';
-    });
-  });
 })();

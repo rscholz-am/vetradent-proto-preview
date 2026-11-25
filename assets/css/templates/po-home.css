@@ -1,8 +1,8 @@
 /* Template: pet owner home */
 
-/* ---------- hero: orbiting stickers ---------- */
+/* ---------- hero: product clusters ---------- */
 .po-hero {
-  position: relative; overflow-x: clip; padding: 5.75rem .75rem 2rem;
+  position: relative; overflow-x: clip; padding: 6.35rem .75rem 2rem;
   background:
     radial-gradient(40rem 26rem at 80% 10%, rgb(255 220 0 / .35), transparent 65%),
     radial-gradient(40rem 30rem at 0% 90%, rgb(160 130 187 / .35), transparent 60%);
@@ -13,58 +13,96 @@
 }
 .po-hero__stage {
   position: relative; aspect-ratio: 1 / 1.02; isolation: isolate;
+  container-type: inline-size;
   view-transition-name: po-card;
   transform: perspective(1200px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   transition: transform .6s var(--wp--custom--ease--out);
 }
-/* pin the open mouth (48% 56% of the photo) to the stage center, which is also the orbit center */
-.po-hero__dog,
-.po-hero__snout {
-  position: absolute; left: 50%; top: 50%; width: auto; max-width: none; height: 102.6%;
-  translate: -48% -56%;
-}
+/* pin the open mouth (48% 56% of the photo) to the stage center */
 .po-hero__dog {
-  z-index: 0;
+  position: absolute; left: 50%; top: 50%; z-index: 0; width: auto; max-width: none; height: 102.6%;
+  translate: -48% -59%;
   -webkit-mask-image: linear-gradient(#000 68%, transparent 97%); mask-image: linear-gradient(#000 68%, transparent 97%);
 }
-.po-hero__snout {
-  z-index: 2; pointer-events: none; user-select: none;
+.clusters {
+  position: absolute; z-index: 3;
+  left: 0; right: 0; top: 58%; bottom: auto;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start; justify-items: center; gap: .55rem .3rem;
+  pointer-events: none;
 }
-.orbit {
-  position: absolute; inset: -14% -18%; container-type: size; z-index: 1;
-  translate: 0 30px;
-  animation: po-orbit 48s linear 2.1s infinite;
-}
-.po-hero__stage:hover .orbit,
-.po-hero__stage.is-paused .orbit { animation-play-state: paused; }
-.po-hero__explore { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
-.po-hero__pause {
-  position: absolute; z-index: 4; top: .35rem; right: .35rem;
-  display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0;
-  border: 0; border-radius: 999px; cursor: pointer;
-  background: rgb(255 255 255 / .3); color: var(--wp--preset--color--primary);
+.clusters__prompt {
+  order: 1; grid-column: 1 / -1; justify-self: center;
+  margin: 1.35rem 0 0; width: max-content; max-width: calc(100% - .5rem);
+  padding: 0; border-radius: 0;
+  background: none;
+  color: var(--wp--preset--color--primary);
+  font-family: var(--wp--preset--font-family--display); font-weight: 700; font-synthesis: none;
+  font-size: clamp(1.2rem, 1rem + .7vw, 1.6rem); line-height: 1.05; letter-spacing: 0;
+  text-align: center; text-wrap: balance;
   box-shadow: none;
 }
-.po-hero__pause-icon { width: 1.35rem; height: 1.35rem; display: block; fill: currentColor; }
-.po-hero__pause .is-play { display: none; }
-.po-hero__pause[aria-pressed="true"] .is-pause { display: none; }
-.po-hero__pause[aria-pressed="true"] .is-play { display: block; }
-.po-hero__pause:hover { background: rgb(255 255 255 / .3); color: var(--wp--preset--color--plum); }
-.po-hero__pause[aria-pressed="true"] { background: rgb(255 255 255 / .3); box-shadow: none; color: var(--wp--preset--color--primary); }
-@keyframes po-orbit { to { --theta: 360deg; } }
-.orbit__item {
-  --a: calc(var(--theta) + var(--i) * 60deg);
-  position: absolute; left: 50%; top: 50%; width: var(--w, 18cqw); height: auto;
-  translate: calc(-50% + cos(var(--a)) * 33cqw) calc(-50% + sin(var(--a)) * 31cqh);
-  /* smaller toward the top of the orbit (sin ≈ -1), larger toward the bottom */
-  scale: calc(.58 + (sin(var(--a)) + 1) * .22);
-  z-index: calc(10 + round(sin(var(--a)) * 10));
-  opacity: 0;
-  transition: filter .3s;
+.no-chantal .clusters__prompt { letter-spacing: -.015em; text-transform: none; }
+.clusters__group {
+  position: relative; display: grid; justify-items: center; align-content: start; gap: .4rem;
+  width: 100%; min-width: 0;
+  padding: .55rem .45rem .65rem;
+  border-radius: 1rem;
+  background: rgb(255 255 255 / .4);
+  pointer-events: auto;
 }
-.orbit__item img { display: block; width: 100%; height: auto; }
-.orbit__item:is(:hover, :focus-visible) { filter: drop-shadow(0 20px 20px rgb(53 23 71 / .5)) brightness(1.05); }
-.po-hero__stage:focus-within .orbit { animation-play-state: paused; }
+.clusters__items { order: 1; }
+.clusters__kicker {
+  order: 2;
+  margin: 0;
+  box-sizing: border-box;
+  justify-self: center;
+  min-width: 0;
+  padding: 0 .15rem;
+  width: fit-content; max-width: 100%;
+  border: 0; border-radius: 0;
+  background: none;
+  color: var(--wp--preset--color--primary);
+  font-size: clamp(.68rem, 2.7cqw, .95rem);
+  font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  line-height: 1.2; text-align: center; text-wrap: balance;
+}
+.clusters__items {
+  display: flex; align-items: flex-end; justify-content: center; gap: .2rem;
+  width: 100%;
+  translate: -.45rem 0;
+}
+.clusters__item {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(2.85rem, 13.5cqw, 4.35rem);
+  aspect-ratio: 1; height: auto;
+  text-decoration: none;
+  rotate: -4deg;
+  transition: translate .35s var(--wp--custom--ease--out), filter .3s, rotate .35s var(--wp--custom--ease--out);
+}
+.clusters__item:last-child { rotate: 4deg; }
+.clusters__item img {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  max-width: none; object-fit: contain; object-position: center bottom;
+}
+.clusters__item:is(:hover, :focus-visible) {
+  z-index: 2;
+  translate: 0 -.45rem;
+  rotate: 0deg;
+  filter: drop-shadow(0 16px 16px rgb(53 23 71 / .4));
+}
+.clusters__item:focus-visible {
+  outline: 2px solid var(--wp--preset--color--primary);
+  outline-offset: 3px;
+  border-radius: .45rem;
+}
+@container (min-width: 28rem) {
+  .clusters { top: 60%; translate: -.35rem 0; gap: .55rem .7rem; }
+  .clusters__items { gap: .3rem; }
+  .clusters__item { width: clamp(4.35rem, 14.5cqw, 7.25rem); }
+}
 .po-hero__headline {
   order: 1; display: grid; gap: .65rem; justify-items: center; text-align: center;
   width: min(100%, 32rem); padding-inline: .5rem;
@@ -74,7 +112,7 @@
 .po-hero__wordmark .is-real { fill: var(--wp--preset--color--primary); }
 .po-hero__wordmark .is-doable { fill: var(--wp--preset--color--plum); }
 .po-hero__wordmark .is-dental { fill: var(--wp--preset--color--wisteria); }
-/* Flatten wrappers on mobile so headline can sit above the rotator */
+/* Flatten wrappers on mobile so the headline can sit above the dog */
 .po-hero__copy, .po-hero__visual { display: contents; }
 .po-hero__copy > .vd-kicker { order: 0; margin-bottom: -1rem; }
 .po-hero__tagline {
@@ -83,8 +121,20 @@
   font-size: clamp(1.05rem, .8rem + 1.1vw, 1.65rem); line-height: 1.2; letter-spacing: -.01em;
   color: var(--wp--preset--color--primary); text-wrap: balance;
 }
-.po-hero__stage { order: 2; width: min(100%, 36rem); }
-.po-hero__explore { order: 3; justify-content: center; }
+.po-hero__stage { order: 2; width: min(100%, 36rem); margin-top: 1rem; }
+.po-hero__still { display: none; position: relative; order: 2; width: min(100%, 36rem); }
+.po-hero[data-state="photo"] .po-hero__stage { display: none; }
+.po-hero[data-state="photo"] .po-hero__still { display: block; }
+.po-hero__photo {
+  margin: 0; aspect-ratio: 1; overflow: hidden;
+  border-radius: 1.75rem 1.75rem 2.5rem 2.5rem;
+  box-shadow: var(--wp--preset--shadow--lift);
+}
+.po-hero__photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 48% 42%; }
+.po-hero__doodle { width: 3.25rem; right: -.55rem; bottom: -.75rem; }
+.clusters__group[data-cluster="effortless"],
+.clusters__group[data-cluster="hands"] { translate: 0 -18px; }
+.clusters__group[data-cluster="quick"] { translate: 0 22px; }
 .po-hero__offer {
   order: 4; display: grid; gap: .85rem; justify-items: stretch; text-align: start;
   grid-template-columns: minmax(6.5rem, .95fr) minmax(0, 1.35fr);
@@ -121,8 +171,7 @@
 @keyframes po-scroll { 0% { translate: 0 0; opacity: 1; } 80%, 100% { translate: 0 .9rem; opacity: 0; } }
 
 @media (prefers-reduced-motion: no-preference) {
-  .po-hero__dog,
-  .po-hero__snout {
+  .po-hero__dog {
     opacity: 0;
     animation: po-dog-in .85s var(--wp--custom--ease--out) .15s both;
   }
@@ -130,20 +179,18 @@
     from { opacity: 0; scale: .94; }
     to { opacity: 1; scale: 1; }
   }
-  .orbit__item {
-    animation: po-orbit-item-in .55s var(--wp--custom--ease--out) calc(1.35s + var(--i) * .14s) both;
+  .clusters__prompt,
+  .clusters__group {
+    opacity: 0;
+    animation: po-cluster-in .55s var(--wp--custom--ease--out) both;
   }
-  @keyframes po-orbit-item-in {
+  .clusters__prompt { animation-delay: .55s; }
+  .clusters__group[data-cluster="effortless"] { animation-delay: .7s; }
+  .clusters__group[data-cluster="quick"] { animation-delay: .84s; }
+  .clusters__group[data-cluster="hands"] { animation-delay: .98s; }
+  @keyframes po-cluster-in {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-  /* After the last sticker (starts 2.05s, ends 2.6s). Runs on load, not on scroll. */
-  .po-hero__explore {
-    animation: po-explore-in .9s var(--wp--custom--ease--out) 2.7s both;
-  }
-  @keyframes po-explore-in {
-    from { opacity: 0; translate: 0 36px; }
-    to { opacity: 1; translate: none; }
   }
 @supports (animation-timeline: view()) {
   .po-hero__stage { animation: po-hero-exit linear both; animation-timeline: view(); animation-range: exit 10% exit 100%; }
@@ -151,9 +198,20 @@
 }
 }
 @media (prefers-reduced-motion: reduce) {
-  .orbit__item { opacity: 1; }
-  .orbit { animation: none; }
-  .po-hero__pause { display: none; }
+  .clusters__prompt,
+  .clusters__group { opacity: 1; animation: none; }
+}
+
+@media (max-width: 63.9875rem) {
+  .po-hero__dog { translate: -48% -54%; }
+  .clusters { translate: 0 100px; }
+  @container (min-width: 28rem) {
+    .clusters { translate: -.35rem 100px; }
+  }
+  /* Clusters + prompt hang below the stage box — reserve space before the offer */
+  .po-hero__stage,
+  .po-hero__still { margin-bottom: 7.5rem; }
+  .po-hero__offer { margin-block-start: .25rem; }
 }
 
 @media (min-width: 64rem) {
@@ -179,12 +237,23 @@
   }
   .po-hero__stage {
     order: unset; aspect-ratio: 1;
-    /* leave the first screen for the button that sits under the orbit */
-    max-height: calc(100svh - 17.75rem);
     justify-self: end; width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
   }
-  .orbit { translate: 0 20px; }
-  .po-hero__explore { order: unset; justify-content: center; }
+  .po-hero__still { margin-bottom: 0; }
+  .po-hero__dog { translate: -51% -62%; }
+  .clusters__group[data-cluster="effortless"],
+  .clusters__group[data-cluster="hands"] { translate: 0 -28px; }
+  .clusters__group[data-cluster="quick"] { translate: 0 36px; }
+  .clusters__prompt { margin-top: 2.6rem; }
+  .po-hero__still { order: unset; width: 100%; justify-self: end; }
+  .po-hero__photo { border-radius: 2.5rem 14rem 2.5rem 2.5rem; }
+  .po-hero__doodle { width: 4rem; right: -1.35rem; bottom: -1.15rem; }
+  .clusters { top: 64%; translate: -1.75rem 0; gap: .4rem .4rem; padding-inline: .15rem; }
+  .clusters__items { gap: .15rem; }
+  .clusters__kicker { font-size: clamp(.68rem, 2.4cqw, .82rem); letter-spacing: .08em; padding: 0 .1rem; }
+  .clusters__item { width: clamp(3.35rem, 14.8cqw, 5rem); }
   .po-hero__offer {
     order: unset; margin-inline: 0; justify-self: center;
     grid-template-columns: minmax(7.5rem, .95fr) minmax(0, 1.35fr);

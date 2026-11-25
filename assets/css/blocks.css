@@ -143,7 +143,10 @@ h1, h2, h3, .wp-block-heading {
   font-weight: 700; font-size: var(--wp--preset--font-size--small); letter-spacing: .01em;
   text-decoration: none; cursor: pointer;
   transition: transform .5s var(--wp--custom--ease--spring), box-shadow .3s, background-color .3s, color .3s;
-  box-shadow: 0 6px 0 -2px color-mix(in oklab, var(--btn-bg), #000 22%);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .32) inset,
+    0 2px 5px rgb(53 23 71 / .08),
+    0 10px 22px -10px rgb(53 23 71 / .18);
 }
 .wp-block-button__link::after {
   content: "→"; display: grid; place-items: center;
@@ -153,33 +156,58 @@ h1, h2, h3, .wp-block-heading {
 }
 button.wp-block-button__link { font-family: inherit; }
 .wp-block-button__link.no-arrow::after { display: none; }
-.wp-block-button__link:hover { transform: translateY(-2px) scale(1.02); }
+.wp-block-button__link:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .32) inset,
+    0 4px 8px rgb(53 23 71 / .09),
+    0 14px 28px -10px rgb(53 23 71 / .22);
+}
 .wp-block-button__link:hover::after { transform: translateX(4px) rotate(-8deg); }
-.wp-block-button__link:active { transform: translateY(3px) scale(.98); box-shadow: 0 2px 0 -1px color-mix(in oklab, var(--btn-bg), #000 22%); }
+.wp-block-button__link:active {
+  transform: translateY(3px) scale(.98);
+  box-shadow:
+    0 1px 2px rgb(53 23 71 / .08),
+    0 4px 12px -6px rgb(53 23 71 / .16);
+}
 .wp-block-button.is-style-ink .wp-block-button__link {
   --btn-bg: var(--wp--preset--color--primary);
   --btn-fg: #fff;
   box-shadow:
-    0 1px 0 rgb(255 255 255 / .12) inset,
-    0 2px 4px rgb(53 23 71 / .14),
-    0 10px 22px -7px rgb(53 23 71 / .48);
+    0 1px 0 rgb(255 255 255 / .14) inset,
+    0 2px 5px rgb(53 23 71 / .1),
+    0 10px 26px -12px rgb(53 23 71 / .3);
+}
+.wp-block-button.is-style-ink .wp-block-button__link:hover {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .14) inset,
+    0 4px 8px rgb(53 23 71 / .11),
+    0 14px 30px -12px rgb(53 23 71 / .34);
 }
 .wp-block-button.is-style-ink .wp-block-button__link:active {
-  box-shadow: 0 1px 2px rgb(53 23 71 / .12), 0 4px 12px -6px rgb(53 23 71 / .36);
+  box-shadow: 0 1px 2px rgb(53 23 71 / .08), 0 4px 12px -6px rgb(53 23 71 / .2);
 }
 .wp-block-button.is-sds .wp-block-button__link {
   box-shadow:
-    0 1px 0 rgb(255 255 255 / .12) inset,
-    0 2px 4px rgb(53 23 71 / .14),
-    0 10px 22px -7px rgb(53 23 71 / .48);
+    0 1px 0 rgb(255 255 255 / .14) inset,
+    0 2px 5px rgb(53 23 71 / .1),
+    0 10px 26px -12px rgb(53 23 71 / .3);
+}
+.wp-block-button.is-sds .wp-block-button__link:hover {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / .14) inset,
+    0 4px 8px rgb(53 23 71 / .11),
+    0 14px 30px -12px rgb(53 23 71 / .34);
 }
 .wp-block-button.is-sds .wp-block-button__link:active {
-  box-shadow: 0 1px 2px rgb(53 23 71 / .12), 0 4px 12px -6px rgb(53 23 71 / .36);
+  box-shadow: 0 1px 2px rgb(53 23 71 / .08), 0 4px 12px -6px rgb(53 23 71 / .2);
 }
 .wp-block-button.is-style-outline .wp-block-button__link {
   --btn-fg: var(--wp--preset--color--primary);
   background: transparent; border-color: currentColor; color: var(--btn-fg); box-shadow: none;
 }
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.wp-block-button.is-style-outline .wp-block-button__link:active { box-shadow: none; }
 .wp-block-button.is-style-outline .wp-block-button__link::after { background: var(--wp--preset--color--primary); color: #fff; }
 .wp-block-button.is-style-white .wp-block-button__link { --btn-bg: #fff; --btn-fg: var(--wp--preset--color--primary); }
 .wp-block-button.is-style-small .wp-block-button__link { padding: .55rem 1rem; min-height: 2.5rem; font-size: var(--wp--preset--font-size--x-small); }
@@ -302,6 +330,10 @@ button.wp-block-button__link { font-family: inherit; }
   box-shadow: 0 6px 16px -6px rgb(255 220 0 / .6);
 }
 body:has(.dock) { padding-bottom: calc(var(--wp--custom--dock--height) + 1.5rem); }
+@media (max-width: 63.99rem) {
+  page-states { --vd-dock-bottom: calc(var(--wp--custom--dock--height) + 1.25rem) !important; }
+  page-meta { --vd-meta-bottom: calc(var(--wp--custom--dock--height) + 1.25rem) !important; }
+}
 @media (min-width: 64rem) {
   .dock { display: none; }
   body:has(.dock) { padding-bottom: 0; }

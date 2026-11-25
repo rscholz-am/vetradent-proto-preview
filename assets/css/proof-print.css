@@ -108,8 +108,8 @@ html.proof .proof-banner--email {
 }
 
 /* Kill viewport-height heroes / scrolly pins that create empty printed pages.
-   Target section shells only — NOT .po-hero__dog / __snout (those must stay
-   position:absolute so they share the orbit center). */
+   Target section shells only — NOT .po-hero__dog (that must stay
+   position:absolute so the open mouth stays at the stage center). */
 html.proof .po-hero,
 html.proof .vet-hero,
 html.proof .hiw-hero,
@@ -127,16 +127,15 @@ html.proof .day__stage {
   position: relative !important;
 }
 
-/* Pet-owner hero: dog + snout stay pinned to the orbit center */
-html.proof .po-hero__dog,
-html.proof .po-hero__snout {
+/* Pet-owner hero: dog stays pinned to the open mouth */
+html.proof .po-hero__dog {
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
   height: 102.6% !important;
   width: auto !important;
   max-width: none !important;
-  translate: -48% -56% !important;
+  translate: -51% -62% !important;
   opacity: 1 !important;
   animation: none !important;
 }
@@ -146,18 +145,12 @@ html.proof .po-hero__stage {
   scale: none !important;
   translate: none !important;
 }
-html.proof .orbit {
-  animation: none !important;
-}
-html.proof .po-hero__pause { display: none !important; }
-html.proof .orbit__item {
+html.proof .clusters,
+html.proof .clusters__prompt,
+html.proof .clusters__group,
+html.proof .clusters__item {
   opacity: 1 !important;
   animation: none !important;
-}
-html.proof .po-hero__explore {
-  opacity: 1 !important;
-  animation: none !important;
-  translate: none !important;
 }
 
 /* ---------- Desktop layouts (belt + suspenders; JS also hoists min-width media) ---------- */

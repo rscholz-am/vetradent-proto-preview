@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="https://use.typekit.net/nxb5ptr.css">
   <link rel="preload" href="../assets/fonts/Sora-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="../assets/css/tokens.css">
-  <link rel="stylesheet" href="../assets/css/blocks.css">
+  <link rel="stylesheet" href="../assets/css/blocks.css?v=hero24">
   <link rel="stylesheet" href="../assets/css/patterns.css">
-  <link rel="stylesheet" href="../assets/css/templates/po-home.css">
+  <link rel="stylesheet" href="../assets/css/templates/po-home.css?v=hero24">
   <link rel="stylesheet" href="../assets/css/motion.css">
   <link rel="stylesheet" href="../assets/css/proof-print.css">
   <link rel="icon" href="../assets/img/icon-home-tooth.svg" type="image/svg+xml">
@@ -46,7 +46,7 @@
     })();
   </script>
   <script src="../assets/js/store.js" defer></script>
-  <script src="../assets/js/motion.js" defer></script>
+  <script src="../assets/js/motion.js?v=hero4" defer></script>
   <script src="../assets/js/blocks.js" defer></script>
   <script src="../assets/js/page-states.js" defer></script>
   <script src="../assets/js/page-meta.js" defer></script>
@@ -58,7 +58,7 @@
   <header class="wp-block-template-part site-header">
   <div class="site-header__bar">
     <a class="site-header__logo" href="../pet-owner/index.html" aria-label="VETRADENT® home"><img src="../assets/img/logo-vetradent-dechra-brand.svg" alt="VETRADENT® a Dechra brand" width="125" height="36"></a>
-    <nav class="wp-block-navigation site-header__nav" aria-label="Primary"><ul class="wp-block-navigation__container"><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/index.html" aria-current="page">Home</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/how-it-works/index.html">How It Works</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/dental-health/index.html">Dental Health</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/products/index.html">Products</a></li><li class="wp-block-navigation-item is-cta"><a class="wp-block-navigation-item__content" href="../pet-owner/find-your-fit/index.html">Find Your Fit</a></li></ul></nav>
+    <nav class="wp-block-navigation site-header__nav" aria-label="Primary"><ul class="wp-block-navigation__container"><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/index.html" aria-current="page">Home</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/how-it-works/index.html">How It Works</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/dental-health/index.html">Dental Health</a></li><li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="../pet-owner/products/index.html">Products</a></li><li class="wp-block-navigation-item is-cta"><a class="wp-block-navigation-item__content" href="../pet-owner/find-your-fit/index.html">Take the Quiz</a></li></ul></nav>
     <a class="site-header__switch" href="../veterinarian/index.html?set_audience=veterinarian"><span class="u-desktop">For veterinary professionals</span><span class="u-mobile">Vet Pro</span> <span aria-hidden="true">→</span></a>
   </div>
   <div class="site-header__progress" aria-hidden="true"></div>
@@ -68,29 +68,37 @@
   <div class="po-hero__grid">
     <div class="po-hero__visual">
     <div class="po-hero__stage" data-tilt="4">
-      <img class="po-hero__dog" src="../assets/img/img-dog-bottom.png" alt="A happy dog showing healthy teeth" width="800" height="987">
-      <nav class="orbit" aria-label="VETRADENT® products">
-        <a class="orbit__item" style="--i:0;--w:17cqw" href="../pet-owner/products/index.html#product-water"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-water-additive.png" alt="Water Additive"></a>
-        <a class="orbit__item" style="--i:1;--w:24cqw" href="../pet-owner/products/index.html#product-powder"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-powder-water-additive.png" alt="Powder Water Additive"></a>
-        <a class="orbit__item" style="--i:2;--w:22cqw" href="../pet-owner/products/index.html#product-chews"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="Veggie Dental Chews"></a>
-        <a class="orbit__item" style="--i:3;--w:11cqw" href="../pet-owner/products/index.html#product-spray"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="Dental Spray"></a>
-        <a class="orbit__item" style="--i:4;--w:28cqw" href="../pet-owner/products/index.html#product-wipes"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-dental-wipes.png" alt="Dental Wipes"></a>
-        <a class="orbit__item" style="--i:5;--w:34cqw" href="../pet-owner/products/index.html#product-toothpaste"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-toothpaste-toothbrush.png" alt="Toothpaste and Toothbrush"></a>
+      <img class="po-hero__dog" src="../assets/img/hero-husky.png" alt="A happy dog showing healthy teeth" width="800" height="987">
+      <nav class="clusters" aria-label="VETRADENT® products by effort">
+        <p class="clusters__prompt">What level of doable<br>works for you?</p>
+        <div class="clusters__group" data-cluster="effortless">
+          <p class="clusters__kicker">Keep It Effortless</p>
+          <div class="clusters__items">
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-water"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-water-additive.png" alt="Water Additive"></a>
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-powder"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-powder-water-additive.png" alt="Powder Water Additive"></a>
+          </div>
+        </div>
+        <div class="clusters__group" data-cluster="quick">
+          <p class="clusters__kicker">Make It Quick</p>
+          <div class="clusters__items">
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-spray"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-dental-spray-2oz.png" alt="Dental Spray"></a>
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-chews"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-veggie-dental-chews.png" alt="Veggie Dental Chews"></a>
+          </div>
+        </div>
+        <div class="clusters__group" data-cluster="hands">
+          <p class="clusters__kicker">Get Hands-On</p>
+          <div class="clusters__items">
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-wipes"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-dental-wipes.png" alt="Dental Wipes"></a>
+            <a class="clusters__item" href="../pet-owner/products/index.html#product-toothpaste"><img class="vd-sticker" src="../assets/img/img-sticker-vetradent-toothpaste-toothbrush.png" alt="Toothpaste and Toothbrush"></a>
+          </div>
+        </div>
       </nav>
-      <img class="po-hero__snout" src="../assets/img/img-dog-top.png" alt="" width="800" height="987" aria-hidden="true">
-      <button type="button" class="po-hero__pause" aria-pressed="false" aria-label="Pause product motion">
-        <svg class="po-hero__pause-icon is-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <rect x="4.5" y="3.5" width="5" height="17" rx="1.25"/>
-          <rect x="14.5" y="3.5" width="5" height="17" rx="1.25"/>
-        </svg>
-        <svg class="po-hero__pause-icon is-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M7 4.2v15.6L19.2 12 7 4.2z"/>
-        </svg>
-        <span class="po-hero__pause-text screen-reader-text">Pause</span>
-      </button>
     </div>
-    <div class="wp-block-buttons po-hero__explore">
-      <div class="wp-block-button is-style-white"><a class="wp-block-button__link" href="../pet-owner/products/index.html">Explore Products</a></div>
+    <div class="po-hero__still">
+      <figure class="po-hero__photo">
+        <img src="../assets/img/img-hero-vetradent-dental-chews-2.jpg" alt="A person offering a VETRADENT® dental chew to a dog in a bright living room" width="1200" height="800" fetchpriority="high">
+      </figure>
+      <img class="vd-doodle po-hero__doodle" src="../assets/img/art-stars.svg" alt="" width="44" height="44">
     </div>
     </div>
 
@@ -120,7 +128,7 @@
         </h1>
         <p class="po-hero__tagline" data-reveal="fade" style="--d:700">The best routine<br>is the one that actually<br>gets done.</p>
       </div>
-      <aside class="po-hero__offer" aria-label="Find Your Fit offer" data-reveal style="--d:1100">
+      <aside class="po-hero__offer" aria-label="Take the Quiz offer" data-reveal style="--d:1100">
         <figure class="po-hero__offer-media">
           <img class="po-hero__offer-photo" src="../assets/img/img-water-additive-cat-and-dog-kitchen.jpg" alt="A cat and a dog drinking from water bowls in a sunlit kitchen" width="1681" height="1538" loading="lazy">
         </figure>
@@ -128,7 +136,7 @@
           <p class="po-hero__lede">Find the dental routine that fits you and your pet and unlock <strong>XX%&nbsp;off</strong>.</p>
           <p class="po-hero__fine">Terms and conditions apply.</p>
           <div class="wp-block-buttons">
-            <div class="wp-block-button is-shimmer"><a class="wp-block-button__link" href="../pet-owner/find-your-fit/index.html">Find Your Fit</a></div>
+            <div class="wp-block-button is-shimmer"><a class="wp-block-button__link" href="../pet-owner/find-your-fit/index.html">Take the Quiz</a></div>
           </div>
         </div>
       </aside>
@@ -136,6 +144,15 @@
   </div>
   <a class="po-hero__scroll" href="#doable" aria-label="Scroll to learn more"><span></span></a>
 </section>
+
+<page-states
+  states='[{"id":"clusters","label":"Clusters"},{"id":"photo","label":"Photo"}]'
+  default="clusters"
+  target=".po-hero"
+  storage-key="po-hero"
+  label="Hero"
+  style="--vd-dock-bottom: calc(var(--wp--custom--dock--height) + 1.25rem);"
+></page-states>
 
 <section id="doable" class="wp-block-group po-doable section alignfull">
   <div class="po-doable__sheet">
@@ -354,7 +371,7 @@
 
   <nav class="wp-block-navigation dock" aria-label="Quick navigation" style="--count:5;--active:0">
   <span class="dock__blob" aria-hidden="true"></span>
-  <ul><li class="dock__item"><a href="../pet-owner/index.html" aria-current="page"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a></li><li class="dock__item"><a href="../pet-owner/how-it-works/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span>How It<br>Works</span></a></li><li class="dock__item"><a href="../pet-owner/dental-health/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Dental<br>Health</span></a></li><li class="dock__item"><a href="../pet-owner/products/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5zM4 8.5l8 4.5 8-4.5M12 13v7"/></svg><span>Products</span></a></li><li class="dock__item is-cta"><a href="../pet-owner/find-your-fit/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg><span>Your Fit</span></a></li></ul>
+  <ul><li class="dock__item"><a href="../pet-owner/index.html" aria-current="page"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a></li><li class="dock__item"><a href="../pet-owner/how-it-works/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg><span>How It<br>Works</span></a></li><li class="dock__item"><a href="../pet-owner/dental-health/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span>Dental<br>Health</span></a></li><li class="dock__item"><a href="../pet-owner/products/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5 12 4l8 4.5v7L12 20l-8-4.5zM4 8.5l8 4.5 8-4.5M12 13v7"/></svg><span>Products</span></a></li><li class="dock__item is-cta"><a href="../pet-owner/find-your-fit/index.html"><svg class="vd-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg><span>Take the<br>Quiz</span></a></li></ul>
 </nav>
 </body>
 </html>
